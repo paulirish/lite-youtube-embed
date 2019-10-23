@@ -8,8 +8,8 @@
   <body>
     <h1>3 types of youtube embeds</h1>
 
-    <!-- 
-      FANCY CUSTOM ELEMENT 
+    <!--
+      FANCY CUSTOM ELEMENT
     -->
     <h3><code>lite-youtube</code> custom element:</h3>
     <style>
@@ -27,7 +27,7 @@
 
       /* gradient */
       lite-youtube::before {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 0;
@@ -55,7 +55,7 @@
       }
       /* play button triangle */
       lite-youtube .play-button:before {
-        content: "";
+        content: '';
         border-style: solid;
         border-width: 11px 0 11px 19px;
         border-color: transparent transparent transparent #fff;
@@ -87,26 +87,26 @@
         constructor() {
           super();
           // Warm the connection for the poster image
-          LiteYTEmbed.addPrefetch("preconnect", "https://img.youtube.com");
+          LiteYTEmbed.addPrefetch('preconnect', 'https://img.youtube.com');
         }
 
         connectedCallback() {
           const posterUrl = `https://img.youtube.com/vi/${this.dataset.id}/sddefault.jpg`;
           this.style.backgroundImage = `url("${posterUrl}")`;
 
-          const playBtn = document.createElement("div");
-          playBtn.classList.add("play-button");
+          const playBtn = document.createElement('div');
+          playBtn.classList.add('play-button');
           this.append(playBtn);
 
-          this.addEventListener("click", LiteYTEmbed.addYtIframeApi);
+          this.addEventListener('click', LiteYTEmbed.addYtIframeApi);
           // for desktop users
-          this.addEventListener("mouseenter", this.preloadAssets, {once: true});
+          this.addEventListener('mouseenter', this.preloadAssets, {once: true});
           // for mobile users. TODO: fix the duplication on desktop
-          this.addEventListener("mousedown", this.preloadAssets, {once: true});
+          this.addEventListener('mousedown', this.preloadAssets, {once: true});
         }
 
         static addPrefetch(kind, url, as) {
-          const linkElem = document.createElement("link");
+          const linkElem = document.createElement('link');
           linkElem.rel = kind;
           linkElem.href = url;
           if (as) {
@@ -118,15 +118,11 @@
 
         preloadAssets() {
           // Preload the iframe_api script
-          LiteYTEmbed.addPrefetch(
-            "preload",
-            "https://www.youtube.com/iframe_api",
-            "script"
-          );
+          LiteYTEmbed.addPrefetch('preload', 'https://www.youtube.com/iframe_api', 'script');
           // Prepare widgetapi request
           // Can't preload as the www-widgetapi.js URL changes, so we preconnect
-          LiteYTEmbed.addPrefetch("preconnect", "https://s.ytimg.com");
-          
+          LiteYTEmbed.addPrefetch('preconnect', 'https://s.ytimg.com');
+
           // Warm connection for the iframe
           // - `<link rel=preload as=document>` isn't supported yet: http://crbug.com/593267
           // - `<link rel=prefetch as=document>` appears to double-download so there's no benefit.
@@ -139,20 +135,20 @@
           window.onYouTubeIframeAPIReady = LiteYTEmbed.onYtIframeApiLoaded;
 
           // TODO, don't add more than once.
-          const script = document.createElement("script");
+          const script = document.createElement('script');
           script.async = true;
-          script.src = "https://www.youtube.com/iframe_api";
+          script.src = 'https://www.youtube.com/iframe_api';
           document.head.append(script);
-          evt.currentTarget.classList.add("activated");
-          evt.target.removeEventListener("click", LiteYTEmbed.addYtIframeApi);
+          evt.currentTarget.classList.add('activated');
+          evt.target.removeEventListener('click', LiteYTEmbed.addYtIframeApi);
         }
 
         static onYtIframeApiLoaded() {
           // TODO, manage state better than this.
-          const elems = document.querySelectorAll("lite-youtube.activated");
+          const elems = document.querySelectorAll('lite-youtube.activated');
 
           for (const elem of elems) {
-            const replaceableElem = document.createElement("div");
+            const replaceableElem = document.createElement('div');
             elem.append(replaceableElem);
 
             new YT.Player(replaceableElem, {
@@ -161,15 +157,15 @@
               height: elem.clientHeight,
               playerVars: {
                 autoplay: 1,
-                origin: new URL(location.href).origin
-              }
+                origin: new URL(location.href).origin,
+              },
             });
           }
         }
       }
       // Register custom element
-      customElements.define("lite-youtube", LiteYTEmbed);
-      
+      customElements.define('lite-youtube', LiteYTEmbed);
+
       //# sourceURL=./customelem.js
     </script>
 
@@ -183,7 +179,7 @@
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>
-    
+
     -->
 
     <h3>
@@ -191,12 +187,20 @@
     </h3>
     <ul>
       <li>
-        i have seen some errors about postMessage to the iframe failing. Not sure if its been resolved with the playerVars.origin though. 
+        i have seen some errors about postMessage to the iframe failing. Not sure if its been
+        resolved with the playerVars.origin though.
       </li>
-      <li>autoplay was flaky. i see some errors about user interaction being required for video autoplay linking <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">here</a></li>
       <li>
-        do i even need the iframe API for autoplay???? maybe i could just add an just add iframe of <code>https://www.youtube.com/embed/ogfYd705cRs?autoplay=1&origin=https%3A%2F%2Flite-youtube-embed.glitch.me&enablejsapi=1&widgetid=1</code>  ??
-          
+        autoplay was flaky. i see some errors about user interaction being required for video
+        autoplay linking
+        <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">here</a>
+      </li>
+      <li>
+        do i even need the iframe API for autoplay???? maybe i could just add an just add iframe of
+        <code
+          >https://www.youtube.com/embed/ogfYd705cRs?autoplay=1&origin=https%3A%2F%2Flite-youtube-embed.glitch.me&enablejsapi=1&widgetid=1</code
+        >
+        ??
       </li>
     </ul>
     <!--
@@ -216,9 +220,9 @@
       }
       div.youtube img {
         width: 100%;
-        /* maybe consider using these instead of this weird padding % hack: 
+        /* maybe consider using these instead of this weird padding % hack:
              object-fit: none;
-             object-position: center center; 
+             object-position: center center;
         */
         top: -16.82%;
         left: 0;
