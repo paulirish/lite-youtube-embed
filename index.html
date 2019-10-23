@@ -87,7 +87,7 @@
         constructor() {
           super();
           // Warm the connection for the poster image
-          LiteYTEmbed.addPrefetch('preconnect', "https://img.youtube.com");
+          LiteYTEmbed.addPrefetch("preconnect", "https://img.youtube.com");
         }
 
         connectedCallback() {
@@ -99,26 +99,39 @@
           this.append(playBtn);
 
           this.addEventListener("click", LiteYTEmbed.addYtIframeApi);
+          // for desktop users
+          this.addEventListener("mouseenter", this.preloadAssets, {once: true});
+          // for mobile users. TODO: fix the duplication on desktop
+          this.addEventListener("mousedown", this.preloadAssets, {once: true});
         }
 
         static addPrefetch(kind, url, as) {
-          const linkElem = document.createElement('link');
-          linkElem.rel=kind;
-          linkElem.href=url;
+          const linkElem = document.createElement("link");
+          linkElem.rel = kind;
+          linkElem.href = url;
           if (as) {
-            linkElem.as =
+            linkElem.as = as;
           }
           linkElem.crossorigin = true;
           document.head.append(linkElem);
         }
 
-        // hook up to something..
         preloadAssets() {
-          LiteYTEmbed.addPrefetch('preload', "https://www.youtube.com/iframe_api", 'script');
-          // Preconnect as the www-widgetapi.js URL changes.
-          LiteYTEmbed.addPrefetch('preconnect', "https://s.ytimg.com");
-          // preload the actual iframe
-          LiteYTEmbed.addPrefetch('preload', "https://www.youtube.com/embed/ogfYd705cRs?autoplay=1&origin=https%3A%2F%2Flite-youtube-embed.glitch.me&enablejsapi=1&widgetid=1", 'document');
+          // Preload the iframe_api script
+          LiteYTEmbed.addPrefetch(
+            "preload",
+            "https://www.youtube.com/iframe_api",
+            "script"
+          );
+          // Prepare widgetapi request
+          // Can't preload as the www-widgetapi.js URL changes, so we preconnect
+          LiteYTEmbed.addPrefetch("preconnect", "https://s.ytimg.com");
+          
+          // Warm connection for the iframe
+          // - `<link rel=preload as=document>` isn't supported yet: http://crbug.com/593267
+          // - `<link rel=prefetch as=document>` appears to double-download so there's no benefit.
+          // - `<link rel=preconnect>` unncessary as the iframe_api preload already connected.
+          // So no work neccessary. :)
         }
 
         static addYtIframeApi(evt) {
@@ -156,6 +169,7 @@
       }
       // Register custom element
       customElements.define("lite-youtube", LiteYTEmbed);
+      
       //# sourceURL=./customelem.js
     </script>
 
@@ -177,8 +191,12 @@
     </h3>
     <ul>
       <li>
-        sometimes the postMessage to the iframe fails so the video doesnt start
-        playing. flaky.
+        i have seen some errors about postMessage to the iframe failing. Not sure if its been resolved with the playerVars.origin though. 
+      </li>
+      <li>autoplay was flaky. i see some errors about user interaction being required for video autoplay linking <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">here</a></li>
+      <li>
+        do i even need the iframe API for autoplay???? maybe i could just add an just add iframe of <code>https://www.youtube.com/embed/ogfYd705cRs?autoplay=1&origin=https%3A%2F%2Flite-youtube-embed.glitch.me&enablejsapi=1&widgetid=1</code>  ??
+          
       </li>
     </ul>
     <!--
