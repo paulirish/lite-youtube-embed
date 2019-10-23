@@ -4,7 +4,11 @@
     <title>lite-youtube-embed</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>3 types of youtube embeds</h1>
 
+    <p><code>lite-youtube-embed</code>:</p>
     <style>
       .wrapper {
         /* todo: update to width="560" height="315" */
@@ -49,7 +53,7 @@
         left: 0;
         right: 0;
       }
- 
+
       div.youtube .play-button {
         width: 70px;
         height: 46px;
@@ -72,6 +76,7 @@
       }
       div.youtube:hover .play-button {
         background-color: #f00;
+        opacity: 1;
       }
       div.youtube img,
       div.youtube .play-button,
@@ -85,19 +90,14 @@
         transform: translate3d(-50%, -50%, 0);
       }
     </style>
-  </head>
-  <body>
-    <h1>Hi there!</h1>
-
-    <p><code>lite-youtube-embed</code>:</p>
 
     <div class="wrapper">
       <div class="youtube" data-embed="ogfYd705cRs">
         <div class="play-button"></div>
       </div>
     </div>
-
     <script>
+      // old way
       function setUpEmbeds() {
         var elems = document.querySelectorAll(".youtube");
         for (const elem of elems) {
@@ -136,16 +136,164 @@
 
       //# sourceURL=lol.js
     </script>
-  
-  <p>typical iframe embed</p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/ogfYd705cRs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  
+
+    <p><code>lite-youtube</code> custom element:</p>
+    <style>
+      .wrapper {
+        /* todo: update to width="560" height="315" */
+        max-width: 560px;
+      }
+      div.youtube {
+        background-color: #000;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        max-width: 100%;
+        padding-top: 56.25%;
+      }
+      div.youtube img {
+        width: 100%;
+        /* maybe consider using these instead of this weird padding % hack: 
+             object-fit: none;
+             object-position: center center; 
+        */
+        top: -16.82%;
+        left: 0;
+      }
+      /* gradient */
+      div.youtube::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        background-image: linear-gradient(
+          180deg,
+          hsla(0, 0%, 0%, 0.78) 0%,
+          rgba(0, 0, 0, 0.54) 6%,
+          rgba(0, 0, 0, 0.15) 19%,
+          rgba(0, 0, 0, 0.13) 27%,
+          rgba(0, 0, 0, 0.13) 68%,
+          rgba(0, 0, 0, 0.19) 81%,
+          rgba(0, 0, 0, 0.55) 93%,
+          hsla(0, 0%, 0%, 0.74) 100%
+        );
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      div.youtube .play-button {
+        width: 70px;
+        height: 46px;
+        background-color: #212121;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+        z-index: 1;
+        opacity: 0.8;
+        border-radius: 14%;
+        transition: background-color 0.1s cubic-bezier(0, 0, 0.2, 1);
+      }
+      div.youtube .play-button:before {
+        content: "";
+        border-style: solid;
+        border-width: 11px 0 11px 19px;
+        border-color: transparent transparent transparent #fff;
+      }
+      div.youtube img,
+      div.youtube .play-button {
+        cursor: pointer;
+      }
+      div.youtube:hover .play-button {
+        background-color: #f00;
+        opacity: 1;
+      }
+      div.youtube img,
+      div.youtube .play-button,
+      div.youtube .play-button:before {
+        position: absolute;
+      }
+      div.youtube .play-button,
+      div.youtube .play-button:before {
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+      }
+    </style>
+    <lite-youtube data-id="ogfYd705cRs"></lite-youtube>
+
+    <script>
+      // custom element
+      class LiteYTEmbed extends HTMLElement {
+        constructor() {
+          super();
+        }
+
+        connectedCallback() {
+          const playBtn = document.createElement("div");
+          playBtn.classList.add("play-button");
+
+          const source = `https://img.youtube.com/vi/${this.dataset.id}/sddefault.jpg`;
+          const image = document.createElement("img");
+          image.src = source;
+          this.append(playBtn, image);
+          this.addEventListener("click", LiteYTEmbed.addYtIframeApi);
+        }
+
+        static addYtIframeApi(evt) {
+          // set global to prepare for the youtube iframe api
+          window.onYouTubeIframeAPIReady = LiteYTEmbed.onYtIframeApiLoaded;
+
+          // TODO, don't add more than once.
+          const script = document.createElement("script");
+          script.async = true;
+          script.src = "https://www.youtube.com/iframe_api";
+          document.head.append(script);
+          evt.currentTarget.classList.add("clicked");
+          evt.target.removeEventListener("click", LiteYTEmbed.addYtIframeApi);
+        }
+
+        static onYtIframeApiLoaded() {
+          // TODO, something better than this.
+          const clicked = document.querySelectorAll("lite-youtube.clicked");
+
+          for (const elem of clicked) {
+            const replaceableElem = document.createElement("div");
+            elem.append(replaceableElem);
+
+            new YT.Player(replaceableElem, {
+              videoId: elem.dataset.id,
+              width: elem.clientWidth,
+              height: elem.clientHeight,
+              events: {
+                onReady: event => event.target.playVideo()
+              }
+            });
+          }
+        }
+      }
+
+      customElements.define("lite-youtube", LiteYTEmbed);
+    </script>
+
+    <p>typical iframe embed</p>
+    <!-- no custom css required, obv -->
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/ogfYd705cRs"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+
     <h3>
       known issues
     </h3>
     <ul>
-      <li>sometimes the postMessage to the iframe fails so the video doesnt start playing. flaky.</li>
+      <li>
+        sometimes the postMessage to the iframe fails so the video doesnt start
+        playing. flaky.
+      </li>
     </ul>
-
   </body>
 </html>
