@@ -37,6 +37,7 @@
         height: 60px;
         padding-bottom: 50px;
         width: 100%;
+        transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
       }
       /* play button */
       lite-youtube .play-button {
@@ -46,7 +47,7 @@
         z-index: 1;
         opacity: 0.8;
         border-radius: 14%; /* I could replace this with YT's actual svg */
-        transition: all 0.1s cubic-bezier(0, 0, 0.2, 1);
+        transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
       }
       lite-youtube:hover .play-button {
         background-color: #f00;
@@ -72,6 +73,7 @@
       lite-youtube.activated {
         cursor: unset;
       }
+      lite-youtube.activated::before,
       lite-youtube.activated .play-button {
         opacity: 0;
         pointer-events: none;
@@ -84,6 +86,8 @@
       class LiteYTEmbed extends HTMLElement {
         constructor() {
           super();
+          // Warm the connection for the poster image
+          LiteYTEmbed.addPrefetch('preconnect', "https://img.youtube.com");
         }
 
         connectedCallback() {
@@ -95,6 +99,26 @@
           this.append(playBtn);
 
           this.addEventListener("click", LiteYTEmbed.addYtIframeApi);
+        }
+
+        static addPrefetch(kind, url, as) {
+          const linkElem = document.createElement('link');
+          linkElem.rel=kind;
+          linkElem.href=url;
+          if (as) {
+            linkElem.as =
+          }
+          linkElem.crossorigin = true;
+          document.head.append(linkElem);
+        }
+
+        // hook up to something..
+        preloadAssets() {
+          LiteYTEmbed.addPrefetch('preload', "https://www.youtube.com/iframe_api", 'script');
+          // Preconnect as the www-widgetapi.js URL changes.
+          LiteYTEmbed.addPrefetch('preconnect', "https://s.ytimg.com");
+          // preload the actual iframe
+          LiteYTEmbed.addPrefetch('preload', "https://www.youtube.com/embed/ogfYd705cRs?autoplay=1&origin=https%3A%2F%2Flite-youtube-embed.glitch.me&enablejsapi=1&widgetid=1", 'document');
         }
 
         static addYtIframeApi(evt) {
@@ -135,8 +159,8 @@
       //# sourceURL=./customelem.js
     </script>
 
+    <!--
     <h3>typical iframe embed</h3>
-    <!-- no custom css required, obv -->
     <iframe
       width="560"
       height="315"
@@ -145,6 +169,8 @@
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>
+    
+    -->
 
     <h3>
       known issues
@@ -155,8 +181,8 @@
         playing. flaky.
       </li>
     </ul>
-
-    <h3>my old <code>lite-youtube-embed</code>:</h3>
+    <!--
+    <h3>non custom-element <code>lite-youtube-embed</code>:</h3>
     <style>
       .wrapper {
         /* todo: update to width="560" height="315" */
@@ -284,5 +310,6 @@
 
       //# sourceURL=basic.js
     </script>
+-->
   </body>
 </html>
