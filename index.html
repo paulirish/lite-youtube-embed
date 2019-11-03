@@ -143,39 +143,6 @@
           this.insertAdjacentHTML('beforeend', iframeHTML);
           this.classList.add('activated');
         }
-
-        static addYtIframeApi(evt) {
-          // Set global to prepare for the youtube iframe api
-          window.onYouTubeIframeAPIReady = LiteYTEmbed.onYtIframeApiLoaded;
-
-          // TODO, don't add more than once.
-          const script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.youtube.com/iframe_api';
-          document.head.append(script);
-          evt.currentTarget.classList.add('activated');
-          evt.target.removeEventListener('click', LiteYTEmbed.addYtIframeApi);
-        }
-
-        static onYtIframeApiLoaded() {
-          // TODO, manage state better than this.
-          const elems = document.querySelectorAll('lite-youtube.activated');
-
-          for (const elem of elems) {
-            const replaceableElem = document.createElement('div');
-            elem.append(replaceableElem);
-
-            new YT.Player(replaceableElem, {
-              videoId: elem.dataset.id,
-              width: elem.clientWidth,
-              height: elem.clientHeight,
-              playerVars: {
-                autoplay: 1,
-                origin: new URL(location.href).origin,
-              },
-            });
-          }
-        }
       }
       // Register custom element
       customElements.define('lite-youtube', LiteYTEmbed);
@@ -201,20 +168,9 @@
     </h3>
     <ul>
       <li>
-        i have seen some errors about postMessage to the iframe failing. Not sure if its been
-        resolved with the playerVars.origin though.
-      </li>
-      <li>
         autoplay was flaky. i see some errors about user interaction being required for video
         autoplay linking
         <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">here</a>
-      </li>
-      <li>
-        do i even need the iframe API for autoplay???? maybe i could just add an just add iframe of
-        <code
-          >https://www.youtube.com/embed/ogfYd705cRs?autoplay=1&origin=https%3A%2F%2Flite-youtube-embed.glitch.me&enablejsapi=1&widgetid=1</code
-        >
-        ??
       </li>
     </ul>
     <!--
