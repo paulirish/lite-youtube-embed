@@ -46,7 +46,7 @@
         background-color: #212121;
         z-index: 1;
         opacity: 0.8;
-        border-radius: 14%; /* I could replace this with YT's actual svg */
+        border-radius: 14%; /* TODO: Consider replacing this with YT's actual svg. Eh. */
         transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
       }
       lite-youtube:hover .play-button {
@@ -69,7 +69,7 @@
         transform: translate3d(-50%, -50%, 0);
       }
 
-      /* changes after activation */
+      /* Post-click styles */
       lite-youtube.activated {
         cursor: unset;
       }
@@ -89,6 +89,8 @@
           super();
           // Warm the connection for the poster image
           LiteYTEmbed.addPrefetch('preconnect', 'https://img.youtube.com');
+          // TODO: support dynamically setting the attribute via
+          console.log('constructor', this, this.dataset);
         }
 
         connectedCallback() {
@@ -102,9 +104,9 @@
 
           this.addEventListener('click', e => this.addIframe());
           // for desktop users
-          this.addEventListener('mouseenter', this.preloadAssets, {once: true});
+          this.addEventListener('mouseenter', this.warmConnections, {once: true});
           // for mobile users. TODO: fix the duplication on desktop
-          this.addEventListener('mousedown', this.preloadAssets, {once: true});
+          this.addEventListener('mousedown', this.warmConnections, {once: true});
         }
 
         static addPrefetch(kind, url, as) {
@@ -118,18 +120,24 @@
           document.head.append(linkElem);
         }
 
-        preloadAssets() {
-          // Preload the iframe_api script
-          LiteYTEmbed.addPrefetch('preload', 'https://www.youtube.com/iframe_api', 'script');
-          // Prepare widgetapi request
-          // Can't preload as the www-widgetapi.js URL changes, so we preconnect
-          LiteYTEmbed.addPrefetch('preconnect', 'https://s.ytimg.com');
+        /**
+         * Begin preconnecting to warm up the iframe load
+         * Since the embed's netwok requests load within its iframe,
+         *   preload/prefetch'ing them outside the iframe will only cause double-downloads.
+         * So, the best we can do is warm up a few connections to origins that are in the critical path.
+         *
+         * Maybe `<link rel=preload as=document>` would work, but it's unsupported: http://crbug.com/593267
+         * But TBH, I don't think it'll happen soon with Site Isolation and split caches adding serious complexity.
+         */
+        warmConnections() {
+          // The iframe document and most of its subresources come right off youtube.com
+          LiteYTEmbed.addPrefetch('preconnect', 'https://www.youtube.com');
+          // The botguard script is fetched off from google.com
+          LiteYTEmbed.addPrefetch('preconnect', 'https://www.google.com');
 
-          // Warm connection for the iframe
-          // - `<link rel=preload as=document>` isn't supported yet: http://crbug.com/593267
-          // - `<link rel=prefetch as=document>` appears to double-download so there's no benefit.
-          // - `<link rel=preconnect>` unncessary as the iframe_api preload already connected.
-          // So no work neccessary. :)
+          // Not certain if these ad related domains are in the critical path. Could verify with domain-specific throttling.
+          LiteYTEmbed.addPrefetch('preconnect', 'https://googleads.g.doubleclick.net');
+          LiteYTEmbed.addPrefetch('preconnect', 'https://static.doubleclick.net');
         }
 
         addIframe(){
