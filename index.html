@@ -83,20 +83,27 @@
     <lite-youtube data-id="ogfYd705cRs"></lite-youtube>
 
     <script>
-      // Define custom element
+      /**
+       * A lightweight youtube embed. Still should feel the same to the user, just MUCH faster to initialize and paint.
+       *
+       * Thx to these as the inspiration
+       *   https://storage.googleapis.com/amp-vs-non-amp/youtube-lazy.html
+       *   https://autoplay-youtube-player.glitch.me/
+       */
       class LiteYTEmbed extends HTMLElement {
         constructor() {
           super();
+
+          // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
+          this.videoId = encodeURIComponent(this.dataset.id);
           // Warm the connection for the poster image
-          LiteYTEmbed.addPrefetch('preconnect', 'https://img.youtube.com');
-          // TODO: support dynamically setting the attribute via
-          console.log('constructor', this, this.dataset);
+          this.posterUrl = `https://img.youtube.com/vi/${this.videoId}/sddefault.jpg`;
+          LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
+          // TODO: support dynamically setting the attribute via attributeChangedCallback
         }
 
         connectedCallback() {
-          this.videoId = this.dataset.id
-          const posterUrl = `https://img.youtube.com/vi/${this.videoId}/sddefault.jpg`;
-          this.style.backgroundImage = `url("${posterUrl}")`;
+          this.style.backgroundImage = `url("${this.posterUrl}")`;
 
           const playBtn = document.createElement('div');
           playBtn.classList.add('play-button');
