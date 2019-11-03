@@ -79,6 +79,7 @@
         pointer-events: none;
       }
     </style>
+
     <lite-youtube data-id="ogfYd705cRs"></lite-youtube>
 
     <script>
@@ -91,14 +92,15 @@
         }
 
         connectedCallback() {
-          const posterUrl = `https://img.youtube.com/vi/${this.dataset.id}/sddefault.jpg`;
+          this.videoId = this.dataset.id
+          const posterUrl = `https://img.youtube.com/vi/${this.videoId}/sddefault.jpg`;
           this.style.backgroundImage = `url("${posterUrl}")`;
 
           const playBtn = document.createElement('div');
           playBtn.classList.add('play-button');
           this.append(playBtn);
 
-          this.addEventListener('click', LiteYTEmbed.addYtIframeApi);
+          this.addEventListener('click', e => this.addIframe());
           // for desktop users
           this.addEventListener('mouseenter', this.preloadAssets, {once: true});
           // for mobile users. TODO: fix the duplication on desktop
@@ -128,6 +130,18 @@
           // - `<link rel=prefetch as=document>` appears to double-download so there's no benefit.
           // - `<link rel=preconnect>` unncessary as the iframe_api preload already connected.
           // So no work neccessary. :)
+        }
+
+        addIframe(){
+          // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
+          const escapedVideoId = encodeURIComponent(this.videoId);
+          const iframeHTML = `
+<iframe width="560" height="315" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+  src="https://www.youtube.com/embed/${escapedVideoId}?autoplay=1"
+></iframe>`;
+          this.insertAdjacentHTML('beforeend', iframeHTML);
+          this.classList.add('activated');
         }
 
         static addYtIframeApi(evt) {
