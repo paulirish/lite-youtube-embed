@@ -39,7 +39,7 @@
         transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
       }
       /* play button */
-      lite-youtube .play-button {
+      lite-youtube .lty-playbtn {
         width: 70px;
         height: 46px;
         background-color: #212121;
@@ -48,20 +48,20 @@
         border-radius: 14%; /* TODO: Consider replacing this with YT's actual svg. Eh. */
         transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
       }
-      lite-youtube:hover .play-button {
+      lite-youtube:hover .lty-playbtn {
         background-color: #f00;
         opacity: 1;
       }
       /* play button triangle */
-      lite-youtube .play-button:before {
+      lite-youtube .lty-playbtn:before {
         content: '';
         border-style: solid;
         border-width: 11px 0 11px 19px;
         border-color: transparent transparent transparent #fff;
       }
 
-      lite-youtube .play-button,
-      lite-youtube .play-button:before {
+      lite-youtube .lty-playbtn,
+      lite-youtube .lty-playbtn:before {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -69,11 +69,11 @@
       }
 
       /* Post-click styles */
-      lite-youtube.activated {
+      lite-youtube.lyt-activated {
         cursor: unset;
       }
-      lite-youtube.activated::before,
-      lite-youtube.activated .play-button {
+      lite-youtube.lyt-activated::before,
+      lite-youtube.lyt-activated .lty-playbtn {
         opacity: 0;
         pointer-events: none;
       }
@@ -84,7 +84,7 @@
     <!-- for maximum progresive enhancement, output this HTML: and lazily register the custom element
 
     <lite-youtube data-videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-      <div class="play-button"></div>
+      <div class="lty-playbtn"></div>
     </lite-youtube>
 
     -->
@@ -137,7 +137,7 @@
           this.style.backgroundImage = `url("${this.posterUrl}")`;
 
           const playBtn = document.createElement('div');
-          playBtn.classList.add('play-button');
+          playBtn.classList.add('lty-playbtn');
           this.append(playBtn);
 
           // On hover (or tap), warm up the TCP connections we're (likely) about to use.
@@ -200,7 +200,7 @@
   src="https://www.youtube.com/embed/${escapedVideoId}?autoplay=1"
 ></iframe>`;
           this.insertAdjacentHTML('beforeend', iframeHTML);
-          this.classList.add('activated');
+          this.classList.add('lyt-activated');
         }
       }
       // Register custom element
