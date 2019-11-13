@@ -1,8 +1,9 @@
-# `lite-youtube`
+# Lite YouTube Embed
 
-### _Render your youtube embed faster than a sneeze._
+> #### Renders faster than a sneeze.
 
-This custom element visually renders just like the real thing but approximately 224X faster.
+Provide videos with a supercharged focus on visual performance.
+This custom element renders just like the real thing but approximately 224X faster.
 
 ## Comparison
 
