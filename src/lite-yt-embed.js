@@ -25,7 +25,7 @@ class LiteYTEmbed extends HTMLElement {
          *
          * amp-youtube also eschews using the API, so they just try sddefault with a hqdefault fallback:
          *   https://github.com/ampproject/amphtml/blob/6039a6317325a8589586e72e4f98c047dbcbf7ba/extensions/amp-youtube/0.1/amp-youtube.js#L498-L537
-         * For now I'm gonna go with this confident (lol) assersion: https://stackoverflow.com/a/20542029, though I'll use `i.ytimg` to optimize for origin reuse.
+         * For now I'm gonna go with this confident (lol) assertion: https://stackoverflow.com/a/20542029, though I'll use `i.ytimg` to optimize for origin reuse.
          *
          * Worth noting that sddefault is _higher_ resolution than hqdefault. Naming is hard. ;)
          * From my own testing, it appears that hqdefault is ALWAYS there sddefault is missing for ~10% of videos
@@ -75,8 +75,8 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     /**
-     * Begin preconnecting to warm up the iframe load
-     * Since the embed's netwok requests load within its iframe,
+     * Begin pre-connecting to warm up the iframe load
+     * Since the embed's network requests load within its iframe,
      *   preload/prefetch'ing them outside the iframe will only cause double-downloads.
      * So, the best we can do is warm up a few connections to origins that are in the critical path.
      *
