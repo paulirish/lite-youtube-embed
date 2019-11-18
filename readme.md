@@ -34,7 +34,7 @@ To use the custom embed you will need to:
 </script>
 
 <!-- Use the element. You may define uses before the scripts are parsed and executed. -->
-<lite-youtube data-videoid="ogfYd705cRs"></lite-youtube>
+<lite-youtube videoid="ogfYd705cRs"></lite-youtube>
 ```
 
 ## Pro-usage
@@ -42,7 +42,7 @@ To use the custom embed you will need to:
 Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
 
 ```html
-<lite-youtube data-videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
+<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
 	<div class="lty-playbtn"></div>
 </lite-youtube>
 ```
