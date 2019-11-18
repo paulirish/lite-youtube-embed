@@ -14,9 +14,10 @@ class LiteYTEmbed extends HTMLElement {
     constructor() {
         super();
 
-        // Gotta encode the untrusted value
+        // Gotta encode the untrusted values
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
         this.videoId = encodeURIComponent(this.getAttribute('videoid'));
+        this.playLabel = encodeURIComponent(this.getAttribute('playlabel'));
 
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -43,9 +44,15 @@ class LiteYTEmbed extends HTMLElement {
     connectedCallback() {
         this.style.backgroundImage = `url("${this.posterUrl}")`;
 
-        const playBtn = document.createElement('div');
-        playBtn.classList.add('lty-playbtn');
-        this.append(playBtn);
+        let playBtn = this.querySelector('.lty-playbtn');
+
+        if (!playBtn) {
+            playBtn = document.createElement('button');
+            playBtn.type = 'button';
+            playBtn.title = decodeURIComponent(this.playLabel) || `Play Video: ${this.videoId}`
+            playBtn.classList.add('lty-playbtn');
+            this.append(playBtn);
+        }
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});

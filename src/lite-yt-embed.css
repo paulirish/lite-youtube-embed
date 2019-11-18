@@ -47,6 +47,7 @@ lite-youtube > .lty-playbtn {
     z-index: 1;
     opacity: 0.8;
     border-radius: 14%; /* TODO: Consider replacing this with YT's actual svg. Eh. */
+    border: 0;
     transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
 }
 lite-youtube:hover > .lty-playbtn {
@@ -77,4 +78,5 @@ lite-youtube.lyt-activated::before,
 lite-youtube.lyt-activated > .lty-playbtn {
     opacity: 0;
     pointer-events: none;
+    outline: 0;
 }
