@@ -44,6 +44,7 @@
         opacity: 0.8;
         border-radius: 14%; /* TODO: Consider replacing this with YT's actual svg. Eh. */
         transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+        border: 0;
       }
       lite-youtube:hover .lty-playbtn {
         background-color: #f00;
@@ -73,10 +74,11 @@
       lite-youtube.lyt-activated .lty-playbtn {
         opacity: 0;
         pointer-events: none;
+        outline: none;
       }
     </style>
 
-    <lite-youtube data-videoid="ogfYd705cRs"></lite-youtube>
+    <lite-youtube data-videoid="ogfYd705cRs" data-playlabel="Play Video: Keynote (Google I/O '18)"></lite-youtube>
 
     <script>
       /**
@@ -98,6 +100,7 @@
           // Gotta encode the untrusted value
           // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
           this.videoId = encodeURIComponent(this.dataset.videoid);
+          this.playLabel = this.dataset.playlabel;
 
           /**
            * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -124,7 +127,9 @@
         connectedCallback() {
           this.style.backgroundImage = `url("${this.posterUrl}")`;
 
-          const playBtn = document.createElement('div');
+          const playBtn = document.createElement('button');
+          playBtn.type = 'button';
+          playBtn.title = this.playLabel || `Play Video: ${this.videoId}`;
           playBtn.classList.add('lty-playbtn');
           this.append(playBtn);
 
