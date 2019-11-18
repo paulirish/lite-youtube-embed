@@ -22,10 +22,7 @@ setTimeout(_ => {
   elem.src = '../src/lite-yt-embed.js';
   document.head.append(elem);
 
-  elem.onload = _ => {
-    customElements.define('lite-youtube', LiteYTEmbed);
-    document.querySelector('#done').textContent = 'Script complete.'
-  };
+  document.querySelector('#done').textContent = 'Script complete.'
 }, 2000);
 </script>
 

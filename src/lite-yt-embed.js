@@ -110,3 +110,5 @@ class LiteYTEmbed extends HTMLElement {
         this.classList.add('lyt-activated');
     }
 }
+// Register custome element
+customElements.define('lite-youtube', LiteYTEmbed);
