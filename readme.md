@@ -1,22 +1,40 @@
-# `lite-youtube`
+# Lite YouTube Embed
 
-### _Render your youtube embed faster than a sneeze._
+> #### Renders faster than a sneeze.
 
-This custom element visually renders just like the real thing but approximately 224X faster.
+Provide videos with a supercharged focus on visual performance.
+This custom element renders just like the real thing but approximately 224X faster.
 
 ## Comparison
-
-
 
 | Normal `<iframe>` YouTube embed |  `lite-youtube` |
 |---|---|
 |  ![Screen Shot 2019-11-03 at 5 23 50 PM](https://user-images.githubusercontent.com/39191/68095560-5c930d00-fe5f-11e9-8104-e73e77a21287.png)   ![Screen Shot 2019-11-03 at 5 21 05 PM](https://user-images.githubusercontent.com/39191/68095562-5d2ba380-fe5f-11e9-8b5f-18f451b0716d.png)  ![Screen Shot 2019-11-03 at 5 19 35 PM](https://user-images.githubusercontent.com/39191/68095565-5d2ba380-fe5f-11e9-835d-85d37df71f52.png)  | ![Screen Shot 2019-11-03 at 5 23 27 PM](https://user-images.githubusercontent.com/39191/68095561-5d2ba380-fe5f-11e9-9393-e2206a64c8bf.png) ![Screen Shot 2019-11-03 at 5 20 55 PM](https://user-images.githubusercontent.com/39191/68095563-5d2ba380-fe5f-11e9-8f9a-f5c4a774cd56.png)  ![Screen Shot 2019-11-03 at 5 20 16 PM](https://user-images.githubusercontent.com/39191/68095564-5d2ba380-fe5f-11e9-908f-7e12eab8b2ad.png) |
 
-
 ## Basic usage
 
+To use the custom embed you will need to:
+
+1. Include the stylesheet within your application
+1. Include the script as well
+1. Define your custom element name
+1. Use the element with your defined name in markup and scripting
+1. Be happy that you're providing a better user experience to your visitors
+
 ```html
- <lite-youtube data-videoid="ogfYd705cRs"></lite-youtube>
+<!-- Include the stylesheet, this could be direct from the package or bundled -->
+<link rel="stylesheet" href="node_modules/lite-youtube-embed/src/lite-yt-embed.css" />
+
+<!-- Include the custom element script -->
+<script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
+
+<!-- Define your desired name for the element -->
+<script>
+    customElements.define('lite-youtube', LiteYTEmbed);
+</script>
+
+<!-- Use the element. You may define uses before the scripts are parsed and executed. -->
+<lite-youtube data-videoid="ogfYd705cRs"></lite-youtube>
 ```
 
 ## Pro-usage
