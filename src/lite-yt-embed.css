@@ -47,13 +47,18 @@ lite-youtube > .lty-playbtn {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
-    cursor: pointer;
+    cursor: inherit;
     background: none;
+    padding: 0;
+    display: block;
+    width: 68px;
+    height: 48px;
+    transition: opacity 0.2s cubic-bezier(0, 0, 0.2, 1);
 }
 
 lite-youtube .lty-playicon {
-    width: 68px;
-    height: 48px;
+    width: 100%;
+    height: 100%;
 }
 
 lite-youtube .lty-playicon-base {
