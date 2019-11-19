@@ -49,7 +49,7 @@ class LiteYTEmbed extends HTMLElement {
         if (!playBtn) {
             playBtn = document.createElement('button');
             playBtn.type = 'button';
-            playBtn.title = decodeURIComponent(this.playLabel) || `Play Video: ${this.videoId}`
+            playBtn.title = this.playLabel ? decodeURIComponent(this.playLabel) : `Play Video: ${this.videoId}`;
             playBtn.classList.add('lty-playbtn');
             this.append(playBtn);
         }
