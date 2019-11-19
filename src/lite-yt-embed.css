@@ -53,6 +53,7 @@ lite-youtube > .lty-playbtn {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+    cursor: pointer;
 }
 
 lite-youtube > .lty-playbtn:hover {
