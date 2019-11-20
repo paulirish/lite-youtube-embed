@@ -17,8 +17,7 @@ To use the custom embed you will need to:
 
 1. Include the stylesheet within your application
 1. Include the script as well
-1. Define your custom element name
-1. Use the element with your defined name in markup and scripting
+1. Use the element `lite-youtube` markup and scripting
 1. Be happy that you're providing a better user experience to your visitors
 
 ```html
@@ -27,11 +26,6 @@ To use the custom embed you will need to:
 
 <!-- Include the custom element script -->
 <script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
-
-<!-- Define your desired name for the element -->
-<script>
-    customElements.define('lite-youtube', LiteYTEmbed);
-</script>
 
 <!-- Use the element. You may define uses before the scripts are parsed and executed. -->
 <lite-youtube videoid="ogfYd705cRs"></lite-youtube>
