@@ -20,7 +20,7 @@
   "homepage": "https://github.com/paulirish/lite-youtube-embed#readme",
   "readme": "readme.md",
   "files": [
-    "dist/**",
+    "src/**",
     "package.json",
     "package-lock.json",
     "readme.md"
