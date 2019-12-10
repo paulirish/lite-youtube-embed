@@ -54,7 +54,7 @@ lite-youtube:hover > .lty-playbtn {
     opacity: 1;
 }
 /* play button triangle */
-lite-youtube > .lty-playbtn:before {
+lite-youtube > .lty-playbtn::before {
     content: '';
     border-style: solid;
     border-width: 11px 0 11px 19px;
@@ -62,7 +62,7 @@ lite-youtube > .lty-playbtn:before {
 }
 
 lite-youtube > .lty-playbtn,
-lite-youtube > .lty-playbtn:before {
+lite-youtube > .lty-playbtn::before {
     position: absolute;
     top: 50%;
     left: 50%;
