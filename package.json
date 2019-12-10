@@ -1,0 +1,28 @@
+{
+  "name": "lite-youtube-embed",
+  "version": "0.0.0",
+  "description": "A faster youtube embed.",
+  "main": "src/lite-yt-embed.js",
+  "style": "src/lite-yt-embed.css",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulirish/lite-youtube-embed.git"
+  },
+  "keywords": [
+    "youtube",
+    "custom element",
+    "web component"
+  ],
+  "author": "Paul Irish",
+  "bugs": {
+    "url": "https://github.com/paulirish/lite-youtube-embed/issues"
+  },
+  "homepage": "https://github.com/paulirish/lite-youtube-embed#readme",
+  "readme": "readme.md",
+  "files": [
+    "src/**",
+    "package.json",
+    "package-lock.json",
+    "readme.md"
+  ]
+}
