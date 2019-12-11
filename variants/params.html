@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>lite-youtube-embed</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../src/lite-yt-embed.css" />
+</head>
+<body>
+<h1><code>lite-youtube</code> custom element</h1>
+
+<p>
+    This is embedded with custom parameters to make the playback controls not display on the video.
+    You may use any parameters <a href="https://developers.google.com/youtube/player_parameters">supported by YouTube</a> that are applicable to a video embed.
+    Autoplay is always defaulted to `1` with this custom element.
+</p>
+
+<p>
+    The following embed has the params <pre>&amp;controls=0</pre> which turns off the controls in the video player.
+</p>
+
+<lite-youtube videoid="ogfYd705cRs" params="&controls=0"></lite-youtube>
+
+<script src="../src/lite-yt-embed.js"></script>
+
+</body>
+</html>

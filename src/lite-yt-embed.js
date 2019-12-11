@@ -11,37 +11,167 @@
  *   https://github.com/vb/lazyframe
  */
 class LiteYTEmbed extends HTMLElement {
+
+    /**
+     * Initialize the custom element.
+     * Create and cache the youtube embed iframe without injecting it to the page just yet.
+     */
     constructor() {
         super();
 
-        // Gotta encode the untrusted value
-        // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
-        this.videoId = encodeURIComponent(this.getAttribute('videoid'));
+        this.iframeNode = document.createElement('iframe');
+        this.iframeNode.setAttribute('frameborder', '0');
+        this.iframeNode.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
+        this.iframeNode.setAttribute('allowfullscreen', '');
+        this.iframeNode.setAttribute('src', this.embedSourceUrl);
+    }
 
-        /**
-         * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
-         * There is much internet debate on the reliability of thumbnail URLs. Weak consensus is that you
-         * cannot rely on anything and have to use the YouTube Data API.
-         *
-         * amp-youtube also eschews using the API, so they just try sddefault with a hqdefault fallback:
-         *   https://github.com/ampproject/amphtml/blob/6039a6317325a8589586e72e4f98c047dbcbf7ba/extensions/amp-youtube/0.1/amp-youtube.js#L498-L537
-         * For now I'm gonna go with this confident (lol) assertion: https://stackoverflow.com/a/20542029, though I'll use `i.ytimg` to optimize for origin reuse.
-         *
-         * Worth noting that sddefault is _higher_ resolution than hqdefault. Naming is hard. ;)
-         * From my own testing, it appears that hqdefault is ALWAYS there sddefault is missing for ~10% of videos
-         *
-         * TODO: Do the sddefault->hqdefault fallback
-         *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
-         * TODO: Consider using webp if supported, falling back to jpg
-         */
-        this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+    /**
+     * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
+     * There is much internet debate on the reliability of thumbnail URLs. Weak consensus is that you
+     * cannot rely on anything and have to use the YouTube Data API.
+     *
+     * amp-youtube also eschews using the API, so they just try sddefault with a hqdefault fallback:
+     *   https://github.com/ampproject/amphtml/blob/6039a6317325a8589586e72e4f98c047dbcbf7ba/extensions/amp-youtube/0.1/amp-youtube.js#L498-L537
+     * For now I'm gonna go with this confident (lol) assertion: https://stackoverflow.com/a/20542029, though I'll use `i.ytimg` to optimize for origin reuse.
+     *
+     * Worth noting that sddefault is _higher_ resolution than hqdefault. Naming is hard. ;)
+     * From my own testing, it appears that hqdefault is ALWAYS there sddefault is missing for ~10% of videos
+     *
+     * TODO: Do the sddefault->hqdefault fallback
+     *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
+     * TODO: Consider using webp if supported, falling back to jpg
+     *
+     * @returns {string}
+     */
+    get posterUrl() {
+        return `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+    }
+
+
+    /**
+     * Retrieve the URL targeting the embed video from YouTube.
+     *
+     * @returns {string}
+     */
+    get embedSourceUrl() {
+        return `https://www.youtube-nocookie.com/embed/${this.videoId}?autoplay=1&${this.params}`;
+    }
+
+    static get observedAttributes() {
+        return [
+            'videoid',
+            'params',
+        ];
+    }
+
+    /**
+     * Conduct required actions when an attribute being watched is modified.
+     *
+     * @param {string} name The name of the modified attribute.
+     * @param {string} oldValue The value of the attribute before modification.
+     * @param {string} newValue The value of the attribute after modification.
+     */
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === 'videoid') {
+            this.videoIdChanged();
+        }
+        if (name === 'params') {
+            this.updateSrc();
+        }
+    }
+
+    /**
+     * Property setter for the video identifier.
+     * This will update the attribute of the HTML to the provided string.
+     *
+     * @param {string} value
+     */
+    set videoId(value) {
+        this.setAttribute('videoid', value);
+    }
+
+    /**
+     * Retrieve the video identifier from the `videoid` attribute.
+     * Encode it for security since it can't necessarily be trusted.
+     * Ref: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
+     *
+     * @returns {string}
+     */
+    get videoId() {
+        return encodeURIComponent(this.getAttribute('videoid'));
+    }
+
+    /**
+     * Set any additional parameters for the video embed.
+     *
+     * @param {string} value
+     */
+    set params(value) {
+        this.setAttribute('params', value);
+    }
+
+    /**
+     * Get any additional parameters for the URL.
+     * Encode them for safety like the video id.
+     * This string will not have an ampersand as the first character.
+     *
+     * @returns {string}
+     */
+    get params() {
+        const parameters = this.getAttribute('params');
+        const hasNoParameters = parameters === null;
+        const encodeKeyAndValue = (param) => {
+            return param
+                .split('=')
+                .map(encodeURIComponent)
+                .join('=');
+        };
+
+        if (hasNoParameters === true) {
+            return '';
+        }
+
+        return parameters
+            .split('&')
+            .filter(Boolean)
+            .map(encodeKeyAndValue)
+            .join('&');
+    }
+
+    /**
+     * Carry out the required actions to update the iframe and placeholder content as the video changes.
+     *
+     * @returns {void}
+     */
+    videoIdChanged() {
         // Warm the connection for the poster image
         LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
-        // TODO: support dynamically setting the attribute via attributeChangedCallback
+
+        this.updateBackgroundImage();
+        this.updateSrc();
+    }
+
+    /**
+     * Set the source attribute to the iframe to the current compiled URL
+     *
+     * @returns {void}
+     */
+    updateSrc() {
+        this.iframeNode.setAttribute('src', this.embedSourceUrl);
+    }
+
+    /**
+     * Set the background image of the container to the poster image.
+     *
+     * @returns {void}
+     */
+    updateBackgroundImage() {
+        this.style.backgroundImage = `url("${this.posterUrl}")`;
     }
 
     connectedCallback() {
-        this.style.backgroundImage = `url("${this.posterUrl}")`;
+        this.updateBackgroundImage();
 
         const playBtn = document.createElement('div');
         playBtn.classList.add('lty-playbtn');
@@ -53,12 +183,8 @@ class LiteYTEmbed extends HTMLElement {
         // Once the user clicks, add the real iframe and drop our play button
         // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
-        this.addEventListener('click', e => this.addIframe());
+        this.addEventListener('click', this.addIframe);
     }
-
-    // // TODO: Support the the user changing the [videoid] attribute
-    // attributeChangedCallback() {
-    // }
 
     /**
      * Add a <link rel={preload | preconnect} ...> to the head
@@ -98,13 +224,13 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
+    /**
+     * Put the iframe into the DOM
+     *
+     * @returns {void}
+     */
     addIframe(){
-        const iframeHTML = `
-<iframe width="560" height="315" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  src="https://www.youtube-nocookie.com/embed/${this.videoId}?autoplay=1"
-></iframe>`;
-        this.insertAdjacentHTML('beforeend', iframeHTML);
+        this.insertAdjacentElement('beforeend', this.iframeNode);
         this.classList.add('lyt-activated');
     }
 }
