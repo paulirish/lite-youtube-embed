@@ -31,6 +31,12 @@ To use the custom embed you will need to:
 <lite-youtube videoid="ogfYd705cRs"></lite-youtube>
 ```
 
+## Notes
+
+Note that the embed will be using youtube-nocookie.com instead of youtube.com in order
+to be more privacy friendly for end users.
+
+
 ## Pro-usage
 
 Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
