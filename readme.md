@@ -29,6 +29,9 @@ To use the custom embed you will need to:
 
 <!-- Use the element. You may define uses before the scripts are parsed and executed. -->
 <lite-youtube videoid="ogfYd705cRs"></lite-youtube>
+
+<!-- Specify start time, starts at 1 minute 12 seconds. -->
+<lite-youtube videoid="ogfYd705cRs" startTime="72"></lite-youtube>
 ```
 
 ## Pro-usage
