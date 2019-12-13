@@ -17,7 +17,7 @@ class LiteYTEmbed extends HTMLElement {
         // Gotta encode the untrusted value
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
         this.videoId = encodeURIComponent(this.getAttribute('videoid'));
-        this.startTime = encodeURIComponent(this.getAttribute('startTime'));
+        this.start = encodeURIComponent(this.getAttribute('start'));
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
          * There is much internet debate on the reliability of thumbnail URLs. Weak consensus is that you
@@ -102,7 +102,7 @@ class LiteYTEmbed extends HTMLElement {
         const iframeHTML = `
 <iframe width="560" height="315" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  src="https://www.youtube.com/embed/${this.videoId}?autoplay=1&start=${this.startTime}"
+  src="https://www.youtube.com/embed/${this.videoId}?autoplay=1&start=${this.start}"
 ></iframe>`;
         this.insertAdjacentHTML('beforeend', iframeHTML);
         this.classList.add('lyt-activated');

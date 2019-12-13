@@ -31,7 +31,7 @@ To use the custom embed you will need to:
 <lite-youtube videoid="ogfYd705cRs"></lite-youtube>
 
 <!-- Specify start time, starts at 1 minute 12 seconds. -->
-<lite-youtube videoid="ogfYd705cRs" startTime="72"></lite-youtube>
+<lite-youtube videoid="ogfYd705cRs" start="72"></lite-youtube>
 ```
 
 ## Pro-usage
