@@ -13,6 +13,11 @@
 class LiteYTEmbed extends HTMLElement {
     constructor() {
         super();
+		
+		// Extra settings to controlling and styling the player
+		this.ModestBranding = 1;
+		this.ShowRelatedVideos = 0;
+		this.EnableJSApi = 1;
 
         // Gotta encode the untrusted value
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
@@ -102,8 +107,7 @@ class LiteYTEmbed extends HTMLElement {
         const iframeHTML = `
 <iframe width="560" height="315" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  src="https://www.youtube.com/embed/${this.videoId}?autoplay=1"
-></iframe>`;
+  src="https://www.youtube-nocookie.com/embed/${this.videoId}?autoplay=1&enablejsapi=${this.EnableJSApi}&modestbranding=${this.ModestBranding}&rel=${this.ShowRelatedVideos}&origin=${window.location.hostname}"></iframe>`;
         this.insertAdjacentHTML('beforeend', iframeHTML);
         this.classList.add('lyt-activated');
     }
