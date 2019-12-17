@@ -43,7 +43,7 @@ class LiteYTEmbed extends HTMLElement {
     connectedCallback() {
         this.style.backgroundImage = `url("${this.posterUrl}")`;
 
-        const playBtn = document.createElement('div');
+        const playBtn = document.createElement('button');
         playBtn.classList.add('lty-playbtn');
         this.append(playBtn);
 
