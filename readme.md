@@ -48,3 +48,7 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 ```
 
 More coming soon.
+
+## Other lite embeds
+
+- Using Vimeo? Check out [`<lite-vimeo>`](https://github.com/luwes/lite-vimeo-embed) by [Wesley Luyten](https://github.com/luwes).
