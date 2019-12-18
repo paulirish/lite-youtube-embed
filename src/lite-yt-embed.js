@@ -87,7 +87,7 @@ class LiteYTEmbed extends HTMLElement {
         if (LiteYTEmbed.preconnected) return;
 
         // The iframe document and most of its subresources come right off youtube.com
-        LiteYTEmbed.addPrefetch('preconnect', 'https://www.youtube.com');
+        LiteYTEmbed.addPrefetch('preconnect', 'https://www.youtube-nocookie.com');
         // The botguard script is fetched off from google.com
         LiteYTEmbed.addPrefetch('preconnect', 'https://www.google.com');
 
@@ -102,7 +102,7 @@ class LiteYTEmbed extends HTMLElement {
         const iframeHTML = `
 <iframe width="560" height="315" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  src="https://www.youtube.com/embed/${this.videoId}?autoplay=1"
+  src="https://www.youtube-nocookie.com/embed/${this.videoId}?autoplay=1"
 ></iframe>`;
         this.insertAdjacentHTML('beforeend', iframeHTML);
         this.classList.add('lyt-activated');
