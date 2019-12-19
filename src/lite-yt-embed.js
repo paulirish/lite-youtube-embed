@@ -107,6 +107,21 @@ class LiteYTEmbed extends HTMLElement {
         this.insertAdjacentHTML('beforeend', iframeHTML);
         this.classList.add('lyt-activated');
     }
+
+    static get observedAttributes(){
+        return [ 'videoid' ]
+    }
+
+    attributeChangedCallback(name, oldValue, newValue){
+        // eslint-disable-next-line default-case
+        switch (name){
+            case 'videoid':
+                this.videoId = encodeURIComponent(newValue);
+                this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+                LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
+                break;
+        }
+    }
 }
 // Register custome element
 customElements.define('lite-youtube', LiteYTEmbed);
