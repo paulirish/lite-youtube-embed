@@ -13,31 +13,8 @@
 class LiteYTEmbed extends HTMLElement {
     constructor() {
         super();
-
-        // Gotta encode the untrusted value
-        // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
-        this.videoId = encodeURIComponent(this.getAttribute('videoid'));
-
-        /**
-         * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
-         * There is much internet debate on the reliability of thumbnail URLs. Weak consensus is that you
-         * cannot rely on anything and have to use the YouTube Data API.
-         *
-         * amp-youtube also eschews using the API, so they just try sddefault with a hqdefault fallback:
-         *   https://github.com/ampproject/amphtml/blob/6039a6317325a8589586e72e4f98c047dbcbf7ba/extensions/amp-youtube/0.1/amp-youtube.js#L498-L537
-         * For now I'm gonna go with this confident (lol) assertion: https://stackoverflow.com/a/20542029, though I'll use `i.ytimg` to optimize for origin reuse.
-         *
-         * Worth noting that sddefault is _higher_ resolution than hqdefault. Naming is hard. ;)
-         * From my own testing, it appears that hqdefault is ALWAYS there sddefault is missing for ~10% of videos
-         *
-         * TODO: Do the sddefault->hqdefault fallback
-         *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
-         * TODO: Consider using webp if supported, falling back to jpg
-         */
-        this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
-        // Warm the connection for the poster image
-        LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
-        // TODO: support dynamically setting the attribute via attributeChangedCallback
+        for(const attr of LiteYTEmbed.observedAttributes)
+            this.attributeChangedCallback(attr, null, this.getAttribute(attr));
     }
 
     connectedCallback() {
@@ -55,10 +32,6 @@ class LiteYTEmbed extends HTMLElement {
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', e => this.addIframe());
     }
-
-    // // TODO: Support the the user changing the [videoid] attribute
-    // attributeChangedCallback() {
-    // }
 
     /**
      * Add a <link rel={preload | preconnect} ...> to the head
@@ -116,10 +89,30 @@ class LiteYTEmbed extends HTMLElement {
         // eslint-disable-next-line default-case
         switch (name){
             case 'videoid':
+                // Gotta encode the untrusted value
+                // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
                 this.videoId = encodeURIComponent(newValue);
+
+                /**
+                 * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
+                 * There is much internet debate on the reliability of thumbnail URLs. Weak consensus is that you
+                 * cannot rely on anything and have to use the YouTube Data API.
+                 *
+                 * amp-youtube also eschews using the API, so they just try sddefault with a hqdefault fallback:
+                 *   https://github.com/ampproject/amphtml/blob/6039a6317325a8589586e72e4f98c047dbcbf7ba/extensions/amp-youtube/0.1/amp-youtube.js#L498-L537
+                 * For now I'm gonna go with this confident (lol) assertion: https://stackoverflow.com/a/20542029, though I'll use `i.ytimg` to optimize for origin reuse.
+                 *
+                 * Worth noting that sddefault is _higher_ resolution than hqdefault. Naming is hard. ;)
+                 * From my own testing, it appears that hqdefault is ALWAYS there sddefault is missing for ~10% of videos
+                 *
+                 * TODO: Do the sddefault->hqdefault fallback
+                 *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
+                 * TODO: Consider using webp if supported, falling back to jpg
+                 */
                 this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+                // Warm the connection for the poster image
                 LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
-                break;
+                // TODO: support dynamically setting the attribute via attributeChangedCallback                break;
         }
     }
 }
