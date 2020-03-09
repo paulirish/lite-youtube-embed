@@ -3,7 +3,7 @@
 > #### Renders faster than a sneeze.
 
 Provide videos with a supercharged focus on visual performance.
-This custom element renders just like the real thing but approximately 224X faster.
+This custom element renders just like the real thing but approximately 224× faster.
 
 ## Comparison
 
