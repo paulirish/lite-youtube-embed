@@ -51,4 +51,7 @@ More coming soon.
 
 ## Other lite embeds
 
-- Using Vimeo? Check out [`<lite-vimeo>`](https://github.com/luwes/lite-vimeo-embed) by [Wesley Luyten](https://github.com/luwes).
+- Youtube: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) - Shadow-DOM-using port of paulirish/lite-youtube-embed
+- Vimeo: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
+- Vimeo: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
+- Intercom, Help Scout, Drift, & Facebook Messenger: [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
