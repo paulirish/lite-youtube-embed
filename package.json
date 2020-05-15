@@ -1,6 +1,6 @@
 {
   "name": "lite-youtube-embed",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A faster youtube embed.",
   "license": "Apache-2.0",
   "main": "src/lite-yt-embed.js",
