@@ -17,7 +17,6 @@ class LiteYTEmbed extends HTMLElement {
         // Gotta encode the untrusted value
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
         this.videoId = encodeURIComponent(this.getAttribute('videoid'));
-
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
          * There is much internet debate on the reliability of thumbnail URLs. Weak consensus is that you
@@ -38,6 +37,19 @@ class LiteYTEmbed extends HTMLElement {
         // Warm the connection for the poster image
         LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
         // TODO: support dynamically setting the attribute via attributeChangedCallback
+    }
+
+    fetchYoutubeAPI(cb) {
+        var tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        tag.async = true;
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        tag.onload = () => {
+            YT.ready(() => {
+                if(cb) cb();
+            })
+        };
     }
 
     connectedCallback() {
@@ -98,13 +110,30 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
-    addIframe(){
-        const iframeHTML = `
-<iframe width="560" height="315" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  src="https://www.youtube-nocookie.com/embed/${this.videoId}?autoplay=1"
-></iframe>`;
-        this.insertAdjacentHTML('beforeend', iframeHTML);
+    onYouTubeIframeAPIReady() {
+        const videoWrapper = document.createElement('div')
+        videoWrapper.id = this.videoId;
+        document.body.appendChild(videoWrapper);
+        this.insertAdjacentElement('beforeend', videoWrapper);
+
+        new YT.Player(videoWrapper, {
+            width: '100%',
+            videoId: this.videoId,
+            playerVars: { 'autoplay': 1, 'playsinline': 1 },
+            events: {
+                'onReady': (event) => {
+                    event.target.playVideo();
+                }
+            }
+        });
+    }
+
+   addIframe(){
+        if(typeof(YT) == 'undefined' || typeof(YT.Player) == 'undefined') {
+            this.fetchYoutubeAPI(this.onYouTubeIframeAPIReady.bind(this));
+        }
+
+        // Keeping the default implementation for iframes
         this.classList.add('lyt-activated');
     }
 }
