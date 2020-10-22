@@ -5,6 +5,8 @@
 Provide videos with a supercharged focus on visual performance.
 This custom element renders just like the real thing but approximately 224× faster.
 
+Demo: https://paulirish.github.io/lite-youtube-embed/
+
 ## Comparison
 
 | Normal `<iframe>` YouTube embed |  `lite-youtube` |
