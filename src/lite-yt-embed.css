@@ -55,15 +55,6 @@ lite-youtube > .lty-playbtn {
     filter: grayscale(100%);
     transition: filter .1s cubic-bezier(0, 0, 0.2, 1);
     border: none;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-appearance: none;
-    cursor: pointer;
-    outline: none;
 }
 
 lite-youtube:hover > .lty-playbtn,
