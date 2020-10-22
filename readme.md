@@ -33,9 +33,9 @@ To use the custom embed you will need to:
 <lite-youtube videoid="ogfYd705cRs"></lite-youtube>
 ```
 
-### Custom Player API Parameters
+### Custom Player Parameters
 
-YouTube supports a variety of [iframe player parameters](https://developers.google.com/youtube/player_parameters#Parameters).
+YouTube supports a variety of [player parameters](https://developers.google.com/youtube/player_parameters#Parameters) to control the iframe's behavior and appearance.
 These may be applied by using the `params` attribute.
 
 ```html
