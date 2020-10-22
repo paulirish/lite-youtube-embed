@@ -66,7 +66,6 @@ class LiteYTEmbed extends HTMLElement {
         if (as) {
             linkElem.as = as;
         }
-        linkElem.crossOrigin = 'anonymous';
         document.head.append(linkElem);
     }
 
