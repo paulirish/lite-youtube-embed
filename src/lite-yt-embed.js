@@ -11,9 +11,7 @@
  *   https://github.com/vb/lazyframe
  */
 class LiteYTEmbed extends HTMLElement {
-    constructor() {
-        super();
-
+    connectedCallback() {
         // Gotta encode the untrusted value
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
         this.videoId = encodeURIComponent(this.getAttribute('videoid'));
@@ -38,10 +36,8 @@ class LiteYTEmbed extends HTMLElement {
         this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
         // Warm the connection for the poster image
         LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
-        // TODO: support dynamically setting the attribute via attributeChangedCallback
-    }
 
-    connectedCallback() {
+
         this.style.backgroundImage = `url("${this.posterUrl}")`;
 
         let playBtn = this.querySelector('.lty-playbtn');
@@ -77,7 +73,6 @@ class LiteYTEmbed extends HTMLElement {
         if (as) {
             linkElem.as = as;
         }
-        linkElem.crossorigin = true;
         document.head.append(linkElem);
     }
 
@@ -106,10 +101,12 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     addIframe(){
+        const params = new URLSearchParams(this.getAttribute('params') || []);
+        params.append('autoplay', '1');
         const iframeHTML = `
 <iframe width="560" height="315" frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  src="https://www.youtube-nocookie.com/embed/${this.videoId}?autoplay=1"
+  src="https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}"
 ></iframe>`;
         this.insertAdjacentHTML('beforeend', iframeHTML);
         this.classList.add('lyt-activated');
