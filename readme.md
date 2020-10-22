@@ -1,4 +1,4 @@
-# Lite YouTube Embed
+# Lite YouTube Embed [![NPM lite-youtube-embed package](https://img.shields.io/npm/v/lite-youtube-embed.svg)](https://npmjs.org/package/lite-youtube-embed)
 
 > #### Renders faster than a sneeze.
 
@@ -15,23 +15,29 @@ Demo: https://paulirish.github.io/lite-youtube-embed/
 
 ## Basic usage
 
-To use the custom embed you will need to:
+Use the [`lite-youtube-embed` npm package](https://www.npmjs.com/package/lite-youtube-embed) or download from this repo and use `src/`.
+
+To use the custom element you will need to:
 
 1. Include the stylesheet within your application
 1. Include the script as well
-1. Use the element `lite-youtube` markup and scripting
+1. Use the `lite-youtube` tag via HTML or JS.
 1. Be happy that you're providing a better user experience to your visitors
 
 ```html
-<!-- Include the stylesheet, this could be direct from the package or bundled -->
+<!-- Include the CSS & JS.. (This could be direct from the package or bundled) -->
 <link rel="stylesheet" href="node_modules/lite-youtube-embed/src/lite-yt-embed.css" />
 
-<!-- Include the custom element script -->
 <script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
 
-<!-- Use the element. You may define uses before the scripts are parsed and executed. -->
+<!-- Use the element. You may use it before the lite-yt-embed JS is executed. -->
 <lite-youtube videoid="ogfYd705cRs"></lite-youtube>
 ```
+
+<br>
+
+Privacy note: lite-youtube uses youtube-nocookie.com instead of youtube.com in order
+to be more privacy friendly for end users.
 
 ### Custom Player Parameters
 
@@ -46,12 +52,6 @@ These may be applied by using the `params` attribute.
 
 Note that lite-youtube uses `autoplay=1` by default.
 
-## Notes
-
-Note that the embed uses youtube-nocookie.com instead of youtube.com in order
-to be more privacy friendly for end users.
-
-
 ## Pro-usage
 
 Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
@@ -62,7 +62,6 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 </lite-youtube>
 ```
 
-More coming soon.
 
 ## Other lite embeds
 
