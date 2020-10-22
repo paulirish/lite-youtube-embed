@@ -11,11 +11,6 @@
  *   https://github.com/vb/lazyframe
  */
 class LiteYTEmbed extends HTMLElement {
-    constructor() {
-        super();
-        // TODO: support dynamically setting the attribute via attributeChangedCallback
-    }
-
     connectedCallback() {
         // Gotta encode the untrusted value
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
