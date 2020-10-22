@@ -31,7 +31,7 @@ To use the custom element you will need to:
 <script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
 
 <!-- Use the element. You may use it before the lite-yt-embed JS is executed. -->
-<lite-youtube videoid="ogfYd705cRs"></lite-youtube>
+<lite-youtube videoid="ogfYd705cRs" playlabel="Play: Keynote (Google I/O '18)"></lite-youtube>
 ```
 
 <br>
@@ -58,7 +58,7 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 
 ```html
 <lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-	<div class="lty-playbtn"></div>
+	<button type="button" class="lty-playbtn" title="Play: Keynote (Google I/O '18)"></button>
 </lite-youtube>
 ```
 
