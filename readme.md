@@ -33,19 +33,22 @@ To use the custom embed you will need to:
 <lite-youtube videoid="ogfYd705cRs"></lite-youtube>
 ```
 
-### Additional Parameters
+### Custom Player API Parameters
 
-YouTube supports a variety of different [player parameters](https://developers.google.com/youtube/player_parameters).
-These may be applied by using the `params` property and attribute.
-The `autoplay` attribute defaults to `1` for the lite embed element.
+YouTube supports a variety of [iframe player parameters](https://developers.google.com/youtube/player_parameters#Parameters).
+These may be applied by using the `params` attribute.
 
 ```html
-<!-- Example to show a video player without controls -->
-<lite-youtube videoid="ogfYd705cRs" params="controls=0"></lite-youtube>
+<!-- Example to show a video player without controls, starting at 10s in, ending at 20s,
+     with modest branding *and* enabling the JS API -->
+<lite-youtube videoid="ogfYd705cRs" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
+```
+
+Note that lite-youtube uses `autoplay=1` by default.
 
 ## Notes
 
-Note that the embed will be using youtube-nocookie.com instead of youtube.com in order
+Note that the embed uses youtube-nocookie.com instead of youtube.com in order
 to be more privacy friendly for end users.
 
 
