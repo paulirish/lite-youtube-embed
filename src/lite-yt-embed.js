@@ -99,7 +99,7 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     addIframe(){
-        const params = new URLSearchParams(this.getAttribute('params'));
+        const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
         const iframeHTML = `
 <iframe width="560" height="315" frameborder="0"
