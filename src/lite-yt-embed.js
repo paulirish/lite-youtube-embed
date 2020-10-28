@@ -16,7 +16,6 @@ class LiteYTEmbed extends HTMLElement {
 		// https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
 		this.videoId = encodeURIComponent(this.getAttribute('videoid'));
 		const playLabel = this.getAttribute('playlabel');
-		const posterImage = this.getAttribute('posterimage');
 		this.playLabel = playLabel ? encodeURIComponent(playLabel) : 'Play';
 
 		/**
@@ -35,6 +34,7 @@ class LiteYTEmbed extends HTMLElement {
 		 *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
 		 * TODO: Consider using webp if supported, falling back to jpg
 		 */
+		const posterImage = this.getAttribute('posterimage');
 		this.posterUrl = posterImage
 			? posterImage
 			: `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
