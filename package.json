@@ -1,32 +1,39 @@
 {
-  "name": "lite-youtube-embed",
-  "version": "0.1.2",
-  "description": "A faster youtube embed.",
-  "license": "Apache-2.0",
-  "main": "src/lite-yt-embed.js",
-  "style": "src/lite-yt-embed.css",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paulirish/lite-youtube-embed.git"
-  },
-  "keywords": [
-    "youtube",
-    "custom element",
-    "web component"
-  ],
-  "author": "Paul Irish",
-  "bugs": {
-    "url": "https://github.com/paulirish/lite-youtube-embed/issues"
-  },
-  "homepage": "https://github.com/paulirish/lite-youtube-embed#readme",
-  "readme": "readme.md",
-  "files": [
-    "src/**",
-    "package.json",
-    "package-lock.json",
-    "readme.md"
-  ],
-  "devDependencies": {
-    "microbundle": "^0.12.4"
-  }
+	"name": "lite-youtube-embed",
+	"version": "0.1.2",
+	"description": "A faster youtube embed.",
+	"license": "Apache-2.0",
+	"module": "dist/lite-yt-embed.js",
+	"umd:main": "dist/lite-yt-embed.umd.js",
+	"source": "src/lite-yt-embed.js",
+	"style": "src/lite-yt-embed.css",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/paulirish/lite-youtube-embed.git"
+	},
+	"scripts": {
+		"build:umd": "microbundle -f umd -o dist/lite-yt-embed.umd.js",
+		"build:modern": "microbundle -f modern -o dist/lite-yt-embed.js",
+		"build": "npm run build:umd && npm run build:modern"
+	},
+	"keywords": [
+		"youtube",
+		"custom element",
+		"web component"
+	],
+	"author": "Paul Irish",
+	"bugs": {
+		"url": "https://github.com/paulirish/lite-youtube-embed/issues"
+	},
+	"homepage": "https://github.com/paulirish/lite-youtube-embed#readme",
+	"readme": "readme.md",
+	"files": [
+		"src/**",
+		"package.json",
+		"package-lock.json",
+		"readme.md"
+	],
+	"devDependencies": {
+		"microbundle": "^0.12.4"
+	}
 }
