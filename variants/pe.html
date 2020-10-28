@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>lite-youtube-embed - progressively enhanced</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../src/lite-yt-embed.css" />
-</head>
-<body>
-<h1>progressively enhanced</h1>
-<p>After 2 seconds, the JS is executed and custom element defined.</p>
-<p id="done">...</p>
+	<head>
+		<title>lite-youtube-embed - progressively enhanced</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../src/lite-yt-embed.css" />
+	</head>
+	<body>
+		<h1>progressively enhanced</h1>
+		<p>After 2 seconds, the JS is executed and custom element defined.</p>
+		<p id="done">...</p>
 
-<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-  <button type="button" class="lty-playbtn" title="Play: Keynote (Google I/O '18)">
-  </button>
-</lite-youtube>
+		<lite-youtube
+			videoid="ogfYd705cRs"
+			posterimage="https://placehold.it/1200x800"
+			style="background-image: url('https://placehold.it/1200x800')"
+		>
+			<button
+				type="button"
+				class="lty-playbtn"
+				title="Play: Keynote (Google I/O '18)"
+			></button>
+		</lite-youtube>
 
-<script>
-// artificial delay somewhat simulates a script[defer]
-setTimeout(_ => {
-  const elem = document.createElement('script');
-  elem.src = '../src/lite-yt-embed.js';
-  document.head.append(elem);
+		<script>
+			// artificial delay somewhat simulates a script[defer]
+			setTimeout((_) => {
+				const elem = document.createElement('script');
+				elem.src = '../src/lite-yt-embed.js';
+				document.head.append(elem);
 
-  document.querySelector('#done').textContent = 'Script complete.'
-}, 2000);
-</script>
-
-</body>
+				document.querySelector('#done').textContent =
+					'Script complete.';
+			}, 2000);
+		</script>
+	</body>
 </html>
