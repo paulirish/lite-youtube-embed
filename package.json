@@ -25,5 +25,8 @@
     "package.json",
     "package-lock.json",
     "readme.md"
-  ]
+  ],
+  "devDependencies": {
+    "microbundle": "^0.12.4"
+  }
 }
