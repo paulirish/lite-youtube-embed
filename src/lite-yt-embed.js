@@ -15,8 +15,13 @@ class LiteYTEmbed extends HTMLElement {
         // Gotta encode the untrusted value
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
         this.videoId = encodeURIComponent(this.getAttribute('videoid'));
-        const playLabel = this.getAttribute('playlabel');
-        this.playLabel = playLabel ? encodeURIComponent(playLabel) : 'Play';
+
+        let playBtn = this.querySelector('.lty-playbtn');
+        const playLabelAttr = this.getAttribute('playlabel');
+        // A label for the button takes priority over a [playlabel] attribute on the custom-element
+        const playLabelText = playBtn ?  playBtn.textContent.trim() :
+            playLabelAttr ? playLabelAttr : 'Play';
+        this.playLabel = encodeURIComponent(playLabelText);
 
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -40,8 +45,6 @@ class LiteYTEmbed extends HTMLElement {
 
 
         this.style.backgroundImage = `url("${this.posterUrl}")`;
-
-        let playBtn = this.querySelector('.lty-playbtn');
 
         if (!playBtn) {
             playBtn = document.createElement('button');
@@ -105,7 +108,7 @@ class LiteYTEmbed extends HTMLElement {
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
         const iframeHTML = `
-<iframe width="560" height="315" frameborder="0"
+<iframe width="560" height="315" frameborder="0" title="${decodeURIComponent(this.playLabel)}"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
   src="https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}"
 ></iframe>`;
