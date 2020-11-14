@@ -19,8 +19,8 @@ class LiteYTEmbed extends HTMLElement {
         let playBtn = this.querySelector('.lty-playbtn');
         const playLabelAttr = this.getAttribute('playlabel');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
-        const playLabelText = playBtn ?  playBtn.textContent.trim() :
-            playLabelAttr ? playLabelAttr : 'Play';
+        let playLabelText = playBtn && playBtn.textContent.trim();
+        playLabelText = playLabelText || (playLabelAttr ? playLabelAttr : 'Play');
         this.playLabel = encodeURIComponent(playLabelText);
 
         /**
@@ -50,9 +50,9 @@ class LiteYTEmbed extends HTMLElement {
             playBtn = document.createElement('button');
             playBtn.type = 'button';
             playBtn.classList.add('lty-playbtn');
-            playBtn.title = decodeURIComponent(this.playLabel);
             this.append(playBtn);
         }
+        playBtn.innerHTML = `<span class="lyt-visually-hidden">${decodeURIComponent(this.playLabel)}</span>`;
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
