@@ -114,6 +114,9 @@ class LiteYTEmbed extends HTMLElement {
 ></iframe>`;
         this.insertAdjacentHTML('beforeend', iframeHTML);
         this.classList.add('lyt-activated');
+
+        // Set focus for a11y
+        this.querySelector('iframe').focus();
     }
 }
 // Register custome element
