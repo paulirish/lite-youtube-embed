@@ -15,8 +15,13 @@ class LiteYTEmbed extends HTMLElement {
         // Gotta encode the untrusted value
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
         this.videoId = encodeURIComponent(this.getAttribute('videoid'));
-        const playLabel = this.getAttribute('playlabel');
-        this.playLabel = playLabel ? encodeURIComponent(playLabel) : 'Play';
+
+        let playBtn = this.querySelector('.lty-playbtn');
+        const playLabelAttr = this.getAttribute('playlabel');
+        // A label for the button takes priority over a [playlabel] attribute on the custom-element
+        let playLabelText = playBtn && playBtn.textContent.trim();
+        playLabelText = playLabelText || (playLabelAttr ? playLabelAttr : 'Play');
+        this.playLabel = encodeURIComponent(playLabelText);
 
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -41,15 +46,13 @@ class LiteYTEmbed extends HTMLElement {
 
         this.style.backgroundImage = `url("${this.posterUrl}")`;
 
-        let playBtn = this.querySelector('.lty-playbtn');
-
         if (!playBtn) {
             playBtn = document.createElement('button');
             playBtn.type = 'button';
             playBtn.classList.add('lty-playbtn');
-            playBtn.title = decodeURIComponent(this.playLabel);
             this.append(playBtn);
         }
+        playBtn.innerHTML = `<span class="lyt-visually-hidden">${decodeURIComponent(this.playLabel)}</span>`;
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
@@ -105,12 +108,15 @@ class LiteYTEmbed extends HTMLElement {
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
         const iframeHTML = `
-<iframe width="560" height="315" frameborder="0"
+<iframe width="560" height="315" title="${decodeURIComponent(this.playLabel)}"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
   src="https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}"
 ></iframe>`;
         this.insertAdjacentHTML('beforeend', iframeHTML);
         this.classList.add('lyt-activated');
+
+        // Set focus for a11y
+        this.querySelector('iframe').focus();
     }
 }
 // Register custome element
