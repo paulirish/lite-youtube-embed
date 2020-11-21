@@ -12,15 +12,11 @@
  */
 class LiteYTEmbed extends HTMLElement {
     connectedCallback() {
-        // Gotta encode the untrusted value
-        // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
-        this.videoId = encodeURIComponent(this.getAttribute('videoid'));
+        this.videoId = this.getAttribute('videoid');
 
         let playBtnEl = this.querySelector('.lty-playbtn');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
-        let playLabelText = playBtnEl && playBtnEl.textContent.trim();
-        playLabelText = playLabelText || this.getAttribute('playlabel') || 'Play';
-        this.playLabel = encodeURIComponent(playLabelText);
+        this.playLabel = (playBtnEl && playBtnEl.textContent.trim()) || this.getAttribute('playlabel') || 'Play';
 
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -44,6 +40,7 @@ class LiteYTEmbed extends HTMLElement {
 
         this.style.backgroundImage = `url("${this.posterUrl}")`;
 
+        // Set up play button, and it's visually hidden label
         if (!playBtnEl) {
             playBtnEl = document.createElement('button');
             playBtnEl.type = 'button';
@@ -53,7 +50,7 @@ class LiteYTEmbed extends HTMLElement {
         if (!playBtnEl.textContent) {
             const playBtnLabelEl = document.createElement('span');
             playBtnLabelEl.className = 'lyt-visually-hidden';
-            playBtnLabelEl.textContent = decodeURIComponent(this.playLabel);
+            playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }
 
@@ -114,7 +111,8 @@ class LiteYTEmbed extends HTMLElement {
         const iframeEl = document.createElement('iframe');
         iframeEl.width = 560;
         iframeEl.height = 315;
-        iframeEl.title = decodeURIComponent(this.playLabel);
+        // No encoding necessary as [title] is safe. https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#:~:text=Safe%20HTML%20Attributes%20include
+        iframeEl.title = this.playLabel;
         iframeEl.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
         iframeEl.allowFullscreen = true;
         iframeEl.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}`;
