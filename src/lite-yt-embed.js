@@ -20,7 +20,7 @@ class LiteYTEmbed extends HTMLElement {
         const playLabelAttr = this.getAttribute('playlabel');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
         let playLabelText = playBtn && playBtn.textContent.trim();
-        playLabelText = playLabelText || (playLabelAttr ? playLabelAttr : 'Play');
+        playLabelText = playLabelText || playLabelAttr || 'Play';
         this.playLabel = encodeURIComponent(playLabelText);
 
         /**
@@ -52,7 +52,11 @@ class LiteYTEmbed extends HTMLElement {
             playBtn.classList.add('lty-playbtn');
             this.append(playBtn);
         }
-        playBtn.innerHTML = `<span class="lyt-visually-hidden">${decodeURIComponent(this.playLabel)}</span>`;
+        // TODO: handle PE case where the span is already here
+        const playBtnLabelEl = document.createElement('span');
+        playBtnLabelEl.className = 'lyt-visually-hidden';
+        playBtnLabelEl.textContent = decodeURIComponent(this.playLabel);
+        playBtn.append(playBtnLabelEl);
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
@@ -107,12 +111,16 @@ class LiteYTEmbed extends HTMLElement {
     addIframe(){
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
-        const iframeHTML = `
-<iframe width="560" height="315" title="${decodeURIComponent(this.playLabel)}"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  src="https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}"
-></iframe>`;
-        this.insertAdjacentHTML('beforeend', iframeHTML);
+
+        const iframeEl = document.createElement('iframe');
+        iframeEl.width = 560;
+        iframeEl.height = 315;
+        iframeEl.title = decodeURIComponent(this.playLabel);
+        iframeEl.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+        iframeEl.allowFullscreen = true;
+        iframeEl.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}`;
+        this.append(iframeEl);
+
         this.classList.add('lyt-activated');
 
         // Set focus for a11y
