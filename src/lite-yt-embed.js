@@ -16,11 +16,10 @@ class LiteYTEmbed extends HTMLElement {
         // https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-2---attribute-escape-before-inserting-untrusted-data-into-html-common-attributes
         this.videoId = encodeURIComponent(this.getAttribute('videoid'));
 
-        let playBtn = this.querySelector('.lty-playbtn');
-        const playLabelAttr = this.getAttribute('playlabel');
+        let playBtnEl = this.querySelector('.lty-playbtn');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
-        let playLabelText = playBtn && playBtn.textContent.trim();
-        playLabelText = playLabelText || playLabelAttr || 'Play';
+        let playLabelText = playBtnEl && playBtnEl.textContent.trim();
+        playLabelText = playLabelText || this.getAttribute('playlabel') || 'Play';
         this.playLabel = encodeURIComponent(playLabelText);
 
         /**
@@ -43,20 +42,20 @@ class LiteYTEmbed extends HTMLElement {
         // Warm the connection for the poster image
         LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
 
-
         this.style.backgroundImage = `url("${this.posterUrl}")`;
 
-        if (!playBtn) {
-            playBtn = document.createElement('button');
-            playBtn.type = 'button';
-            playBtn.classList.add('lty-playbtn');
-            this.append(playBtn);
+        if (!playBtnEl) {
+            playBtnEl = document.createElement('button');
+            playBtnEl.type = 'button';
+            playBtnEl.classList.add('lty-playbtn');
+            this.append(playBtnEl);
         }
-        // TODO: handle PE case where the span is already here
-        const playBtnLabelEl = document.createElement('span');
-        playBtnLabelEl.className = 'lyt-visually-hidden';
-        playBtnLabelEl.textContent = decodeURIComponent(this.playLabel);
-        playBtn.append(playBtnLabelEl);
+        if (!playBtnEl.textContent) {
+            const playBtnLabelEl = document.createElement('span');
+            playBtnLabelEl.className = 'lyt-visually-hidden';
+            playBtnLabelEl.textContent = decodeURIComponent(this.playLabel);
+            playBtnEl.append(playBtnLabelEl);
+        }
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
@@ -75,13 +74,13 @@ class LiteYTEmbed extends HTMLElement {
      * Add a <link rel={preload | preconnect} ...> to the head
      */
     static addPrefetch(kind, url, as) {
-        const linkElem = document.createElement('link');
-        linkElem.rel = kind;
-        linkElem.href = url;
+        const linkEl = document.createElement('link');
+        linkEl.rel = kind;
+        linkEl.href = url;
         if (as) {
-            linkElem.as = as;
+            linkEl.as = as;
         }
-        document.head.append(linkElem);
+        document.head.append(linkEl);
     }
 
     /**
@@ -108,7 +107,7 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
-    addIframe(){
+    addIframe() {
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
 
@@ -116,7 +115,7 @@ class LiteYTEmbed extends HTMLElement {
         iframeEl.width = 560;
         iframeEl.height = 315;
         iframeEl.title = decodeURIComponent(this.playLabel);
-        iframeEl.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+        iframeEl.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
         iframeEl.allowFullscreen = true;
         iframeEl.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}`;
         this.append(iframeEl);
