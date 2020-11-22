@@ -33,7 +33,7 @@ class LiteYTEmbed extends HTMLElement {
 
         this.style.backgroundImage = `url("${this.posterUrl}")`;
 
-        // Set up play button, and it's visually hidden label
+        // Set up play button, and its visually hidden label
         if (!playBtnEl) {
             playBtnEl = document.createElement('button');
             playBtnEl.type = 'button';
@@ -108,7 +108,9 @@ class LiteYTEmbed extends HTMLElement {
         iframeEl.title = this.playLabel;
         iframeEl.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
         iframeEl.allowFullscreen = true;
-        iframeEl.src = `https://www.youtube-nocookie.com/embed/${this.videoId}?${params.toString()}`;
+        // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL
+        // https://stackoverflow.com/q/64959723/89484
+        iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;
         this.append(iframeEl);
 
         this.classList.add('lyt-activated');
