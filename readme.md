@@ -64,6 +64,9 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 </lite-youtube>
 ```
 
+## Libraries Using Other Frameworks
+
+- [React Lite YouTube Embed](https://github.com/kylemocode/react-lite-yt-embed)
 
 ## Other lite embeds
 
