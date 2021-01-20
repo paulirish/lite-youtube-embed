@@ -46,6 +46,7 @@ lite-youtube > .lty-playbtn {
     width: 68px;
     height: 48px;
     position: absolute;
+    cursor: pointer;
     transform: translate3d(-50%, -50%, 0);
     top: 50%;
     left: 50%;
