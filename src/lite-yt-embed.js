@@ -27,11 +27,13 @@ class LiteYTEmbed extends HTMLElement {
          *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
          * TODO: Consider using webp if supported, falling back to jpg
          */
-        this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
-        // Warm the connection for the poster image
-        LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
+        if (!this.style.backgroundImage) {
+          this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+          // Warm the connection for the poster image
+          LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
 
-        this.style.backgroundImage = `url("${this.posterUrl}")`;
+          this.style.backgroundImage = `url("${this.posterUrl}")`;
+        }
 
         // Set up play button, and its visually hidden label
         if (!playBtnEl) {
@@ -119,5 +121,5 @@ class LiteYTEmbed extends HTMLElement {
         this.querySelector('iframe').focus();
     }
 }
-// Register custome element
+// Register custom element
 customElements.define('lite-youtube', LiteYTEmbed);
