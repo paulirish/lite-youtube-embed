@@ -11,7 +11,7 @@
  *   https://github.com/vb/lazyframe
  */
 class LiteYTEmbed extends HTMLElement {
-    connectedCallback() {
+    async connectedCallback() {
         this.videoId = this.getAttribute('videoid');
 
         let playBtnEl = this.querySelector('.lty-playbtn');
@@ -25,9 +25,13 @@ class LiteYTEmbed extends HTMLElement {
          *
          * TODO: Do the sddefault->hqdefault fallback
          *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
-         * TODO: Consider using webp if supported, falling back to jpg
          */
-        this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+        const isWebpSupported = await LiteYTEmbed.checkWebPSupport()
+  
+        this.posterUrl = isWebpSupported
+          ? `https://i.ytimg.com/vi_webp/${this.videoId}/hqdefault.webp`
+          : `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+    
         // Warm the connection for the poster image
         LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
 
@@ -71,6 +75,26 @@ class LiteYTEmbed extends HTMLElement {
             linkEl.as = as;
         }
         document.head.append(linkEl);
+    }
+
+    /**
+     * Check WebP support for the user
+     */
+    static checkWebPSupport() {
+      if (typeof LiteYTEmbed.hasWebPSupport !== 'undefined')
+        return Promise.resolve(LiteYTEmbed.hasWebPSupport);
+  
+      return new Promise(resolve => {
+        const resolveAndSaveValue = value => {
+          LiteYTEmbed.hasWebPSupport = value;
+          resolve(value);
+        }
+  
+        const img = new Image();
+        img.onload = () => resolveAndSaveValue(true);
+        img.onerror = () => resolveAndSaveValue(false);
+        img.src = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+      })
     }
 
     /**
