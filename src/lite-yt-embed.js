@@ -26,16 +26,19 @@ class LiteYTEmbed extends HTMLElement {
          * TODO: Do the sddefault->hqdefault fallback
          *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
          */
-        const isWebpSupported = await LiteYTEmbed.checkWebPSupport()
+         const isWebpSupported = await LiteYTEmbed.checkWebPSupport()
   
-        this.posterUrl = isWebpSupported
-          ? `https://i.ytimg.com/vi_webp/${this.videoId}/hqdefault.webp`
-          : `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
-    
-        // Warm the connection for the poster image
-        LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
+         this.posterUrl = isWebpSupported
+           ? `https://i.ytimg.com/vi_webp/${this.videoId}/hqdefault.webp`
+           : `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
 
-        this.style.backgroundImage = `url("${this.posterUrl}")`;
+        if (!this.style.backgroundImage) {
+          this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+          // Warm the connection for the poster image
+          LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
+
+          this.style.backgroundImage = `url("${this.posterUrl}")`;
+        }
 
         // Set up play button, and its visually hidden label
         if (!playBtnEl) {
@@ -143,5 +146,6 @@ class LiteYTEmbed extends HTMLElement {
         this.querySelector('iframe').focus();
     }
 }
-// Register custome element
+
+// Register custom element
 customElements.define('lite-youtube', LiteYTEmbed);
