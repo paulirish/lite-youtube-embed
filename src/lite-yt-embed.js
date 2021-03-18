@@ -44,7 +44,7 @@ class LiteYTEmbed extends HTMLElement {
             // in case we want to add again preload after detecting 
             // const preload = LiteYTEmbed.checkWebPSupport() ? webp : jpg
             // LiteYTEmbed.addPrefetch('preload', preload, 'image');
-            LiteYTEmbed.addPrefetch('preload', img, 'image', 'image/webp')
+            LiteYTEmbed.addPrefetch('preload', webp, 'image', 'image/webp')
 
             picture.append(source)
             picture.append(img)
