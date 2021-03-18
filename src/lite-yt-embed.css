@@ -22,6 +22,7 @@ lite-youtube::before {
     padding-bottom: 50px;
     width: 100%;
     transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+    z-index: 1;
 }
 
 /* responsive iframe with a 16:9 aspect ratio
@@ -39,6 +40,21 @@ lite-youtube > iframe {
     top: 0;
     left: 0;
     border: 0;
+}
+
+/* images */
+lite-youtube > picture {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+lite-youtube > picture img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
 }
 
 /* play button */

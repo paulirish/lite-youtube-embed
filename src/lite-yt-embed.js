@@ -26,18 +26,29 @@ class LiteYTEmbed extends HTMLElement {
          * TODO: Do the sddefault->hqdefault fallback
          *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
          */
-         const isWebpSupported = await LiteYTEmbed.checkWebPSupport()
-  
-         this.posterUrl = isWebpSupported
-           ? `https://i.ytimg.com/vi_webp/${this.videoId}/hqdefault.webp`
-           : `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+        if (this.style.backgroundImage) {
+          LiteYTEmbed.addPrefetch('preload', this.style.backgroundImage, 'image');
+        } else {
+            const picture = document.createElement('picture')
+            const img = document.createElement('img')
+            const source = document.createElement('source')
 
-        if (!this.style.backgroundImage) {
-          this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
-          // Warm the connection for the poster image
-          LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
+            const jpg = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`
+            const webp = `https://i.ytimg.com/vi_webp/${this.videoId}/hqdefault.webp`
 
-          this.style.backgroundImage = `url("${this.posterUrl}")`;
+            img.src = jpg
+            source.srcset = webp
+            source.type = 'image/webp'
+
+            // Warm the connection for the poster image
+            // in case we want to add again preload after detecting 
+            // const preload = LiteYTEmbed.checkWebPSupport() ? webp : jpg
+            // LiteYTEmbed.addPrefetch('preload', preload, 'image');
+            LiteYTEmbed.addPrefetch('preload', img, 'image', 'image/webp')
+
+            picture.append(source)
+            picture.append(img)
+            this.append(picture)
         }
 
         // Set up play button, and its visually hidden label
@@ -47,6 +58,7 @@ class LiteYTEmbed extends HTMLElement {
             playBtnEl.classList.add('lty-playbtn');
             this.append(playBtnEl);
         }
+
         if (!playBtnEl.textContent) {
             const playBtnLabelEl = document.createElement('span');
             playBtnLabelEl.className = 'lyt-visually-hidden';
@@ -70,34 +82,13 @@ class LiteYTEmbed extends HTMLElement {
     /**
      * Add a <link rel={preload | preconnect} ...> to the head
      */
-    static addPrefetch(kind, url, as) {
+    static addPrefetch(kind, url, as, type) {
         const linkEl = document.createElement('link');
         linkEl.rel = kind;
         linkEl.href = url;
-        if (as) {
-            linkEl.as = as;
-        }
+        if (as) linkEl.as = as;
+        if (type) linkEl.type = type;
         document.head.append(linkEl);
-    }
-
-    /**
-     * Check WebP support for the user
-     */
-    static checkWebPSupport() {
-      if (typeof LiteYTEmbed.hasWebPSupport !== 'undefined')
-        return Promise.resolve(LiteYTEmbed.hasWebPSupport);
-  
-      return new Promise(resolve => {
-        const resolveAndSaveValue = value => {
-          LiteYTEmbed.hasWebPSupport = value;
-          resolve(value);
-        }
-  
-        const img = new Image();
-        img.onload = () => resolveAndSaveValue(true);
-        img.onerror = () => resolveAndSaveValue(false);
-        img.src = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
-      })
     }
 
     /**
