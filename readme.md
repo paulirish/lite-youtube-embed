@@ -64,13 +64,10 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 </lite-youtube>
 ```
 
-## Libraries Using Other Frameworks
-
-- [React Lite YouTube Embed](https://github.com/kylemocode/react-lite-yt-embed)
-
 ## Other lite embeds
 
-- Youtube: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) - Shadow-DOM-using port of paulirish/lite-youtube-embed
-- Vimeo: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
-- Vimeo: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
-- Intercom, Help Scout, Drift, & Facebook Messenger: [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
+- React Lite YouTube Embed: [`kylemocode/react-lite-yt-embed`](https://github.com/kylemocode/react-lite-yt-embed)
+- &lt;lite-youtube&gt;: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube)
+- Lite Vimeo Embed: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
+- &lt;lite-vimeo&gt;: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
+- React Live Chat Loader (Intercom, Help Scout, Drift, Facebook Messenger): [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
