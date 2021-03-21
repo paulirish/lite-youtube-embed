@@ -52,7 +52,9 @@ These may be applied by using the `params` attribute.
 
 Note that lite-youtube uses `autoplay=1` by default.
 
-## Pro-usage
+Demo: https://paulirish.github.io/lite-youtube-embed/variants/params.html
+
+## Pro-usage: load w/ JS deferred (aka progressive enhancement)
 
 Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
 
@@ -63,6 +65,17 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
   </button>
 </lite-youtube>
 ```
+
+Demo: https://paulirish.github.io/lite-youtube-embed/variants/pe.html
+
+## Custom poster image
+
+If you want to provide a custom poster image, just set it as the background-image, and lite-yt will not overwrite it:
+```html
+<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');"></lite-youtube>
+```
+
+Demo: https://paulirish.github.io/lite-youtube-embed/variants/custom-poster-image.html
 
 ## Other lite embeds
 
