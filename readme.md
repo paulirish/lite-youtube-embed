@@ -83,3 +83,4 @@ Demo: https://paulirish.github.io/lite-youtube-embed/variants/custom-poster-imag
 - Vimeo: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
 - Vimeo: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
 - Intercom, Help Scout, Drift, & Facebook Messenger: [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
+- React port: [`react-lite-youtube-embed`](https://github.com/ibrahimcesar/react-lite-youtube-embed)
