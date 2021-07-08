@@ -83,3 +83,36 @@ lite-youtube.lyt-activated > .lty-playbtn {
     white-space: nowrap;
     width: 1px;
   }
+
+lite-youtube h1.lyt-title-text {
+    font-family: "YouTube Noto",Roboto,Arial,Helvetica,sans-serif;
+    color: hsla(0,0%,100%,.9);
+    text-align: left;
+    direction: ltr;
+    line-height: 1.3;
+    text-shadow: 0 0 2px rgba(0,0,0,.5);
+    vertical-align: top;
+    font-size: 18px;
+    font-weight: 400;
+    flex: 1;
+    padding-top:  21px;
+    padding-left:  20px;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    position:  relative;
+}
+@media(min-width: 800px){
+    lite-youtube h1.lyt-title-text {
+        font-size: 20px;
+    }
+}
+lite-youtube:hover h1.lyt-title-text {
+    color: white;
+}
+lite-youtube.lyt-activated > .lyt-title-text {
+    opacity: 0;
+    pointer-events: none;
+}

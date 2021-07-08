@@ -77,6 +77,13 @@ If you want to provide a custom poster image, just set it as the background-imag
 
 Demo: https://paulirish.github.io/lite-youtube-embed/variants/custom-poster-image.html
 
+## Add a video title
+
+If you want to display a title prior to loading the full embed, set the `title` attribute:
+```html
+<lite-youtube videoid="ogfYd705cRs" title="Keynote (Google I/O '18)"></lite-youtube>
+```
+
 ## Other lite embeds
 
 - Youtube: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) - Shadow-DOM-using port of paulirish/lite-youtube-embed
