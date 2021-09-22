@@ -84,7 +84,7 @@ lite-youtube.lyt-activated > .lty-playbtn {
     width: 1px;
   }
 
-lite-youtube h1.lyt-title-text {
+lite-youtube .lyt-title-text {
     font-family: "YouTube Noto",Roboto,Arial,Helvetica,sans-serif;
     color: hsla(0,0%,100%,.9);
     text-align: left;
@@ -105,11 +105,11 @@ lite-youtube h1.lyt-title-text {
     position:  relative;
 }
 @media(min-width: 800px){
-    lite-youtube h1.lyt-title-text {
+    lite-youtube .lyt-title-text {
         font-size: 20px;
     }
 }
-lite-youtube:hover h1.lyt-title-text {
+lite-youtube:hover .lyt-title-text {
     color: white;
 }
 lite-youtube.lyt-activated > .lyt-title-text {
