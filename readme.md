@@ -60,7 +60,7 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 
 ```html
 <lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-  <button type="button" class="lty-playbtn">
+  <button type="button" class="lty-playbtn" aria-label="Play video">
     <span class="lyt-visually-hidden">Play Video: Keynote (Google I/O '18)</span>
   </button>
 </lite-youtube>
