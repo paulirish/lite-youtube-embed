@@ -55,7 +55,7 @@ class LiteYTEmbed extends HTMLElement {
         // Once the user clicks, add the real iframe and drop our play button
         // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
-        this.addEventListener('click', e => this.addIframe());
+        this.addEventListener('click', this.addIframe);
     }
 
     // // TODO: Support the the user changing the [videoid] attribute
