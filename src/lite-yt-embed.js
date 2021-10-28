@@ -63,7 +63,7 @@ class LiteYTEmbed extends HTMLElement {
     // }
 
     /**
-     * Add a <link rel={preload | preconnect} ...> to the head
+     * Add a <link rel=preconnect ...> to the head
      */
     static addPrefetch(kind, url, as) {
         const linkEl = document.createElement('link');
