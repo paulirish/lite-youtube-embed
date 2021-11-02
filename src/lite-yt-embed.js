@@ -13,6 +13,7 @@
 class LiteYTEmbed extends HTMLElement {
     connectedCallback() {
         this.videoId = this.getAttribute('videoid');
+        this.lazy = this.getAttribute('lazy');
 
         let playBtnEl = this.querySelector('.lty-playbtn');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
@@ -29,8 +30,11 @@ class LiteYTEmbed extends HTMLElement {
          */
         if (!this.style.backgroundImage) {
           this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
-          // Warm the connection for the poster image
-          LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
+          
+          if (this.lazy === null) {
+              // Warm the connection for the poster image
+              LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
+          }
 
           this.style.backgroundImage = `url("${this.posterUrl}")`;
         }
