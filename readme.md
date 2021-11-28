@@ -1,9 +1,11 @@
-# Lite YouTube Embed
+# Lite YouTube Embed [![NPM lite-youtube-embed package](https://img.shields.io/npm/v/lite-youtube-embed.svg)](https://npmjs.org/package/lite-youtube-embed)
 
 > #### Renders faster than a sneeze.
 
 Provide videos with a supercharged focus on visual performance.
 This custom element renders just like the real thing but approximately 224× faster.
+
+Demo: https://paulirish.github.io/lite-youtube-embed/
 
 ## Comparison
 
@@ -13,45 +15,77 @@ This custom element renders just like the real thing but approximately 224× fas
 
 ## Basic usage
 
-To use the custom embed you will need to:
+Use the [`lite-youtube-embed` npm package](https://www.npmjs.com/package/lite-youtube-embed) or download from this repo and use `src/`.
+
+To use the custom element you will need to:
 
 1. Include the stylesheet within your application
 1. Include the script as well
-1. Use the element `lite-youtube` markup and scripting
+1. Use the `lite-youtube` tag via HTML or JS.
 1. Be happy that you're providing a better user experience to your visitors
 
 ```html
-<!-- Include the stylesheet, this could be direct from the package or bundled -->
+<!-- Include the CSS & JS.. (This could be direct from the package or bundled) -->
 <link rel="stylesheet" href="node_modules/lite-youtube-embed/src/lite-yt-embed.css" />
 
-<!-- Include the custom element script -->
 <script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
 
-<!-- Use the element. You may define uses before the scripts are parsed and executed. -->
-<lite-youtube videoid="ogfYd705cRs"></lite-youtube>
+<!-- Use the element. You may use it before the lite-yt-embed JS is executed. -->
+<lite-youtube videoid="ogfYd705cRs" playlabel="Play: Keynote (Google I/O '18)"></lite-youtube>
 ```
 
-## Notes
+<br>
 
-Note that the embed will be using youtube-nocookie.com instead of youtube.com in order
+Privacy note: lite-youtube uses youtube-nocookie.com instead of youtube.com in order
 to be more privacy friendly for end users.
 
+### Custom Player Parameters
 
-## Pro-usage
+YouTube supports a variety of [player parameters](https://developers.google.com/youtube/player_parameters#Parameters) to control the iframe's behavior and appearance.
+These may be applied by using the `params` attribute.
+
+```html
+<!-- Example to show a video player without controls, starting at 10s in, ending at 20s,
+     with modest branding *and* enabling the JS API -->
+<lite-youtube videoid="ogfYd705cRs" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
+```
+
+Note that lite-youtube uses `autoplay=1` by default.
+
+Demo: https://paulirish.github.io/lite-youtube-embed/variants/params.html
+
+## Pro-usage: load w/ JS deferred (aka progressive enhancement)
 
 Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
 
 ```html
 <lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-	<div class="lty-playbtn"></div>
+  <button type="button" class="lty-playbtn">
+    <span class="lyt-visually-hidden">Play Video: Keynote (Google I/O '18)</span>
+  </button>
 </lite-youtube>
 ```
 
-More coming soon.
+Demo: https://paulirish.github.io/lite-youtube-embed/variants/pe.html
 
-## Other lite embeds
+## Custom poster image
 
-- Youtube: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) - Shadow-DOM-using port of paulirish/lite-youtube-embed
-- Vimeo: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
-- Vimeo: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
-- Intercom, Help Scout, Drift, & Facebook Messenger: [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
+If you want to provide a custom poster image, just set it as the background-image, and lite-yt will not overwrite it:
+```html
+<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');"></lite-youtube>
+```
+
+Demo: https://paulirish.github.io/lite-youtube-embed/variants/custom-poster-image.html
+
+## Other fast YouTube embeds
+
+* &lt;lite-youtube&gt; using shadow DOM: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) :+1:
+* React port 1: [`ibrahimcesar/react-lite-youtube-embed`](https://github.com/ibrahimcesar/react-lite-youtube-embed)
+* React port 2: [`kylemocode/react-lite-yt-embed`](https://github.com/kylemocode/react-lite-yt-embed)
+* Vue port: [`andrewvasilchuk/vue-lazy-youtube-video`](https://github.com/andrewvasilchuk/vue-lazy-youtube-video)
+## Other [third-party facades](https://web.dev/third-party-facades/)
+
+* Lite Vimeo Embed: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
+* &lt;lite-vimeo&gt;: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
+* React Live Chat Loader (Intercom, Help Scout, Drift, Facebook Messenger): [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
+* Intercom chat facade: [`danielbachhuber/intercom-facade/`](https://github.com/danielbachhuber/intercom-facade/)
