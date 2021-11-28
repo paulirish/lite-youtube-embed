@@ -100,6 +100,9 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     addIframe() {
+        if (this.classList.contains('lyt-activated')) return;
+        this.classList.add('lyt-activated');
+
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
 
@@ -114,8 +117,6 @@ class LiteYTEmbed extends HTMLElement {
         // https://stackoverflow.com/q/64959723/89484
         iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;
         this.append(iframeEl);
-
-        this.classList.add('lyt-activated');
 
         // Set focus for a11y
         this.querySelector('iframe').focus();
