@@ -28,11 +28,7 @@ class LiteYTEmbed extends HTMLElement {
          * TODO: Consider using webp if supported, falling back to jpg
          */
         if (!this.style.backgroundImage) {
-          this.posterUrl = `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
-          // Warm the connection for the poster image
-          LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
-
-          this.style.backgroundImage = `url("${this.posterUrl}")`;
+          this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
         }
 
         // Set up play button, and its visually hidden label
