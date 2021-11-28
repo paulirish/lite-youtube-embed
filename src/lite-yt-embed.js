@@ -119,7 +119,7 @@ class LiteYTEmbed extends HTMLElement {
         this.append(iframeEl);
 
         // Set focus for a11y
-        this.querySelector('iframe').focus();
+        iframeEl.focus();
     }
 }
 // Register custom element
