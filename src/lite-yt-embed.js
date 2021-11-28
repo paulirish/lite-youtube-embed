@@ -108,11 +108,11 @@ class LiteYTEmbed extends HTMLElement {
             var el = document.createElement('script');
             el.src = 'https://www.youtube.com/iframe_api';
             el.async = true;
-            document.head.append(el);
             el.onload = _ => {
-                YT.ready(res)
+                YT.ready(res);
             };
             el.onerror = rej;
+            this.append(el);
         });
     }
 
@@ -123,7 +123,7 @@ class LiteYTEmbed extends HTMLElement {
         const videoPlaceholderEl = document.createElement('div')
         this.append(videoPlaceholderEl);
 
-        const paramsObj = Object.fromEntries(params.entries())
+        const paramsObj = Object.fromEntries(params.entries());
 
         new YT.Player(videoPlaceholderEl, {
             width: '100%',
