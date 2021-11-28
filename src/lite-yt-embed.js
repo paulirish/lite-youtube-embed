@@ -55,8 +55,9 @@ class LiteYTEmbed extends HTMLElement {
 
 
         // Chrome & Edge have no problem with the basic YouTube Embed with ?autoplay=1
-        // However Safari and Firefox do not successfully track the user gesture of clicking through the creation/loading of the iframe, 
+        // However Safari and Firefox do not successfully track the user gesture of clicking through the creation/loading of the iframe,
         // so they don't autoplay automatically. Instead we must load an additional 300KB (ungz) of JS for the YT Player API
+        // TODO: chrome android seems to also need this
         this.needsYTApiForAutoplay = navigator.vendor.includes('Apple') || navigator.userAgent.includes('Firefox');
     }
 
@@ -108,22 +109,22 @@ class LiteYTEmbed extends HTMLElement {
             var el = document.createElement('script');
             el.src = 'https://www.youtube.com/iframe_api';
             el.async = true;
-            document.head.append(el);
             el.onload = _ => {
-                YT.ready(res)
+                YT.ready(res);
             };
             el.onerror = rej;
+            this.append(el);
         });
     }
 
-    async addYTPlayerIframe(params) {    
+    async addYTPlayerIframe(params) {
         this.fetchYTPlayerApi();
         await this.ytApiPromise;
 
         const videoPlaceholderEl = document.createElement('div')
         this.append(videoPlaceholderEl);
 
-        const paramsObj = Object.fromEntries(params.entries())
+        const paramsObj = Object.fromEntries(params.entries());
 
         new YT.Player(videoPlaceholderEl, {
             width: '100%',
@@ -144,11 +145,11 @@ class LiteYTEmbed extends HTMLElement {
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
         params.append('playsinline', '1');
-        
+
         if (this.needsYTApiForAutoplay) {
             return this.addYTPlayerIframe(params);
         }
-        
+
         const iframeEl = document.createElement('iframe');
         iframeEl.width = 560;
         iframeEl.height = 315;
