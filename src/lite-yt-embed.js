@@ -53,9 +53,14 @@ class LiteYTEmbed extends HTMLElement {
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.addIframe);
 
-        // prep the YT API
-        if (this.hasAttribute('forceautoplay')) {
-            this.fetchYoutubeAPI();
+
+        // Chrome & Edge have no problem with the basic YouTube Embed with ?autoplay=1
+        // However Safari and Firefox do not successfully track the user gesture of clicking through the creation/loading of the iframe, 
+        // so they don't autoplay automatically. Instead we must load an additional 300KB (ungz) of JS for the YT Player API
+        this.needsYTApiForAutoplay = navigator.vendor.includes('Apple') || navigator.userAgent.includes('Firefox');
+
+        if (this.needsYTApiForAutoplay) {
+            this.fetchYTPlayerApi();
         }
     }
 
@@ -100,8 +105,9 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
-    fetchYoutubeAPI() {
+    fetchYTPlayerApi() {
         if (window.YT || (window.YT && window.YT.Player)) return;
+
         this.ytApiPromise = new Promise((res, rej) => {
             var el = document.createElement('script');
             el.src = 'https://www.youtube.com/iframe_api';
@@ -142,7 +148,7 @@ class LiteYTEmbed extends HTMLElement {
         params.append('autoplay', '1');
         params.append('playsinline', '1');
         
-        if (this.hasAttribute('forceautoplay')) {
+        if (this.needsYTApiForAutoplay) {
             return this.addYTPlayerIframe(params);
         }
         
