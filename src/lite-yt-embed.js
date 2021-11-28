@@ -52,6 +52,11 @@ class LiteYTEmbed extends HTMLElement {
         // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.addIframe);
+
+        // prep the YT API
+        if (this.hasAttribute('forceautoplay')) {
+            this.fetchYoutubeAPI();
+        }
     }
 
     // // TODO: Support the the user changing the [videoid] attribute
@@ -95,49 +100,52 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
-    fetchYoutubeAPI(cb) {
-        var tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        tag.async = true;
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        tag.onload = () => {
-            YT.ready(() => {
-                if(cb) cb();
-            })
-        };
+    fetchYoutubeAPI() {
+        if (window.YT || (window.YT && window.YT.Player)) return;
+        this.ytApiPromise = new Promise((res, rej) => {
+            var el = document.createElement('script');
+            el.src = 'https://www.youtube.com/iframe_api';
+            el.async = true;
+            document.head.append(el);
+            el.onload = _ => {
+                YT.ready(res)
+            };
+            el.onerror = rej;
+        });
     }
 
-    onYouTubeIframeAPIReady() {
-        const videoWrapper = document.createElement('div')
-        videoWrapper.id = this.videoId;
-        document.body.appendChild(videoWrapper);
-        this.insertAdjacentElement('beforeend', videoWrapper);
+    async addYTPlayerIframe(params) {
+        await this.ytApiPromise;
 
-        new YT.Player(videoWrapper, {
+        const videoPlaceholderEl = document.createElement('div')
+        this.append(videoPlaceholderEl);
+
+        const paramsObj = Object.fromEntries(params.entries())
+
+        new YT.Player(videoPlaceholderEl, {
             width: '100%',
             videoId: this.videoId,
-            playerVars: { 'autoplay': 1, 'playsinline': 1 },
+            playerVars: paramsObj,
             events: {
-                'onReady': (event) => {
+                'onReady': event => {
                     event.target.playVideo();
                 }
             }
         });
     }
 
-    addIframe(){
-        if(typeof(YT) == 'undefined' || typeof(YT.Player) == 'undefined') {
-            this.fetchYoutubeAPI(this.onYouTubeIframeAPIReady.bind(this));
-        }
-
-        // Keeping the default implementation for iframes
+    async addIframe(){
         if (this.classList.contains('lyt-activated')) return;
         this.classList.add('lyt-activated');
 
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
-
+        params.append('playsinline', '1');
+        
+        if (this.hasAttribute('forceautoplay')) {
+            return this.addYTPlayerIframe(params);
+        }
+        
         const iframeEl = document.createElement('iframe');
         iframeEl.width = 560;
         iframeEl.height = 315;
