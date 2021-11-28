@@ -79,7 +79,8 @@ Demo: https://paulirish.github.io/lite-youtube-embed/variants/custom-poster-imag
 
 ## Other lite embeds
 
-- Youtube: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) - Shadow-DOM-using port of paulirish/lite-youtube-embed
-- Vimeo: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
-- Vimeo: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
-- Intercom, Help Scout, Drift, & Facebook Messenger: [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
+- React Lite YouTube Embed: [`kylemocode/react-lite-yt-embed`](https://github.com/kylemocode/react-lite-yt-embed)
+- &lt;lite-youtube&gt;: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube)
+- Lite Vimeo Embed: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
+- &lt;lite-vimeo&gt;: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
+- React Live Chat Loader (Intercom, Help Scout, Drift, Facebook Messenger): [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
