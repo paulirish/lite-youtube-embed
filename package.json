@@ -25,5 +25,11 @@
     "package.json",
     "package-lock.json",
     "readme.md"
-  ]
+  ],
+  "scripts": {
+    "prettier": "prettier --write \"src/*.*\""
+  },
+  "devDependencies": {
+    "prettier": "^2.5.0"
+  }
 }
