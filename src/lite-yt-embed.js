@@ -18,7 +18,7 @@ class LiteYTEmbed extends HTMLElement {
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
         this.playLabel = (playBtnEl && playBtnEl.textContent.trim()) || this.getAttribute('playlabel') || 'Play';
 
-        this.title = this.getAttribute('title');
+        this.dataset.title = this.getAttribute('title') || "";
 
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -35,13 +35,6 @@ class LiteYTEmbed extends HTMLElement {
           LiteYTEmbed.addPrefetch('preload', this.posterUrl, 'image');
 
           this.style.backgroundImage = `url("${this.posterUrl}")`;
-        }
-
-        if( this.title && this.title !== 'null' ) {
-            const titleEl = document.createElement( 'div' );
-            titleEl.classList.add('lyt-title-text');
-            titleEl.textContent = this.title;
-            this.append( titleEl );
         }
 
         // Set up play button, and its visually hidden label
