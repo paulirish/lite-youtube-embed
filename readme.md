@@ -83,11 +83,6 @@ If you want to display a title prior to loading the full embed, set the `title` 
 ```html
 <lite-youtube videoid="ogfYd705cRs" title="Keynote (Google I/O '18)"></lite-youtube>
 ```
-By default the header text will be in a `<div>` element. You can customize which element is used with the `title-tag` attribute. For example:
-
-```html
-<lite-youtube videoid="ogfYd705cRs" title-tag="h2" title="Keynote (Google I/O '18)"></lite-youtube>
-```
 
 ## Other lite embeds
 

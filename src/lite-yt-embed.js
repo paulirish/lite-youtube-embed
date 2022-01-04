@@ -19,7 +19,6 @@ class LiteYTEmbed extends HTMLElement {
         this.playLabel = (playBtnEl && playBtnEl.textContent.trim()) || this.getAttribute('playlabel') || 'Play';
 
         this.title = this.getAttribute('title');
-        this.titleTag = this.getAttribute('title-tag') || 'div';
 
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -39,7 +38,7 @@ class LiteYTEmbed extends HTMLElement {
         }
 
         if( this.title && this.title !== 'null' ) {
-            const titleEl = document.createElement( this.titleTag );
+            const titleEl = document.createElement( 'div' );
             titleEl.classList.add('lyt-title-text');
             titleEl.textContent = this.title;
             this.append( titleEl );
