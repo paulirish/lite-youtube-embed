@@ -84,9 +84,17 @@ If you want to display a title prior to loading the full embed, set the `title` 
 <lite-youtube videoid="ogfYd705cRs" title="Keynote (Google I/O '18)"></lite-youtube>
 ```
 
-## Other lite embeds
+Demo: https://paulirish.github.io/lite-youtube-embed/variants/title.html
 
-- Youtube: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) - Shadow-DOM-using port of paulirish/lite-youtube-embed
-- Vimeo: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
-- Vimeo: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
-- Intercom, Help Scout, Drift, & Facebook Messenger: [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
+## Other fast YouTube embeds
+
+* &lt;lite-youtube&gt; using shadow DOM: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) :+1:
+* React port 1: [`ibrahimcesar/react-lite-youtube-embed`](https://github.com/ibrahimcesar/react-lite-youtube-embed)
+* React port 2: [`kylemocode/react-lite-yt-embed`](https://github.com/kylemocode/react-lite-yt-embed)
+* Vue port: [`andrewvasilchuk/vue-lazy-youtube-video`](https://github.com/andrewvasilchuk/vue-lazy-youtube-video)
+## Other [third-party facades](https://web.dev/third-party-facades/)
+
+* Lite Vimeo Embed: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
+* &lt;lite-vimeo&gt;: [`slightlyoff/lite-vimeo`](https://github.com/slightlyoff/lite-vimeo)
+* React Live Chat Loader (Intercom, Help Scout, Drift, Facebook Messenger): [`calibreapp/react-live-chat-loader`](https://github.com/calibreapp/react-live-chat-loader)
+* Intercom chat facade: [`danielbachhuber/intercom-facade/`](https://github.com/danielbachhuber/intercom-facade/)
