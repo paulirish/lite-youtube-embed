@@ -43,6 +43,7 @@ lite-youtube > iframe {
 
 /* play button */
 lite-youtube > .lty-playbtn {
+    display: block;
     width: 68px;
     height: 48px;
     position: absolute;
