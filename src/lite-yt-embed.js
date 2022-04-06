@@ -58,7 +58,7 @@ class LiteYTEmbed extends HTMLElement {
         // However Safari and Firefox do not successfully track the user gesture of clicking through the creation/loading of the iframe,
         // so they don't autoplay automatically. Instead we must load an additional 300KB (ungz) of JS for the YT Player API
         // TODO: chrome android seems to also need this
-        this.needsYTApiForAutoplay = navigator.vendor.includes('Apple') || navigator.userAgent.includes('Firefox');
+        this.needsYTApiForAutoplay = navigator.vendor.includes('Apple') || ['Firefox', 'Android'].some(userAgent => navigator.userAgent.includes(userAgent));
     }
 
     // // TODO: Support the the user changing the [videoid] attribute
