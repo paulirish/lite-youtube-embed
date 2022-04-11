@@ -44,6 +44,7 @@ class LiteYTEmbed extends HTMLElement {
             playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }
+        playBtnEl.removeAttribute('href');
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
