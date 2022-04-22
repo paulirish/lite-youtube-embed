@@ -45,6 +45,9 @@ class LiteYTEmbed extends HTMLElement {
             playBtnEl.append(playBtnLabelEl);
         }
 
+        // Set up playerVars ahead of time.
+        this.playerVars = new URLSearchParams(this.getAttribute('params') || []);
+
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
 
@@ -53,12 +56,16 @@ class LiteYTEmbed extends HTMLElement {
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.addIframe);
 
+        // Whether or not the element should reset to its original state when video ends.
+        this.shouldResetOnEnd = 0 === parseInt(this.playerVars.get('loop')) && 0 === parseInt(this.playerVars.get('rel'));
 
+        // Allow enabling YT API explicitly.
+        this.needsYTApiForAutoplay = 'true' === this.getAttribute('yt-api') || this.shouldResetOnEnd;
         // Chrome & Edge have no problem with the basic YouTube Embed with ?autoplay=1
         // However Safari and Firefox do not successfully track the user gesture of clicking through the creation/loading of the iframe,
         // so they don't autoplay automatically. Instead we must load an additional 300KB (ungz) of JS for the YT Player API
         // TODO: chrome android seems to also need this
-        this.needsYTApiForAutoplay = navigator.vendor.includes('Apple') || ['Firefox', 'Android'].some(userAgent => navigator.userAgent.includes(userAgent));
+        this.needsYTApiForAutoplay = this.needsYTApiForAutoplay || navigator.vendor.includes('Apple') || ['Firefox', 'Android'].some(userAgent => navigator.userAgent.includes(userAgent));
     }
 
     // // TODO: Support the the user changing the [videoid] attribute
@@ -88,7 +95,9 @@ class LiteYTEmbed extends HTMLElement {
      * But TBH, I don't think it'll happen soon with Site Isolation and split caches adding serious complexity.
      */
     static warmConnections() {
-        if (LiteYTEmbed.preconnected) return;
+        if (LiteYTEmbed.preconnected) {
+            return;
+        }
 
         // The iframe document and most of its subresources come right off youtube.com
         LiteYTEmbed.addPrefetch('preconnect', 'https://www.youtube-nocookie.com');
@@ -103,7 +112,9 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     fetchYTPlayerApi() {
-        if (window.YT || (window.YT && window.YT.Player)) return;
+        if (window.YT || (window.YT && window.YT.Player)) {
+            return;
+        }
 
         this.ytApiPromise = new Promise((res, rej) => {
             var el = document.createElement('script');
@@ -117,38 +128,49 @@ class LiteYTEmbed extends HTMLElement {
         });
     }
 
-    async addYTPlayerIframe(params) {
+    async addYTPlayerIframe() {
         this.fetchYTPlayerApi();
         await this.ytApiPromise;
 
         const videoPlaceholderEl = document.createElement('div')
         this.append(videoPlaceholderEl);
 
-        const paramsObj = Object.fromEntries(params.entries());
+        const playerVars = this.playerVars.entries();
 
         new YT.Player(videoPlaceholderEl, {
             width: '100%',
             videoId: this.videoId,
-            playerVars: paramsObj,
+            playerVars,
             events: {
                 onReady: event => {
                     event.target.playVideo();
+                },
+                onStateChange: event => {
+                    if (false === this.shouldResetOnEnd || event.data !== YT.PlayerState.ENDED) {
+                        return;
+                    }
+
+                    // Reset to original state.
+                    event.target.h.remove();
+                    this.classList.remove('lyt-activated');
                 },
             },
         });
     }
 
     async addIframe(e){
-        if (this.classList.contains('lyt-activated')) return;
-        e.preventDefault();
-        this.classList.add('lyt-activated');
+        if (this.classList.contains('lyt-activated')) {
+            return;
+        }
 
-        const params = new URLSearchParams(this.getAttribute('params') || []);
-        params.append('autoplay', '1');
-        params.append('playsinline', '1');
+        e.preventDefault();
+
+        this.classList.add('lyt-activated');
+        this.playerVars.append('autoplay', '1');
+        this.playerVars.append('playsinline', '1');
 
         if (this.needsYTApiForAutoplay) {
-            return this.addYTPlayerIframe(params);
+            return this.addYTPlayerIframe();
         }
 
         const iframeEl = document.createElement('iframe');
@@ -160,7 +182,7 @@ class LiteYTEmbed extends HTMLElement {
         iframeEl.allowFullscreen = true;
         // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL
         // https://stackoverflow.com/q/64959723/89484
-        iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;
+        iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${this.playerVars.toString()}`;
         this.append(iframeEl);
 
         // Set focus for a11y
