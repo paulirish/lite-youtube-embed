@@ -109,7 +109,7 @@ class LiteYTEmbed extends HTMLElement {
             var el = document.createElement('script');
             el.src = 'https://www.youtube.com/iframe_api';
             el.async = true;
-            el.onload = _ => {
+            el.onload = () => {
                 YT.ready(res);
             };
             el.onerror = rej;
@@ -131,15 +131,16 @@ class LiteYTEmbed extends HTMLElement {
             videoId: this.videoId,
             playerVars: paramsObj,
             events: {
-                'onReady': event => {
+                onReady: event => {
                     event.target.playVideo();
-                }
-            }
+                },
+            },
         });
     }
 
-    async addIframe(){
+    async addIframe(e){
         if (this.classList.contains('lyt-activated')) return;
+        e.preventDefault();
         this.classList.add('lyt-activated');
 
         const params = new URLSearchParams(this.getAttribute('params') || []);
