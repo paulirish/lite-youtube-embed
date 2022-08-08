@@ -10,7 +10,7 @@
  *   https://github.com/Daugilas/lazyYT
  *   https://github.com/vb/lazyframe
  */
-class LiteYTEmbed extends HTMLElement {
+ class LiteYTEmbed extends HTMLElement {
     connectedCallback() {
         this.videoId = this.getAttribute('videoid');
 
@@ -30,8 +30,8 @@ class LiteYTEmbed extends HTMLElement {
         if (!this.style.backgroundImage) {
           this.style = 
                 `background-image: url('https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg');
-                 background-image: -webkit-image-set(url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.webp") 1x, url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg") 1x);
-                 background-image: image-set(url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.webp") type("image/webp"), url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg") type("image/jpeg"));`;
+                 background-image: -webkit-image-set(url("https://i.ytimg.com/vi_webp/${this.videoId}/hqdefault.webp") 1x, url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg") 1x);
+                 background-image: image-set(url("https://i.ytimg.com/vi_webp/${this.videoId}/hqdefault.webp") type("image/webp"), url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg") type("image/jpeg"));`;
         }
 
         // Set up play button, and its visually hidden label
