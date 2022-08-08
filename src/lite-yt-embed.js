@@ -28,7 +28,10 @@ class LiteYTEmbed extends HTMLElement {
          * TODO: Consider using webp if supported, falling back to jpg
          */
         if (!this.style.backgroundImage) {
-          this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
+          this.style = 
+                `background-image: url('https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg');
+                 background-image: -webkit-image-set(url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.webp") 1x, url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg") 1x);
+                 background-image: image-set(url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.webp") type("image/webp"), url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg") type("image/jpeg"));`;
         }
 
         // Set up play button, and its visually hidden label
@@ -44,6 +47,7 @@ class LiteYTEmbed extends HTMLElement {
             playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }
+        playBtnEl.removeAttribute('href');
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
@@ -52,6 +56,7 @@ class LiteYTEmbed extends HTMLElement {
         // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.addIframe);
+        this.needsYTApiForAutoplay = navigator.vendor.includes('Apple') || ['Firefox', 'Android'].some(userAgent => navigator.userAgent.includes(userAgent));
     }
 
     // // TODO: Support the the user changing the [videoid] attribute
@@ -95,13 +100,54 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
-    addIframe(e) {
+    fetchYTPlayerApi() {
+        if (window.YT || (window.YT && window.YT.Player)) return;
+
+        this.ytApiPromise = new Promise((res, rej) => {
+            var el = document.createElement('script');
+            el.src = 'https://www.youtube.com/iframe_api';
+            el.async = true;
+            el.onload = () => {
+                YT.ready(res);
+            };
+            el.onerror = rej;
+            this.append(el);
+        });
+    }
+
+    async addYTPlayerIframe(params) {
+        this.fetchYTPlayerApi();
+        await this.ytApiPromise;
+
+        const videoPlaceholderEl = document.createElement('div')
+        this.append(videoPlaceholderEl);
+
+        const paramsObj = Object.fromEntries(params.entries());
+
+        new YT.Player(videoPlaceholderEl, {
+            width: '100%',
+            videoId: this.videoId,
+            playerVars: paramsObj,
+            events: {
+                onReady: event => {
+                    event.target.playVideo();
+                },
+            },
+        });
+    }
+
+    async addIframe(e){
         if (this.classList.contains('lyt-activated')) return;
         e.preventDefault();
         this.classList.add('lyt-activated');
 
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
+        params.append('playsinline', '1');
+
+        if (this.needsYTApiForAutoplay) {
+            return this.addYTPlayerIframe(params);
+        }
 
         const iframeEl = document.createElement('iframe');
         iframeEl.width = 560;

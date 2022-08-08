@@ -7,11 +7,19 @@
   <link rel="stylesheet" href="../src/lite-yt-embed.css" />
 </head>
 <body>
-<h1><code>lite-youtube</code> custom element</h1>
+<h1>multiple embeds</h1>
 
 <lite-youtube videoid="ogfYd705cRs" playlabel="Play: Keynote (Google I/O '18)"></lite-youtube>
 
+
+<lite-youtube videoid="n57U2_-3NLQ" playlabel="Play: Chrome Dev Summit 2021 recap"></lite-youtube>
+
+
 <script src="../src/lite-yt-embed.js"></script>
 
+  <!-- <script>
+    // Simulate duplicate iframe problem. https://github.com/paulirish/lite-youtube-embed/issues/92
+    document.body.addEventListener('click', e => e.target.click());
+  </script>  -->
 </body>
 </html>
