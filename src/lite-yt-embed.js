@@ -141,7 +141,6 @@ class LiteYTEmbed extends HTMLElement {
 
     async addIframe(){
         if (this.classList.contains('lyt-activated')) return;
-        e.preventDefault();
         this.classList.add('lyt-activated');
 
         const params = new URLSearchParams(this.getAttribute('params') || []);
