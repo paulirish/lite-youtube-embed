@@ -44,6 +44,7 @@ class LiteYTEmbed extends HTMLElement {
             playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }
+        playBtnEl.removeAttribute('href');
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
@@ -140,6 +141,7 @@ class LiteYTEmbed extends HTMLElement {
 
     async addIframe(){
         if (this.classList.contains('lyt-activated')) return;
+        e.preventDefault();
         this.classList.add('lyt-activated');
 
         const params = new URLSearchParams(this.getAttribute('params') || []);
