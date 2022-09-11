@@ -11,6 +11,7 @@
  *   https://github.com/vb/lazyframe
  */
 class LiteYTEmbed extends HTMLElement {
+
     connectedCallback() {
         this.videoId = this.getAttribute('videoid');
 
@@ -28,7 +29,10 @@ class LiteYTEmbed extends HTMLElement {
          * TODO: Consider using webp if supported, falling back to jpg
          */
         if (!this.style.backgroundImage) {
-          this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
+            let browserSupportsWebP = LiteYTEmbed.support_format_webp();
+            let imageExtension = browserSupportsWebP ? "webp" : "jpg";
+            let imagePath = browserSupportsWebP ? "vi_webp" : "vi";
+            this.style.backgroundImage = `url("https://i.ytimg.com/${imagePath}/${this.videoId}/hqdefault.${imageExtension}")`;
         }
 
         // Set up play button, and its visually hidden label
@@ -53,6 +57,18 @@ class LiteYTEmbed extends HTMLElement {
         // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.addIframe);
+    }
+
+    static support_format_webp() {
+        var elem = document.createElement('canvas');
+
+        if (!!(elem.getContext && elem.getContext('2d'))) {
+          // was able or not to get WebP representation
+          return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+        } else {
+            // very old browser like IE 8, canvas not supported
+            return false;
+        }
     }
 
     // // TODO: Support the the user changing the [videoid] attribute
