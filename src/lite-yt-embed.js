@@ -28,7 +28,7 @@ class LiteYTEmbed extends HTMLElement {
          *       - When doing this, apply referrerpolicy (https://github.com/ampproject/amphtml/pull/3940)
          * TODO: Consider using webp if supported, falling back to jpg
          */
-        if (!this.style.backgroundImage) {
+        if (!this.style.backgroundImage && !this.querySelector('picture')) {
             let browserSupportsWebP = LiteYTEmbed.support_format_webp();
             let imageExtension = browserSupportsWebP ? "webp" : "jpg";
             let imagePath = browserSupportsWebP ? "vi_webp" : "vi";
@@ -59,15 +59,32 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     static support_format_webp() {
-        var elem = document.createElement('canvas');
 
-        if (!!(elem.getContext && elem.getContext('2d'))) {
-          // was able or not to get WebP representation
-          return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-        } else {
-            // very old browser like IE 8, canvas not supported
-            return false;
+        var userAgent = navigator.userAgent,
+            isChrome = userAgent.match('Chrome/'), // Also matches Edge
+            isSafari = !isChrome,
+            version;
+
+        if(isChrome) {
+            version = userAgent.substring(userAgent.indexOf('Chrome/')+7);
+            version = version.substring(0,version.indexOf('.'));
+        } else if(isSafari) {
+            version = navigator.userAgent.substring(navigator.userAgent.indexOf('Version/')+8);
+            version = version.substring(0,version.indexOf('.'));
         }
+
+        // TODO: Detect Firefox, Edge, Opera
+
+        if(
+            (isChrome && version >= 32) ||
+            (isSafari && version >= 14)
+        ) {
+            return true;
+        } else {
+            false;
+        }
+
+        return false;
     }
 
     // // TODO: Support the the user changing the [videoid] attribute
