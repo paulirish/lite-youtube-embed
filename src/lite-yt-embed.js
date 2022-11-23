@@ -32,7 +32,7 @@ class LiteYTEmbed extends HTMLElement {
             let browserSupportsWebP = LiteYTEmbed.support_format_webp();
             let imageExtension = browserSupportsWebP ? "webp" : "jpg";
             let imagePath = browserSupportsWebP ? "vi_webp" : "vi";
-            this.style.backgroundImage = `url("https://i.ytimg.com/${imagePath}/${this.videoId}/hqdefault.${imageExtension}")`;
+            this.style.backgroundImage = `url("https://i.ytimg.com/${imagePath}/${this.videoId}/sddefault.${imageExtension}")`;
         }
 
         // Set up play button, and its visually hidden label
