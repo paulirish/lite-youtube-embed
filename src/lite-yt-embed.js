@@ -14,6 +14,7 @@ class LiteYTEmbed extends HTMLElement {
 
     connectedCallback() {
         this.videoId = this.getAttribute('videoid');
+        this.thumbnailSize = this.getAttribute('thumbnail') ? this.getAttribute('thumbnail') : "sddefault";
 
         let playBtnEl = this.querySelector('.lty-playbtn');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
@@ -32,7 +33,7 @@ class LiteYTEmbed extends HTMLElement {
             let browserSupportsWebP = LiteYTEmbed.support_format_webp();
             let imageExtension = browserSupportsWebP ? "webp" : "jpg";
             let imagePath = browserSupportsWebP ? "vi_webp" : "vi";
-            this.style.backgroundImage = `url("https://i.ytimg.com/${imagePath}/${this.videoId}/sddefault.${imageExtension}")`;
+            this.style.backgroundImage = `url("https://i.ytimg.com/${imagePath}/${this.videoId}/${this.thumbnailSize}.${imageExtension}")`;
         }
 
         // Set up play button, and its visually hidden label
