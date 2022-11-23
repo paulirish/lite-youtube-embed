@@ -54,19 +54,39 @@ Note that lite-youtube uses `autoplay=1` by default.
 
 Demo: https://paulirish.github.io/lite-youtube-embed/variants/params.html
 
-## Pro-usage: load w/ JS deferred (aka progressive enhancement)
+## Pro-usage: load w/ JS deferred, Priority Hints and WebP support (aka progressive enhancement)
 
-Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
+Use this as your HTML to load the Poster Image with high priority with WebP support, load the script asynchronously, and let the JS progressively enhance it
 
 ```html
-<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-  <a href="https://youtube.com/watch?v=ogfYd705cRs" class="lty-playbtn" title="Play Video">
-    <span class="lyt-visually-hidden">Play Video: Keynote (Google I/O '18)</span>
-  </a>
+<lite-youtube videoid="ogfYd705cRs">
+  <picture>
+     <source 
+       srcset="https://i.ytimg.com/vi_webp/ogfYd705cRs/sddefault.webp" 
+       type="image/webp">
+     <source 
+       srcset="https://i.ytimg.com/vi/ogfYd705cRs/sddefault.jpg" 
+       type="image/jpg">
+     <img 
+       alt=""
+       width="480"
+       height="360"
+       src="https://i.ytimg.com/vi/ogfYd705cRs/sddefault.jpg" 
+       fetchpriority="high">
+  </picture>
 </lite-youtube>
 ```
 
 Demo: https://paulirish.github.io/lite-youtube-embed/variants/pe.html
+
+
+## Select Youtube Thumbnail Size
+
+If you want to show a higher YouTube thumbnail image (considering it exist) just set the `thumbnail` attribute as following (possible values are `mqdefault`, `hqdefault`, `sddefault`, `hq720`, `maxresdefault`):
+```html
+<lite-youtube videoid="ogfYd705cRs" thumbnail="maxresdefault"></lite-youtube>
+```
+
 
 ## Custom poster image
 
