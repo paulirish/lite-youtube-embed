@@ -129,6 +129,12 @@
 [Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
 [Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning true because media engine says so
 [Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+
+
+
+
+
+
 [Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
