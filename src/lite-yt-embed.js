@@ -114,6 +114,7 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     async addYTPlayerIframe(params) {
+        console.log('lyte - fetching yt player api');
         this.fetchYTPlayerApi();
         await this.ytApiPromise;
 
@@ -121,16 +122,17 @@ class LiteYTEmbed extends HTMLElement {
         this.append(videoPlaceholderEl);
 
         const paramsObj = Object.fromEntries(params.entries());
-
+        console.log('ytplayer new')
         new YT.Player(videoPlaceholderEl, {
             width: '100%',
             videoId: this.videoId,
             playerVars: paramsObj,
             events: {
                 'onReady': event => {
+                    console.log('ytplayer onready', event);
                     event.target.playVideo();
                 },
-                'onStateChange': event => console.log('ytstatchange', event)
+                'onStateChange': event => console.log('ytplayer statechange', event)
             }
         });
     }
