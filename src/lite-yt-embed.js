@@ -132,7 +132,10 @@ class LiteYTEmbed extends HTMLElement {
                     console.log('ytplayer onready', event);
                     event.target.playVideo();
                 },
-                'onStateChange': event => console.log('ytplayer statechange', event)
+                'onError': event => console.log('ytplayer onerror', event),
+                'onApiChange': event => console.log('ytplayer onApiChange', event),
+
+                'onStateChange': event => console.log('ytplayer statechange', event),
             }
         });
     }
