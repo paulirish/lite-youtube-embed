@@ -4,1048 +4,1048 @@
 [Info] Successfully preconnected to https://googleads.g.doubleclick.net/
 [Info] Successfully preconnected to https://static.doubleclick.net/
 [Log] ytplayer new (lite-yt-embed.js, line 125)
-[Log] HTMLMediaElement::HTMLMediaElement(D14B7DA35F0F59CD) 
-[Log] HTMLVideoElementPictureInPicture::HTMLVideoElementPictureInPicture(9B8E8FD0B8138547) 
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) true
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Log] HTMLMediaElement::scheduleUpdateMediaState(D14B7DA35F0F59CD) task scheduled
-[Info] MediaElementSession::addBehaviorRestriction(D14B7DA35F0F59CD) adding RequireUserGestureForFullscreen
-[Info] MediaElementSession::addBehaviorRestriction(D14B7DA35F0F59CD) adding RequirePageConsentToLoadMedia
-[Info] MediaElementSession::addBehaviorRestriction(D14B7DA35F0F59CD) adding RequireUserGestureToAutoplayToExternalDevice
-[Info] MediaElementSession::addBehaviorRestriction(D14B7DA35F0F59CD) adding RequireUserGestureToControlControlsManager
-[Info] MediaElementSession::addBehaviorRestriction(D14B7DA35F0F59CD) adding RequirePlaybackToControlControlsManager
-[Info] MediaElementSession::addBehaviorRestriction(D14B7DA35F0F59CD) adding InvisibleAutoplayNotPermitted
-[Info] MediaElementSession::addBehaviorRestriction(D14B7DA35F0F59CD) adding RequireUserGestureForAudioRateChange
-[Info] MediaElementSession::addBehaviorRestriction(D14B7DA35F0F59CD) adding RequireUserGestureToShowPlaybackTargetPicker
-[Log] MediaSession::MediaSession(B2147BD6) 
-[Log] MediaElementSession::clientWillBeginAutoplaying(D14B7DA35F0F59CD) state = Idle
-[Log] MediaElementSession::setState(D14B7DA35F0F59CD) Autoplaying
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::HTMLMediaElement(SOMEID)
+[Log] HTMLVideoElementPictureInPicture::HTMLVideoElementPictureInPicture(SOMEID)
+[Log] HTMLMediaElement::setMuted(SOMEID) true
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureForFullscreen
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequirePageConsentToLoadMedia
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureToAutoplayToExternalDevice
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureToControlControlsManager
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequirePlaybackToControlControlsManager
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding InvisibleAutoplayNotPermitted
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureForAudioRateChange
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureToShowPlaybackTargetPicker
+[Log] MediaSession::MediaSession(SOMEID)
+[Log] MediaElementSession::clientWillBeginAutoplaying(SOMEID) state = Idle
+[Log] MediaElementSession::setState(SOMEID) Autoplaying
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::HTMLMediaElement(59E839FD6F45B4EA) 
-[Log] HTMLVideoElementPictureInPicture::HTMLVideoElementPictureInPicture(8C06765E67AA1B5A) 
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) false
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::HTMLMediaElement(SOMEID)
+[Log] HTMLVideoElementPictureInPicture::HTMLVideoElementPictureInPicture(SOMEID)
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setMuted(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(59E839FD6F45B4EA) m_readyState != HAVE_ENOUGH_DATA
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) task scheduled
-[Info] MediaElementSession::addBehaviorRestriction(59E839FD6F45B4EA) adding RequireUserGestureForFullscreen
-[Info] MediaElementSession::addBehaviorRestriction(59E839FD6F45B4EA) adding RequirePageConsentToLoadMedia
-[Info] MediaElementSession::addBehaviorRestriction(59E839FD6F45B4EA) adding RequireUserGestureToAutoplayToExternalDevice
-[Info] MediaElementSession::addBehaviorRestriction(59E839FD6F45B4EA) adding RequireUserGestureToControlControlsManager
-[Info] MediaElementSession::addBehaviorRestriction(59E839FD6F45B4EA) adding RequirePlaybackToControlControlsManager
-[Info] MediaElementSession::addBehaviorRestriction(59E839FD6F45B4EA) adding InvisibleAutoplayNotPermitted
-[Info] MediaElementSession::addBehaviorRestriction(59E839FD6F45B4EA) adding RequireUserGestureForAudioRateChange
-[Info] MediaElementSession::addBehaviorRestriction(59E839FD6F45B4EA) adding RequireUserGestureToShowPlaybackTargetPicker
-[Log] MediaElementSession::clientWillBeginAutoplaying(59E839FD6F45B4EA) state = Idle
-[Log] MediaElementSession::setState(59E839FD6F45B4EA) Autoplaying
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureForFullscreen
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequirePageConsentToLoadMedia
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureToAutoplayToExternalDevice
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureToControlControlsManager
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequirePlaybackToControlControlsManager
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding InvisibleAutoplayNotPermitted
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureForAudioRateChange
+[Info] MediaElementSession::addBehaviorRestriction(SOMEID) adding RequireUserGestureToShowPlaybackTargetPicker
+[Log] MediaElementSession::clientWillBeginAutoplaying(SOMEID) state = Idle
+[Log] MediaElementSession::setState(SOMEID) Autoplaying
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) true
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setMuted(SOMEID) true
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setVolume(59E839FD6F45B4EA) 1
-[Log] HTMLMediaElement::insertedIntoAncestor(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::didFinishInsertingNode(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::setControls(59E839FD6F45B4EA) false
-[Info] HTMLMediaElement::load(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::prepareForLoad(59E839FD6F45B4EA) gesture = false
-[Info] HTMLMediaElement::createMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::addSession(0) (59E839FD6F45B4EA)
-[Info] HTMLMediaElement::cancelPendingEventsAndCallbacks(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::setPlaybackRate(59E839FD6F45B4EA) 1
-[Log] MediaElementSession::clientWillBeginAutoplaying(59E839FD6F45B4EA) state = Autoplaying
-[Log] HTMLMediaElement::setShouldDelayLoadEvent(59E839FD6F45B4EA) true
-[Info] MediaElementSession::removeBehaviorRestriction(59E839FD6F45B4EA) removed RequirePageConsentToLoadMedia
-[Log] HTMLMediaElement::setPlaybackRate(59E839FD6F45B4EA) 1
-[Info] MediaElementSession::setHasPlaybackTargetAvailabilityListeners(59E839FD6F45B4EA) true
+[Log] HTMLMediaElement::setVolume(SOMEID) 1
+[Log] HTMLMediaElement::insertedIntoAncestor(SOMEID)
+[Log] HTMLMediaElement::didFinishInsertingNode(SOMEID)
+[Log] HTMLMediaElement::setControls(SOMEID) false
+[Info] HTMLMediaElement::load(SOMEID)
+[Log] HTMLMediaElement::prepareForLoad(SOMEID) gesture = false
+[Info] HTMLMediaElement::createMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::addSession(0) (SOMEID)
+[Info] HTMLMediaElement::cancelPendingEventsAndCallbacks(SOMEID)
+[Log] HTMLMediaElement::setPlaybackRate(SOMEID) 1
+[Log] MediaElementSession::clientWillBeginAutoplaying(SOMEID) state = Autoplaying
+[Log] HTMLMediaElement::setShouldDelayLoadEvent(SOMEID) true
+[Info] MediaElementSession::removeBehaviorRestriction(SOMEID) removed RequirePageConsentToLoadMedia
+[Log] HTMLMediaElement::setPlaybackRate(SOMEID) 1
+[Info] MediaElementSession::setHasPlaybackTargetAvailabilityListeners(SOMEID) true
 [Log] MediaSessionManageriOS::configureWireLessTargetMonitoring(0) requiresMonitoring = true
-[Log] HTMLMediaElement::addEventListener(59E839FD6F45B4EA) 'webkitplaybacktargetavailabilitychanged'
-[Info] MediaElementSession::hasWirelessPlaybackTargets(59E839FD6F45B4EA) returning false
-[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(59E839FD6F45B4EA) hasTargets = false
-[Info] HTMLMediaElement::load(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::prepareForLoad(59E839FD6F45B4EA) gesture = false
-[Info] HTMLMediaElement::createMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::setHasPlaybackTargetAvailabilityListeners(59E839FD6F45B4EA) true
-[Info] MediaElementSession::hasWirelessPlaybackTargets(59E839FD6F45B4EA) returning false
-[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(59E839FD6F45B4EA) hasTargets = false
-[Info] HTMLMediaElement::cancelPendingEventsAndCallbacks(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::setPlaybackRate(59E839FD6F45B4EA) 1
-[Log] MediaElementSession::clientWillBeginAutoplaying(59E839FD6F45B4EA) state = Autoplaying
-[Log] HTMLMediaElement::setPlaybackRate(59E839FD6F45B4EA) 1
-[Log] HTMLMediaElement::setControls(59E839FD6F45B4EA) false
-[Log] MediaSession::setPlaybackState(B2147BD6) playing
-[Log] MediaSession::setActionHandler(B2147BD6) adding play
-[Log] MediaSession::setActionHandler(B2147BD6) adding pause
-[Log] MediaSession::setActionHandler(B2147BD6) adding seekbackward
-[Log] MediaSession::setActionHandler(B2147BD6) adding seekforward
-[Log] MediaSession::setMetadata(B2147BD6) 
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
+[Log] HTMLMediaElement::addEventListener(SOMEID) 'webkitplaybacktargetavailabilitychanged'
+[Info] MediaElementSession::hasWirelessPlaybackTargets(SOMEID) returning false
+[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(SOMEID) hasTargets = false
+[Info] HTMLMediaElement::load(SOMEID)
+[Log] HTMLMediaElement::prepareForLoad(SOMEID) gesture = false
+[Info] HTMLMediaElement::createMediaPlayer(SOMEID)
+[Info] MediaElementSession::setHasPlaybackTargetAvailabilityListeners(SOMEID) true
+[Info] MediaElementSession::hasWirelessPlaybackTargets(SOMEID) returning false
+[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(SOMEID) hasTargets = false
+[Info] HTMLMediaElement::cancelPendingEventsAndCallbacks(SOMEID)
+[Log] HTMLMediaElement::setPlaybackRate(SOMEID) 1
+[Log] MediaElementSession::clientWillBeginAutoplaying(SOMEID) state = Autoplaying
+[Log] HTMLMediaElement::setPlaybackRate(SOMEID) 1
+[Log] HTMLMediaElement::setControls(SOMEID) false
+[Log] MediaSession::setPlaybackState(SOMEID) playing
+[Log] MediaSession::setActionHandler(SOMEID) adding play
+[Log] MediaSession::setActionHandler(SOMEID) adding pause
+[Log] MediaSession::setActionHandler(SOMEID) adding seekbackward
+[Log] MediaSession::setActionHandler(SOMEID) adding seekforward
+[Log] MediaSession::setMetadata(SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Log] HTMLMediaElement::scheduleUpdateMediaState(D14B7DA35F0F59CD) lambda(), task fired
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) lambda(), task fired
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning true because media engine says so
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning true because media engine says so
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) emptied
-[Log] HTMLMediaElement::selectMediaResource(59E839FD6F45B4EA) lambda(), task fired
-[Log] HTMLMediaElement::setShouldDelayLoadEvent(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::selectMediaResource(59E839FD6F45B4EA) nothing to load
-[Info] HTMLMediaElement::prepareToPlay(59E839FD6F45B4EA) 
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) false
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning true because media engine says so
-[Log] HTMLMediaElement::scheduleUpdateMediaState(D14B7DA35F0F59CD) task scheduled
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning true because media engine says so
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning true because media engine says so
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) emptied
+[Log] HTMLMediaElement::selectMediaResource(SOMEID) lambda(), task fired
+[Log] HTMLMediaElement::setShouldDelayLoadEvent(SOMEID) false
+[Log] HTMLMediaElement::selectMediaResource(SOMEID) nothing to load
+[Info] HTMLMediaElement::prepareToPlay(SOMEID)
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning true because media engine says so
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setMuted(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) true
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning true because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::setMuted(SOMEID) true
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning true because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setVolume(59E839FD6F45B4EA) 1
-[Info] HTMLMediaElement::load(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::prepareForLoad(59E839FD6F45B4EA) gesture = false
-[Info] HTMLMediaElement::createMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::setHasPlaybackTargetAvailabilityListeners(59E839FD6F45B4EA) true
-[Info] MediaElementSession::hasWirelessPlaybackTargets(59E839FD6F45B4EA) returning false
-[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(59E839FD6F45B4EA) hasTargets = false
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) task scheduled
-[Info] HTMLMediaElement::cancelPendingEventsAndCallbacks(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::setPlaybackRate(59E839FD6F45B4EA) 1
-[Log] MediaElementSession::clientWillBeginAutoplaying(59E839FD6F45B4EA) state = Autoplaying
-[Log] HTMLMediaElement::setShouldDelayLoadEvent(59E839FD6F45B4EA) true
-[Log] HTMLMediaElement::setPlaybackRate(59E839FD6F45B4EA) 1
-[Debug] MediaSource::addedToRegistry(0) 
-[Log] HTMLMediaElement::prepareForLoad(59E839FD6F45B4EA) gesture = false
-[Info] HTMLMediaElement::createMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::setHasPlaybackTargetAvailabilityListeners(59E839FD6F45B4EA) true
-[Info] MediaElementSession::hasWirelessPlaybackTargets(59E839FD6F45B4EA) returning false
-[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(59E839FD6F45B4EA) hasTargets = false
-[Info] HTMLMediaElement::cancelPendingEventsAndCallbacks(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::setPlaybackRate(59E839FD6F45B4EA) 1
-[Log] MediaElementSession::clientWillBeginAutoplaying(59E839FD6F45B4EA) state = Autoplaying
-[Log] HTMLMediaElement::play(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] HTMLMediaElement::playInternal(59E839FD6F45B4EA) 
-[Log] MediaElementSession::clientWillBeginPlayback(59E839FD6F45B4EA) state = Autoplaying
-[Log] MediaSessionManageriOS::setCurrentSession(0) (59E839FD6F45B4EA)
-[Log] MediaSessionManageriOS::sessionWillBeginPlayback(0) (59E839FD6F45B4EA) returning true
+[Log] HTMLMediaElement::setVolume(SOMEID) 1
+[Info] HTMLMediaElement::load(SOMEID)
+[Log] HTMLMediaElement::prepareForLoad(SOMEID) gesture = false
+[Info] HTMLMediaElement::createMediaPlayer(SOMEID)
+[Info] MediaElementSession::setHasPlaybackTargetAvailabilityListeners(SOMEID) true
+[Info] MediaElementSession::hasWirelessPlaybackTargets(SOMEID) returning false
+[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(SOMEID) hasTargets = false
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Info] HTMLMediaElement::cancelPendingEventsAndCallbacks(SOMEID)
+[Log] HTMLMediaElement::setPlaybackRate(SOMEID) 1
+[Log] MediaElementSession::clientWillBeginAutoplaying(SOMEID) state = Autoplaying
+[Log] HTMLMediaElement::setShouldDelayLoadEvent(SOMEID) true
+[Log] HTMLMediaElement::setPlaybackRate(SOMEID) 1
+[Debug] MediaSource::addedToRegistry(0)
+[Log] HTMLMediaElement::prepareForLoad(SOMEID) gesture = false
+[Info] HTMLMediaElement::createMediaPlayer(SOMEID)
+[Info] MediaElementSession::setHasPlaybackTargetAvailabilityListeners(SOMEID) true
+[Info] MediaElementSession::hasWirelessPlaybackTargets(SOMEID) returning false
+[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(SOMEID) hasTargets = false
+[Info] HTMLMediaElement::cancelPendingEventsAndCallbacks(SOMEID)
+[Log] HTMLMediaElement::setPlaybackRate(SOMEID) 1
+[Log] MediaElementSession::clientWillBeginAutoplaying(SOMEID) state = Autoplaying
+[Log] HTMLMediaElement::play(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] HTMLMediaElement::playInternal(SOMEID)
+[Log] MediaElementSession::clientWillBeginPlayback(SOMEID) state = Autoplaying
+[Log] MediaSessionManageriOS::setCurrentSession(0) (SOMEID)
+[Log] MediaSessionManageriOS::sessionWillBeginPlayback(0) (SOMEID) returning true
 [Log] MediaSessionManageriOS::sessionWillBeginPlayback(0) Playback Target Supports AirPlay Video = false
-[Info] MediaElementSession::setShouldPlayToPlaybackTarget(59E839FD6F45B4EA) false
-[Log] MediaElementSession::setState(59E839FD6F45B4EA) Playing
+[Info] MediaElementSession::setShouldPlayToPlaybackTarget(SOMEID) false
+[Log] MediaElementSession::setState(SOMEID) Playing
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Log] HTMLMediaElement::setShowPosterFlag(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::setAutoplayEventPlaybackState(59E839FD6F45B4EA) StartedWithoutUserGesture
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Info] HTMLMediaElement::prepareToPlay(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] HTMLMediaElement::setShowPosterFlag(SOMEID) false
+[Log] HTMLMediaElement::setAutoplayEventPlaybackState(SOMEID) StartedWithoutUserGesture
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Info] HTMLMediaElement::prepareToPlay(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) false
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning true because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning true because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setMuted(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) true
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning true because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::setMuted(SOMEID) true
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning true because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setVolume(59E839FD6F45B4EA) 1
-[Log] MediaSession::setActionHandler(B2147BD6) adding play
-[Log] MediaSession::setActionHandler(B2147BD6) adding pause
-[Log] MediaSession::setActionHandler(B2147BD6) adding seekbackward
-[Log] MediaSession::setActionHandler(B2147BD6) adding seekforward
-[Log] MediaSession::setMetadata(B2147BD6) 
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Log] HTMLMediaElement::scheduleUpdateMediaState(D14B7DA35F0F59CD) lambda(), task fired
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) lambda(), task fired
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning true because media engine says so
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) emptied
-[Log] HTMLMediaElement::selectMediaResource(59E839FD6F45B4EA) lambda(), task fired
-[Info] HTMLMediaElement::loadResource(59E839FD6F45B4EA) [url] – {containerType: "", codecs: "codecs", profiles: "profiles"}
-[Info] HTMLMediaElement::loadResource(59E839FD6F45B4EA) m_currentSrc is [url]
-[Log] HTMLMediaElement::loadResource(59E839FD6F45B4EA) loading MSE blob
-[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::mediaPlayerEngineUpdated(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::selectMediaResource(59E839FD6F45B4EA) using 'src' attribute url
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) play
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) waiting
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) loadstart
-[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(59E839FD6F45B4EA) lambda(), task fired
-[Log] HTMLMediaElement::mediaEngineWasUpdated(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::mediaEngineUpdated(59E839FD6F45B4EA) 
-[Log] VideoLayerManagerObjC::setVideoFullscreenFrame(59E839FD6F45B4EA) 0, 0, 0, 0
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(59E839FD6F45B4EA) 
-[Log] VideoLayerManagerObjC::didDestroyVideoLayer(59E839FD6F45B4EA) 
-[Log] VideoLayerManagerObjC::setTextTrackRepresentationLayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::mediaPlayerEngineUpdated(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(59E839FD6F45B4EA) task scheduled
-[Log] MediaSource::setLogIdentifier(59E839FD6F45B4EA) 
-[Debug] MediaSource::setPrivateAndOpen(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::setShouldDelayLoadEvent(59E839FD6F45B4EA) false
-[Log] MediaSource::onReadyStateChange(59E839FD6F45B4EA) old state = closed, new state = open
-[Debug] MediaSource::scheduleEvent(59E839FD6F45B4EA) scheduling 'sourceopen'
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) lambda(), task fired
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(59E839FD6F45B4EA) lambda(), task fired
-[Log] HTMLMediaElement::mediaEngineWasUpdated(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::mediaEngineUpdated(59E839FD6F45B4EA) 
-[Log] VideoLayerManagerObjC::setVideoFullscreenFrame(59E839FD6F45B4EA) 0, 0, 0, 0
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) task scheduled
-[Log] MediaSource::setDuration(59E839FD6F45B4EA) 6392
-[Log] MediaSource::setDurationInternal(59E839FD6F45B4EA)  – {value: 6392}
-[Debug] MediaSource::addSourceBuffer(59E839FD6F45B4EA) audio/webm; codecs="opus"
-[Log] SourceBuffer::SourceBuffer(59E839FD6F450001) 
-[Debug] MediaSource::addSourceBuffer(59E839FD6F45B4EA) created SourceBuffer
-[Debug] MediaSource::addSourceBuffer(59E839FD6F45B4EA) video/webm; codecs="vp09.00.51.08.01.01.01.01.00"
-[Log] SourceBuffer::SourceBuffer(59E839FD6F450002) 
-[Debug] MediaSource::addSourceBuffer(59E839FD6F45B4EA) created SourceBuffer
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] VideoLayerManagerObjC::setVideoLayer(59E839FD6F45B4EA) 810, 405
-[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::mediaPlayerEngineUpdated(59E839FD6F45B4EA) AVFoundation MediaSource Engine
-[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setVolume(SOMEID) 1
+[Log] MediaSession::setActionHandler(SOMEID) adding play
+[Log] MediaSession::setActionHandler(SOMEID) adding pause
+[Log] MediaSession::setActionHandler(SOMEID) adding seekbackward
+[Log] MediaSession::setActionHandler(SOMEID) adding seekforward
+[Log] MediaSession::setMetadata(SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning true because media engine says so
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) emptied
+[Log] HTMLMediaElement::selectMediaResource(SOMEID) lambda(), task fired
+[Info] HTMLMediaElement::loadResource(SOMEID) [url] – {containerType: "", codecs: "codecs", profiles: "profiles"}
+[Info] HTMLMediaElement::loadResource(SOMEID) m_currentSrc is [url]
+[Log] HTMLMediaElement::loadResource(SOMEID) loading MSE blob
+[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerEngineUpdated(SOMEID)
+[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(SOMEID) task scheduled
+[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(SOMEID)
+[Log] HTMLMediaElement::selectMediaResource(SOMEID) using 'src' attribute url
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) play
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) waiting
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) loadstart
+[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(SOMEID) lambda(), task fired
+[Log] HTMLMediaElement::mediaEngineWasUpdated(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::mediaEngineUpdated(SOMEID)
+[Log] VideoLayerManagerObjC::setVideoFullscreenFrame(SOMEID) 0, 0, 0, 0
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(SOMEID)
+[Log] VideoLayerManagerObjC::didDestroyVideoLayer(SOMEID)
+[Log] VideoLayerManagerObjC::setTextTrackRepresentationLayer(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerEngineUpdated(SOMEID)
+[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(SOMEID) task scheduled
+[Log] MediaSource::setLogIdentifier(SOMEID)
+[Debug] MediaSource::setPrivateAndOpen(SOMEID)
+[Log] HTMLMediaElement::setShouldDelayLoadEvent(SOMEID) false
+[Log] MediaSource::onReadyStateChange(SOMEID) old state = closed, new state = open
+[Debug] MediaSource::scheduleEvent(SOMEID) scheduling 'sourceopen'
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(SOMEID) lambda(), task fired
+[Log] HTMLMediaElement::mediaEngineWasUpdated(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::mediaEngineUpdated(SOMEID)
+[Log] VideoLayerManagerObjC::setVideoFullscreenFrame(SOMEID) 0, 0, 0, 0
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Log] MediaSource::setDuration(SOMEID) 6392
+[Log] MediaSource::setDurationInternal(SOMEID)  – {value: 6392}
+[Debug] MediaSource::addSourceBuffer(SOMEID) audio/webm; codecs="opus"
+[Log] SourceBuffer::SourceBuffer(SOMEID)
+[Debug] MediaSource::addSourceBuffer(SOMEID) created SourceBuffer
+[Debug] MediaSource::addSourceBuffer(SOMEID) video/webm; codecs="vp09.00.51.08.01.01.01.01.00"
+[Log] SourceBuffer::SourceBuffer(SOMEID)
+[Debug] MediaSource::addSourceBuffer(SOMEID) created SourceBuffer
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] VideoLayerManagerObjC::setVideoLayer(SOMEID) 810, 405
+[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerEngineUpdated(SOMEID) AVFoundation MediaSource Engine
+[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(SOMEID) task scheduled
+[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::mediaPlayerDurationChanged(59E839FD6F45B4EA) duration =  (3)
+[Log] HTMLMediaElement::mediaPlayerDurationChanged(SOMEID) duration =  (3)
 {invalid: true, numerator: -1, denominator: 1, flags: 0}
 ", current time = "
 {value: 0, numerator: 0, denominator: 1, flags: 1}
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) lambda(), task fired
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(59E839FD6F45B4EA) lambda(), task fired
-[Log] HTMLMediaElement::mediaEngineWasUpdated(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::mediaEngineUpdated(59E839FD6F45B4EA) 
-[Log] VideoLayerManagerObjC::setVideoFullscreenFrame(59E839FD6F45B4EA) 0, 0, 0, 0
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) task scheduled
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) durationchange
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) lambda(), task fired
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(SOMEID)
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] HTMLMediaElement::scheduleMediaEngineWasUpdated(SOMEID) lambda(), task fired
+[Log] HTMLMediaElement::mediaEngineWasUpdated(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::mediaEngineUpdated(SOMEID)
+[Log] VideoLayerManagerObjC::setVideoFullscreenFrame(SOMEID) 0, 0, 0, 0
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) durationchange
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
 [Log] ytplayer onready – {target: eq, data: null} (lite-yt-embed.js, line 132)
 {target: eq, data: null}Object
-[Log] HTMLMediaElement::play(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] HTMLMediaElement::playInternal(59E839FD6F45B4EA) 
-[Log] MediaElementSession::clientWillBeginPlayback(59E839FD6F45B4EA) state = Playing
-[Log] MediaSessionManageriOS::setCurrentSession(0) (59E839FD6F45B4EA)
-[Log] MediaSessionManageriOS::sessionWillBeginPlayback(0) (59E839FD6F45B4EA) returning true
+[Log] HTMLMediaElement::play(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] HTMLMediaElement::playInternal(SOMEID)
+[Log] MediaElementSession::clientWillBeginPlayback(SOMEID) state = Playing
+[Log] MediaSessionManageriOS::setCurrentSession(0) (SOMEID)
+[Log] MediaSessionManageriOS::sessionWillBeginPlayback(0) (SOMEID) returning true
 [Log] MediaSessionManageriOS::sessionWillBeginPlayback(0) Playback Target Supports AirPlay Video = false
-[Info] MediaElementSession::setShouldPlayToPlaybackTarget(59E839FD6F45B4EA) false
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Log] HTMLMediaElement::setAutoplayEventPlaybackState(59E839FD6F45B4EA) StartedWithoutUserGesture
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Info] HTMLMediaElement::prepareToPlay(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::setShouldPlayToPlaybackTarget(SOMEID) false
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] HTMLMediaElement::setAutoplayEventPlaybackState(SOMEID) StartedWithoutUserGesture
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Info] HTMLMediaElement::prepareToPlay(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Log] SourceBuffer::sourceBufferPrivateDidReceiveInitializationSegment(59E839FD6F450001) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Log] SourceBuffer::sourceBufferPrivateDidReceiveInitializationSegment(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: no audio
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(59E839FD6F45B4EA) 
-[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::pauseInternal(59E839FD6F45B4EA) 
-[Log] MediaElementSession::clientWillPausePlayback(59E839FD6F45B4EA) 
-[Log] MediaElementSession::processClientWillPausePlayback(59E839FD6F45B4EA) state = Playing
-[Log] MediaElementSession::setState(59E839FD6F45B4EA) Paused
-[Log] MediaSessionManageriOS::sessionWillEndPlayback(0) (59E839FD6F45B4EA)
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Log] HTMLMediaElement::setAutoplayEventPlaybackState(59E839FD6F45B4EA) None
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: no audio
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(SOMEID)
+[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(SOMEID)
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) task scheduled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::pauseInternal(SOMEID)
+[Log] MediaElementSession::clientWillPausePlayback(SOMEID)
+[Log] MediaElementSession::processClientWillPausePlayback(SOMEID) state = Playing
+[Log] MediaElementSession::setState(SOMEID) Paused
+[Log] MediaSessionManageriOS::sessionWillEndPlayback(0) (SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] HTMLMediaElement::setAutoplayEventPlaybackState(SOMEID) None
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::setAutoplayEventPlaybackState(59E839FD6F45B4EA) PreventedAutoplay
-[Log] HTMLMediaElement::dispatchPlayPauseEventsIfNeedsQuirks(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::handleAutoplayEvent(59E839FD6F45B4EA) hasAudio = true wasPlaybackPrevented = true hasMainContent = false
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setAutoplayEventPlaybackState(SOMEID) PreventedAutoplay
+[Log] HTMLMediaElement::dispatchPlayPauseEventsIfNeedsQuirks(SOMEID)
+[Log] HTMLMediaElement::handleAutoplayEvent(SOMEID) hasAudio = true wasPlaybackPrevented = true hasMainContent = false
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) lambda(), task fired
-[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(59E839FD6F45B4EA) 
-[Info] HTMLMediaElement::didAddUserAgentShadowRoot(59E839FD6F45B4EA) 
-[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] HTMLMediaElement::webkitCurrentPlaybackTargetIsWireless(59E839FD6F45B4EA) false
-[Info] HTMLMediaElement::webkitCurrentPlaybackTargetIsWireless(59E839FD6F45B4EA) false
-[Info] HTMLMediaElement::webkitCurrentPlaybackTargetIsWireless(59E839FD6F45B4EA) false
-[Info] HTMLMediaElement::webkitCurrentPlaybackTargetIsWireless(59E839FD6F45B4EA) false
-[Info] HTMLMediaElement::setMediaControlsDependOnPageScaleFactor(59E839FD6F45B4EA) true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::configureTextTrackDisplay(59E839FD6F45B4EA) CheckTextTrackVisibility
-[Log] HTMLMediaElement::setControls(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) pause
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) playing
-[Log] HTMLMediaElement::setControls(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSession::setPlaybackState(B2147BD6) playing
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) pause
-[Log] HTMLMediaElement::setControls(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSession::setPlaybackState(B2147BD6) paused
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(59E839FD6F45B4EA) 
-[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) lambda(), task fired
+[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(SOMEID)
+[Info] HTMLMediaElement::didAddUserAgentShadowRoot(SOMEID)
+[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerRenderingModeChanged(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] HTMLMediaElement::webkitCurrentPlaybackTargetIsWireless(SOMEID) false
+[Info] HTMLMediaElement::webkitCurrentPlaybackTargetIsWireless(SOMEID) false
+[Info] HTMLMediaElement::webkitCurrentPlaybackTargetIsWireless(SOMEID) false
+[Info] HTMLMediaElement::webkitCurrentPlaybackTargetIsWireless(SOMEID) false
+[Info] HTMLMediaElement::setMediaControlsDependOnPageScaleFactor(SOMEID) true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::configureTextTrackDisplay(SOMEID) CheckTextTrackVisibility
+[Log] HTMLMediaElement::setControls(SOMEID) false
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) pause
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) playing
+[Log] HTMLMediaElement::setControls(SOMEID) false
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSession::setPlaybackState(SOMEID) playing
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) pause
+[Log] HTMLMediaElement::setControls(SOMEID) false
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSession::setPlaybackState(SOMEID) paused
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(SOMEID)
+[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(SOMEID)
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) task scheduled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(1), Audio(0), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = None, policy = Default, previous category = None
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] SourceBuffer::sourceBufferPrivateDidReceiveInitializationSegment(59E839FD6F450002) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveMetadata, current state = HAVE_NOTHING
-[Info] MediaElementSession::hasWirelessPlaybackTargets(59E839FD6F45B4EA) returning false
-[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(59E839FD6F45B4EA) hasTargets = false
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] SourceBuffer::sourceBufferPrivateDidReceiveInitializationSegment(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveMetadata, current state = HAVE_NOTHING
+[Info] MediaElementSession::hasWirelessPlaybackTargets(SOMEID) returning false
+[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(SOMEID) hasTargets = false
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(1), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = None
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(1), VideoAudio(0), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(59E839FD6F45B4EA) 
-[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(SOMEID)
+[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(SOMEID)
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) task scheduled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSource::setDuration(59E839FD6F45B4EA) 6391.801
-[Log] MediaSource::setDurationInternal(59E839FD6F45B4EA)  – {value: 6391.801}
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) durationchange
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) false
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] HTMLMediaElement::scheduleUpdateMediaState(D14B7DA35F0F59CD) task scheduled
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSource::setDuration(SOMEID) 6391.801
+[Log] MediaSource::setDurationInternal(SOMEID)  – {value: 6391.801}
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) durationchange
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Log] HTMLMediaElement::setMuted(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) true
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::setMuted(SOMEID) true
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Log] HTMLMediaElement::setVolume(59E839FD6F45B4EA) 1
-[Log] MediaSession::setActionHandler(B2147BD6) adding play
-[Log] MediaSession::setActionHandler(B2147BD6) adding pause
-[Log] MediaSession::setActionHandler(B2147BD6) adding seekbackward
-[Log] MediaSession::setActionHandler(B2147BD6) adding seekforward
-[Log] MediaSession::setMetadata(B2147BD6) 
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) resize
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) loadedmetadata
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) webkitplaybacktargetavailabilitychanged
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) lambda(), task fired
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) lambda(), task fired
-[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::configureTextTrackDisplay(59E839FD6F45B4EA) CheckTextTrackVisibility
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(59E839FD6F45B4EA) 
-[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setVolume(SOMEID) 1
+[Log] MediaSession::setActionHandler(SOMEID) adding play
+[Log] MediaSession::setActionHandler(SOMEID) adding pause
+[Log] MediaSession::setActionHandler(SOMEID) adding seekbackward
+[Log] MediaSession::setActionHandler(SOMEID) adding seekforward
+[Log] MediaSession::setMetadata(SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) resize
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) loadedmetadata
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) webkitplaybacktargetavailabilitychanged
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) lambda(), task fired
+[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(SOMEID)
+[Log] HTMLMediaElement::configureTextTrackDisplay(SOMEID) CheckTextTrackVisibility
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(SOMEID)
+[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(SOMEID)
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) task scheduled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Log] HTMLMediaElement::mediaPlayerDurationChanged(59E839FD6F45B4EA) duration =  (3)
+[Log] HTMLMediaElement::mediaPlayerDurationChanged(SOMEID) duration =  (3)
 {value: 6391.801}
 ", current time = "
 {value: 0, numerator: 0, denominator: 1, flags: 1}
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
 [Log] ytplayer statechange – {target: eq, data: -1} (www-widgetapi.js, line 475)
 {target: eq, data: -1}Object
 [Log] ytplayer statechange – {target: eq, data: 1} (www-widgetapi.js, line 475)
 {target: eq, data: 1}Object
 [Log] ytplayer statechange – {target: eq, data: 2} (www-widgetapi.js, line 475)
 {target: eq, data: 2}Object
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Log] HTMLMediaElement::scheduleUpdateMediaState(D14B7DA35F0F59CD) lambda(), task fired
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) durationchange
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) lambda(), task fired
-[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::configureTextTrackDisplay(59E839FD6F45B4EA) CheckTextTrackVisibility
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) durationchange
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) lambda(), task fired
+[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(SOMEID)
+[Log] HTMLMediaElement::configureTextTrackDisplay(SOMEID) CheckTextTrackVisibility
 [Log] MediaSessionManageriOS::externalOutputDeviceAvailableDidChange(0) 1
-[Info] MediaElementSession::externalOutputDeviceAvailableDidChange(59E839FD6F45B4EA) true
-[Info] MediaElementSession::hasWirelessPlaybackTargets(59E839FD6F45B4EA) returning true
-[Info] MediaElementSession::hasWirelessPlaybackTargets(59E839FD6F45B4EA) returning true
-[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(59E839FD6F45B4EA) hasTargets = true
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) task scheduled
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) webkitplaybacktargetavailabilitychanged
-[Log] HTMLMediaElement::scheduleUpdateMediaState(59E839FD6F45B4EA) lambda(), task fired
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] SourceBuffer::sourceBufferPrivateDidReceiveInitializationSegment(59E839FD6F450001) 
-[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(59E839FD6F45B4EA) 
-[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) task scheduled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::externalOutputDeviceAvailableDidChange(SOMEID) true
+[Info] MediaElementSession::hasWirelessPlaybackTargets(SOMEID) returning true
+[Info] MediaElementSession::hasWirelessPlaybackTargets(SOMEID) returning true
+[Log] HTMLMediaElement::enqueuePlaybackTargetAvailabilityChangedEvent(SOMEID) hasTargets = true
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) webkitplaybacktargetavailabilitychanged
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] SourceBuffer::sourceBufferPrivateDidReceiveInitializationSegment(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerCharacteristicChanged(SOMEID)
+[Info] HTMLMediaElement::markCaptionAndSubtitleTracksAsUnconfigured(SOMEID)
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) task scheduled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Log] HTMLMediaElement::scheduleConfigureTextTracks(59E839FD6F45B4EA) lambda(), task fired
-[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::configureTextTrackDisplay(59E839FD6F45B4EA) CheckTextTrackVisibility
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::clientDataBufferingTimerFired(59E839FD6F45B4EA) visible = false
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) false
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] HTMLMediaElement::scheduleUpdateMediaState(D14B7DA35F0F59CD) task scheduled
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::scheduleConfigureTextTracks(SOMEID) lambda(), task fired
+[Info] HTMLMediaElement::ensureMediaControlsInjectedScript(SOMEID)
+[Log] HTMLMediaElement::configureTextTrackDisplay(SOMEID) CheckTextTrackVisibility
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::clientDataBufferingTimerFired(SOMEID) visible = false
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) task scheduled
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Log] HTMLMediaElement::setMuted(59E839FD6F45B4EA) false
-[Log] HTMLMediaElement::setMuted(D14B7DA35F0F59CD) true
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(D14B7DA35F0F59CD) m_readyState != HAVE_ENOUGH_DATA
-[Info] MediaElementSession::wirelessVideoPlaybackDisabled(59E839FD6F45B4EA) returning false because media engine says so
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setMuted(SOMEID) false
+[Log] HTMLMediaElement::setMuted(SOMEID) true
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) m_readyState != HAVE_ENOUGH_DATA
+[Info] MediaElementSession::wirelessVideoPlaybackDisabled(SOMEID) returning false because media engine says so
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Log] HTMLMediaElement::setVolume(59E839FD6F45B4EA) 1
-[Log] MediaSession::setActionHandler(B2147BD6) adding play
-[Log] MediaSession::setActionHandler(B2147BD6) adding pause
-[Log] MediaSession::setActionHandler(B2147BD6) adding seekbackward
-[Log] MediaSession::setActionHandler(B2147BD6) adding seekforward
-[Log] MediaSession::setMetadata(B2147BD6) 
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (D14B7DA35F0F59CD)
-[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (59E839FD6F45B4EA)
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Log] HTMLMediaElement::scheduleUpdateMediaState(D14B7DA35F0F59CD) lambda(), task fired
-[Debug] HTMLMediaElement::dispatchEvent(D14B7DA35F0F59CD) volumechange
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 0.33
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::mediaPlayerSizeChanged(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) resize
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::mediaPlayerFirstVideoFrameAvailable(59E839FD6F45B4EA) m_showPoster = false
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveFutureData, current state = HAVE_METADATA
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::setVolume(SOMEID) 1
+[Log] MediaSession::setActionHandler(SOMEID) adding play
+[Log] MediaSession::setActionHandler(SOMEID) adding pause
+[Log] MediaSession::setActionHandler(SOMEID) adding seekbackward
+[Log] MediaSession::setActionHandler(SOMEID) adding seekforward
+[Log] MediaSession::setMetadata(SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Log] MediaSessionManageriOS::clientCharacteristicsChanged(0) (SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Log] HTMLMediaElement::scheduleUpdateMediaState(SOMEID) lambda(), task fired
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) volumechange
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 0.33
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerSizeChanged(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) resize
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::mediaPlayerFirstVideoFrameAvailable(SOMEID) m_showPoster = false
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveFutureData, current state = HAVE_METADATA
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) loadeddata
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) canplay
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 0.9198662857494784
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 0.9877890858625002
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.1677162897049425
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 1.5680999999999994
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveEnoughData, current state = HAVE_FUTURE_DATA
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(59E839FD6F45B4EA) !isAutoplaying
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) loadeddata
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) canplay
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 0.9198662857494784
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 0.9877890858625002
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.1677162897049425
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.5680999999999994
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveEnoughData, current state = HAVE_FUTURE_DATA
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) !isAutoplaying
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) canplaythrough
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.5593626906671378
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 1.899844548399899
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.5530072806194368
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 2.072204478804995
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.532605540447679
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 2.5787772402072235
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.7006219147134614
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 3.0587639077251145
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.887527630905578
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 3.102949228516724
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 2.0510188669874774
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 3.4900844114428207
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 2.5956734902058356
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 3.943118473019266
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 2.784373074259731
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 4.029350200905459
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 2.758157969738234
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 4.4084972644938585
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) stalled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -1.2701340840078772
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) -3.6284639304105113
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -0.2358337849473391
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) -3.530483460589475
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 0.7702974679773344
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveFutureData, current state = HAVE_ENOUGH_DATA
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) canplaythrough
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.5593626906671378
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.899844548399899
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.5530072806194368
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.072204478804995
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.532605540447679
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.5787772402072235
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.7006219147134614
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 3.0587639077251145
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.887527630905578
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 3.102949228516724
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.0510188669874774
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 3.4900844114428207
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.5956734902058356
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 3.943118473019266
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.784373074259731
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 4.029350200905459
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.758157969738234
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 4.4084972644938585
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) stalled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -1.2701340840078772
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -3.6284639304105113
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -0.2358337849473391
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -3.530483460589475
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 0.7702974679773344
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveFutureData, current state = HAVE_ENOUGH_DATA
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) stalled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -0.7277554633683723
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 3.9610891795671113
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveEnoughData, current state = HAVE_FUTURE_DATA
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(59E839FD6F45B4EA) !isAutoplaying
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) stalled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -0.7277554633683723
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 3.9610891795671113
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveEnoughData, current state = HAVE_FUTURE_DATA
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) !isAutoplaying
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) canplaythrough
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -0.7172522478692286
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 4.451131603466065
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -0.7076258321154584
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 4.9251764784870975
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) stalled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 0.3804660124904159
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveFutureData, current state = HAVE_ENOUGH_DATA
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) canplaythrough
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -0.7172522478692286
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 4.451131603466065
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -0.7076258321154584
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 4.9251764784870975
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) stalled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 0.3804660124904159
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveFutureData, current state = HAVE_ENOUGH_DATA
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 0.7710539840334134
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 0.9687458981843087
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.147828333106575
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 1.4412346068070878
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveEnoughData, current state = HAVE_FUTURE_DATA
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(59E839FD6F45B4EA) !isAutoplaying
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 0.7710539840334134
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 0.9687458981843087
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.147828333106575
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.4412346068070878
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveEnoughData, current state = HAVE_FUTURE_DATA
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) !isAutoplaying
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) canplaythrough
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.7191335239134973
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 1.9457055792082483
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.908167414709363
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 2.066800003652212
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 2.2689256258431865
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 2.424593256100868
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 2.8376437308067834
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 2.3911600042707906
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 3.7646173004417025
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) 2.329622106709278
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) stalled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -6.973747765661761
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) -3.7882935522778705
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -6.884428556341427
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) -3.2059735935571605
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -6.795733193160675
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) -2.63086969992461
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) -6.712642952675314
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) -2.091605563933041
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450002) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) stalled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 0.8199845926719096
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveFutureData, current state = HAVE_ENOUGH_DATA
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) canplaythrough
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.7191335239134973
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.9457055792082483
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.908167414709363
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.066800003652212
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.2689256258431865
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.424593256100868
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.8376437308067834
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.3911600042707906
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 3.7646173004417025
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 2.329622106709278
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) stalled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -6.973747765661761
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -3.7882935522778705
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -6.884428556341427
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -3.2059735935571605
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -6.795733193160675
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -2.63086969992461
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -6.712642952675314
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -2.091605563933041
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) stalled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 0.8199845926719096
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveFutureData, current state = HAVE_ENOUGH_DATA
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450001) 1.7987763608373777
-[Debug] SourceBuffer::monitorBufferingRate(59E839FD6F450002) -0.001989082035732892
-[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(59E839FD6F450001) 
-[Log] HTMLMediaElement::setReadyState(59E839FD6F45B4EA) new state = HaveEnoughData, current state = HAVE_FUTURE_DATA
-[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(59E839FD6F45B4EA) !isAutoplaying
-[Log] HTMLMediaElement::updatePlayState(59E839FD6F45B4EA) shouldBePlaying = false, playerPaused = true
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
-[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0) 
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) 1.7987763608373777
+[Debug] SourceBuffer::monitorBufferingRate(SOMEID) -0.001989082035732892
+[Debug] SourceBuffer::sourceBufferPrivateAppendComplete(SOMEID)
+[Log] HTMLMediaElement::setReadyState(SOMEID) new state = HaveEnoughData, current state = HAVE_FUTURE_DATA
+[Log] HTMLMediaElement::canTransitionFromAutoplayToPlay(SOMEID) !isAutoplaying
+[Log] HTMLMediaElement::updatePlayState(SOMEID) shouldBePlaying = false, playerPaused = true
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
+[Log] MediaSessionManageriOS::sessionCanProduceAudioChanged(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) types: AudioCapture(0), AudioTrack(0), Video(0), Audio(0), VideoAudio(1), WebAudio(0)
 [Log] MediaSessionManageriOS::updateSessionState(0) setting category = MediaPlayback, policy = LongFormAudio, previous category = MediaPlayback
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) canplaythrough
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: playback not permitted
-[Info] MediaElementSession::canShowControlsManager(59E839FD6F45B4EA) returning FALSE: not in main frame
-[Info] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) state = 0
-[Log] MediaElementSession::playbackStateChangePermitted(59E839FD6F45B4EA) Returning FALSE because a user gesture is required for audio rate change restriction
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) progress
-[Debug] HTMLMediaElement::dispatchEvent(59E839FD6F45B4EA) stalled
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
-[Log] HTMLMediaElement::updateMediaPlayer(59E839FD6F45B4EA) 
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) canplaythrough
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: playback not permitted
+[Info] MediaElementSession::canShowControlsManager(SOMEID) returning FALSE: not in main frame
+[Info] MediaElementSession::playbackStateChangePermitted(SOMEID) state = 0
+[Log] MediaElementSession::playbackStateChangePermitted(SOMEID) Returning FALSE because a user gesture is required for audio rate change restriction
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) progress
+[Debug] HTMLMediaElement::dispatchEvent(SOMEID) stalled
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
+[Log] HTMLMediaElement::updateMediaPlayer(SOMEID)
