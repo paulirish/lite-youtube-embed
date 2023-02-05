@@ -14,11 +14,14 @@
 	<source src="http://clips.vorwaerts-gmbh.de/VfE.ogv"       type="video/ogg"  /><!-- Firefox3.6+ / Opera 10.5+ -->
 </video>
 
-<button type="button">addnewthing</button>
-<div id="hold"></div>
+<button class="addvideo" type="button">add video</button>
+<div id="addvideohold"></div>
+
+<button class="addiframe" type="button">add iframe</button>
+
 <script>
-  document.querySelector('button').addEventListener('click', e => {
-    document.querySelector('#hold').innerHTML = `
+  document.querySelector('.addvideo').addEventListener('click', e => {
+    document.querySelector('#addvideohold').innerHTML = `
       <video width="640" height="360" controls autoplay>
         <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"  /><!-- Safari / iOS, IE9 -->
         <source src="http://clips.vorwaerts-gmbh.de/VfE.webm"      type="video/webm" /><!-- Chrome10+, Ffx4+, Opera10.6+ -->
@@ -26,7 +29,15 @@
       </video>
     `;
   });
+
+  document.querySelector('.addiframe').addEventListener('click', e => {
+    const ifr = document.createElement('iframe');
+    ifr.src = document.location.href;
+    ifr.width = ifr.height = 700;
+    document.body.append(ifr);
+  });
 </script>
+
 
 </body>
 </html>
