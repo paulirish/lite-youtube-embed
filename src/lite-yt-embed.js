@@ -165,6 +165,7 @@ class LiteYTEmbed extends HTMLElement {
         // if (this.needsYTApiForAutoplay) {
             this.addYTPlayerIframe(params);
         return this.clickPromise.then(_ => {
+            console.warn('ytplayer invoking playVideo', performance.now()),
             globalThis.onreadyevent.target.playVideo();
         });
         // }
