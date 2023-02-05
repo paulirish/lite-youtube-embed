@@ -126,7 +126,7 @@ class LiteYTEmbed extends HTMLElement {
 
         const paramsObj = Object.fromEntries(params.entries());
         console.warn('ytplayer new')
-        new YT.Player(videoPlaceholderEl, {
+        this.ytplayerinst = new YT.Player(videoPlaceholderEl, {
             width: '100%',
             videoId: this.videoId,
             playerVars: paramsObj,
@@ -137,7 +137,10 @@ class LiteYTEmbed extends HTMLElement {
                     this.clickPromiseRes()
                 },
                 'onError': event => console.warn('ytplayer onerror', event),
-                'onApiChange': event => console.warn('ytplayer onApiChange', event),
+                'onApiChange': event => {
+                    const opts = this.ytplayerinst.getOptions();
+                    console.warn('ytplayer onApiChange',  opts, event)
+                },
 
                 'onStateChange': event => console.warn('ytplayer statechange', performance.now(), event),
             }
