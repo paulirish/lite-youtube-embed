@@ -14,6 +14,19 @@
 	<source src="http://clips.vorwaerts-gmbh.de/VfE.ogv"       type="video/ogg"  /><!-- Firefox3.6+ / Opera 10.5+ -->
 </video>
 
+<button type="button">addnewthing</button>
+<div id="hold"></div>
+<script>
+  document.querySelector('button').addEventListener('click', e => {
+    document.querySelector('#hold').innerHTML = `
+      <video width="640" height="360" controls autoplay>
+        <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"  /><!-- Safari / iOS, IE9 -->
+        <source src="http://clips.vorwaerts-gmbh.de/VfE.webm"      type="video/webm" /><!-- Chrome10+, Ffx4+, Opera10.6+ -->
+        <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv"       type="video/ogg"  /><!-- Firefox3.6+ / Opera 10.5+ -->
+      </video>
+    `;
+  });
+</script>
 
 </body>
 </html>
