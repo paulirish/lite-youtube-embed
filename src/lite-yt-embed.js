@@ -132,7 +132,7 @@ class LiteYTEmbed extends HTMLElement {
             playerVars: paramsObj,
             events: {
                 'onReady': async event => {
-                    console.warn('ytplayer onready',  performance.now() - globalThis.clicktime , event);
+                    console.warn('ytplayer onready.. latency is',  performance.now() - globalThis.clicktime ,  performance.now(), event);
                     globalThis.onreadyevent = event;
                     this.clickPromiseRes()
                 },
@@ -148,13 +148,14 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     async addIframe(){
+        console.warn('click', performance.now()),
+        globalThis.clicktime = performance.now();
         let res;
         this.clickPromise = new Promise(resolve => {
             res = resolve;
         });
         this.clickPromiseRes = res;
 
-        globalThis.clicktime = performance.now();
         if (this.classList.contains('lyt-activated')) return;
         this.classList.add('lyt-activated');
 
