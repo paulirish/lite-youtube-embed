@@ -123,16 +123,16 @@ class LiteYTEmbed extends HTMLElement {
 
         const paramsObj = Object.fromEntries(params.entries());
         console.log('ytplayer new')
-        this.clickPromiseRes();
-        await this.clickPromise;
         new YT.Player(videoPlaceholderEl, {
             width: '100%',
             videoId: this.videoId,
             playerVars: paramsObj,
             events: {
-                'onReady': event => {
+                'onReady': async event => {
                     console.timeEnd('clicktoplay');
                     console.log('ytplayer onready', event);
+                    await this.clickPromise;
+                    setTimeout(_ => this.clickPromiseRes());
                     event.target.playVideo();
                 },
                 'onError': event => console.log('ytplayer onerror', event),
