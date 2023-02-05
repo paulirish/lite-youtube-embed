@@ -114,53 +114,56 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     async addYTPlayerIframe(params) {
-        console.log('lyte - fetching yt player api');
+        console.warn('lyte - fetching yt player api');
         this.fetchYTPlayerApi();
         await this.ytApiPromise;
+        await this.initYtPlayer(params);
+    }
 
+    async initYtPlayer(params) {
         const videoPlaceholderEl = document.createElement('div')
         this.append(videoPlaceholderEl);
 
         const paramsObj = Object.fromEntries(params.entries());
-        console.log('ytplayer new')
+        console.warn('ytplayer new')
         new YT.Player(videoPlaceholderEl, {
             width: '100%',
             videoId: this.videoId,
             playerVars: paramsObj,
             events: {
                 'onReady': async event => {
-                    console.timeEnd('clicktoplay');
-                    console.log('ytplayer onready', event);
-                    setTimeout(_ => this.clickPromiseRes());
-                    await this.clickPromise;
-                    event.target.playVideo();
+                    console.warn('ytplayer onready',  performance.now() - globalThis.clicktime , event);
+                    globalThis.onreadyevent = event;
+                    this.clickPromiseRes()
                 },
-                'onError': event => console.log('ytplayer onerror', event),
-                'onApiChange': event => console.log('ytplayer onApiChange', event),
+                'onError': event => console.warn('ytplayer onerror', event),
+                'onApiChange': event => console.warn('ytplayer onApiChange', event),
 
-                'onStateChange': event => console.log('ytplayer statechange', event),
+                'onStateChange': event => console.warn('ytplayer statechange', event),
             }
         });
     }
 
     async addIframe(){
-
         let res;
         this.clickPromise = new Promise(resolve => {
             res = resolve;
         });
         this.clickPromiseRes = res;
 
-        console.time('clicktoplay');
+        globalThis.clicktime = performance.now();
         if (this.classList.contains('lyt-activated')) return;
         this.classList.add('lyt-activated');
 
         const params = new URLSearchParams(this.getAttribute('params') || []);
-        params.append('autoplay', '1');
+        // params.append('autoplay', '1'); // TODO: restore when i'm not debugging.
         params.append('playsinline', '1');
 
         // if (this.needsYTApiForAutoplay) {
-            return this.addYTPlayerIframe(params);
+            this.addYTPlayerIframe(params);
+        return this.clickPromise.then(_ => {
+            globalThis.onreadyevent.target.playVideo();
+        });
         // }
 
         const iframeEl = document.createElement('iframe');
