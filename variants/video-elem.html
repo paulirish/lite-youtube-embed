@@ -4,22 +4,40 @@
   <title>lite-youtube-embed - video elem</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    button { font-size: 200%; }
+  </style>
 </head>
 <body>
 <h1>video elem</h1>
 
-<video width="640" height="360" controls autoplay muted>
-	<source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"  /><!-- Safari / iOS, IE9 -->
-	<source src="http://clips.vorwaerts-gmbh.de/VfE.webm"      type="video/webm" /><!-- Chrome10+, Ffx4+, Opera10.6+ -->
-	<source src="http://clips.vorwaerts-gmbh.de/VfE.ogv"       type="video/ogg"  /><!-- Firefox3.6+ / Opera 10.5+ -->
-</video>
+<!-- <video width="640" height="360" controls >
+	<source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"  />
+	<source src="http://clips.vorwaerts-gmbh.de/VfE.webm"      type="video/webm" />
+	<source src="http://clips.vorwaerts-gmbh.de/VfE.ogv"       type="video/ogg"  />
+</video> -->
 
 <button class="addvideo" type="button">add video</button>
 <div id="addvideohold"></div>
 
 <button class="addiframe" type="button">add iframe</button>
 
+
+<button class="addiframescript" type="button">add iframe scr</button>
+
+<button class="playifrvid" type="button">play iframe vid</button>
+
 <script>
+  // h1 click
+  document.querySelector('h1').addEventListener('click', e => {
+    setTimeout(() => {
+      console.log('settimeout play')
+      document.querySelector('video').play();
+    });
+
+  });
+
+  // add video
   document.querySelector('.addvideo').addEventListener('click', e => {
     document.querySelector('#addvideohold').innerHTML = `
       <video width="640" height="360" controls autoplay>
@@ -29,7 +47,19 @@
       </video>
     `;
   });
-
+  // add iframe scr
+  document.querySelector('.addiframescript').addEventListener('click', e => {
+    const ifr = document.createElement('iframe');
+    ifr.src = './inner.html'
+    ifr.width = ifr.height = 700;
+    document.body.append(ifr);
+  });
+  document.querySelector('.playifrvid').addEventListener('click', e => {
+    setTimeout(() => {
+      document.querySelector('iframe').contentWindow.document.querySelector('video').play();
+    }, 1000);
+  });
+  // add iframe
   document.querySelector('.addiframe').addEventListener('click', e => {
     const ifr = document.createElement('iframe');
     ifr.src = document.location.href;

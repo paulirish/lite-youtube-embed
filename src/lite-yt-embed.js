@@ -123,12 +123,15 @@ class LiteYTEmbed extends HTMLElement {
 
         const paramsObj = Object.fromEntries(params.entries());
         console.log('ytplayer new')
+        this.clickPromiseRes();
+        await this.clickPromise;
         new YT.Player(videoPlaceholderEl, {
             width: '100%',
             videoId: this.videoId,
             playerVars: paramsObj,
             events: {
                 'onReady': event => {
+                    console.timeEnd('clicktoplay');
                     console.log('ytplayer onready', event);
                     event.target.playVideo();
                 },
@@ -141,6 +144,14 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     async addIframe(){
+
+        let res;
+        this.clickPromise = new Promise(resolve => {
+            res = resolve;
+        });
+        this.clickPromiseRes = res;
+
+        console.time('clicktoplay');
         if (this.classList.contains('lyt-activated')) return;
         this.classList.add('lyt-activated');
 
@@ -148,9 +159,9 @@ class LiteYTEmbed extends HTMLElement {
         params.append('autoplay', '1');
         params.append('playsinline', '1');
 
-        if (this.needsYTApiForAutoplay) {
+        // if (this.needsYTApiForAutoplay) {
             return this.addYTPlayerIframe(params);
-        }
+        // }
 
         const iframeEl = document.createElement('iframe');
         iframeEl.width = 560;
@@ -166,6 +177,8 @@ class LiteYTEmbed extends HTMLElement {
 
         // Set focus for a11y
         iframeEl.focus();
+
+        return this.clickPromise;
     }
 }
 // Register custom element
