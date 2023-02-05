@@ -139,7 +139,7 @@ class LiteYTEmbed extends HTMLElement {
                 'onError': event => console.warn('ytplayer onerror', event),
                 'onApiChange': event => console.warn('ytplayer onApiChange', event),
 
-                'onStateChange': event => console.warn('ytplayer statechange', event),
+                'onStateChange': event => console.warn('ytplayer statechange', performance.now(), event),
             }
         });
     }

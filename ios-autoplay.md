@@ -46,10 +46,25 @@ https://github.com/WebKit/WebKit/blob/main/LayoutTests/http/tests/media/user-ges
 the tests showing that `fetch().then(r => r.blob()).then(.....)` still work suggest that reading it as a stream should also preserve the gesture.. adn stream might be easier to manipulate..  https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Using_readable_streams#consuming_a_fetch_as_a_stream
 
 
+```js
+[
+{ title : 'gesture -> "long" Fetch -> video playback: should ❌', action : 'play',  withkey : true,  success : false,  timeout : 0.2, sequence : ['300 Fetch'] },
+{ title : 'gesture -> "long" XHR -> video playback: should ❌', action : 'play',  withkey : true,  success : false,  timeout : 0.2, sequence : ['300 XHR'] },
+{ title : 'gesture -> fetch -> "long" blob -> video playback: should ❌', action : 'play',  withkey : true,  success : false,  timeout : 0.2, sequence : ['300 FetchBlob'] },
+{ title : 'gesture -> fetch -> crypto -> video playback: should ❌ since the user gesture will not be propagated through other API even though it returns promises', action : 'play',  withkey : true,  success : false,  sequence : ['0 FetchThenCrypto'] },
+{ title : 'gesture -> promise -> video playback: should ❌ because promise only propagates user gesture propagated through Fetch', action : 'play',  withkey : true,  success : false,  sequence : ['0 promise'] },
+{ title : 'gesture -> fetch -> blob -> video playback: should 😁', action : 'play',  withkey : true,  success : true,  sequence : ['100 FetchBlob'] },
+{ title : 'gesture -> fetch -> video playback: should 😁', action : 'play',  withkey : true,  success : true,  sequence : ['100 Fetch'] },
+{ title : 'gesture -> fetch -> promise -> video playback: should 😁', action : 'play',  withkey : true,  success : true,  sequence : ['0 FetchThenPromise'] },
+{ title : 'gesture -> timeout -> XHR -> timeout -> video playback: should 😁', action : 'play',  withkey : true,  success : true,  sequence : ['100 timeout', '100 XHR', '100 timeout'] },
+{ title : 'gesture -> XHR -> timeout -> XHR -> video playback: should 😁', action : 'play',  withkey : true,  success : true,  sequence : ['100 XHR', '100 timeout', '100 xhr'] },
+]
+```
+
 
 ### experimenting
 
-- this works:
+- this works in desktop safari:
 ```js
   document.querySelector('.playifrvid').addEventListener('click', e => {
     setTimeout(() => {
@@ -61,6 +76,9 @@ the tests showing that `fetch().then(r => r.blob()).then(.....)` still work sugg
 - once the timeout is >=1000 it fails with:
 > Error HTMLMediaElement::play(4A65A19E76E38A17) rejecting promise: UserGestureRequired
 > Error Unhandled Promise Rejection: NotAllowedError: The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission.
+
+.. but weirdly when i roughly do the same experiment with the YT api shit. i can go over 1000 and it plays fine...... (in desktop safari.. very weird.)
+
 
 base.js:9437  g.k.play .. first line of this fn is where .play() is invoked.
 thanks `debug(HTMLMediaElement.prototype.play)`  ! :)
