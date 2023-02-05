@@ -88,3 +88,22 @@ and the promise is a Promise.resolve() so its synchronous.  (at least in chrome)
 
 
 using l-yt-e on my m1 laptop on home wifi, i see click -> ytapi.playVideo() as 500ms.
+
+
+
+
+
+
+... right as i was putting this down. i was looking at these log lines:
+
+```
+[Warning] ytplayer invoking playVideo – 50379 (lite-yt-embed.js, line 169)
+[Info] HTMLMediaElement::load(667F51CF7E5E9602)
+[Log] HTMLMediaElement::prepareForLoad(667F51CF7E5E9602) gesture = false
+```
+
+if gesture=true we're good.
+and i notice its never true in browserstaack... and... it probably has to do with how browserstack resimulates clicks.
+so i think i need real hardware to really test this current approach.
+
+(however the async callstack that safari constructs for that promise stillllllll weirds me out)

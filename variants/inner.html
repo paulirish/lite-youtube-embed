@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>lite-youtube-embed - inner</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    button { font-size: 200%; }
+  </style>
+</head>
+<body>
+<h1>video elem inner</h1>
+
+<div id="videohold"></div>
+
+<button type="button" onclick="location.reload()">reload this</button>
+
+<script>
+
+    globalThis.playyy = () => {
+     document.querySelector('video').play();
+  }
+
+  // setTimeout(() => {
+      document.querySelector('#videohold').innerHTML = `
+      <video width="640" height="360" controls autoplay>
+        <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"  /><!-- Safari / iOS, IE9 -->
+        <source src="http://clips.vorwaerts-gmbh.de/VfE.webm"      type="video/webm" /><!-- Chrome10+, Ffx4+, Opera10.6+ -->
+        <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv"       type="video/ogg"  /><!-- Firefox3.6+ / Opera 10.5+ -->
+      </video>
+    `;
+    playyy();
+  // })
+
+
+</script>
+
+
+
+</body>
+</html>
+
