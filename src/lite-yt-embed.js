@@ -131,8 +131,8 @@ class LiteYTEmbed extends HTMLElement {
                 'onReady': async event => {
                     console.timeEnd('clicktoplay');
                     console.log('ytplayer onready', event);
-                    await this.clickPromise;
                     setTimeout(_ => this.clickPromiseRes());
+                    await this.clickPromise;
                     event.target.playVideo();
                 },
                 'onError': event => console.log('ytplayer onerror', event),
