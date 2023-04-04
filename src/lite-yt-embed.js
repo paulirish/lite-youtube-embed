@@ -43,6 +43,9 @@ class LiteYTEmbed extends HTMLElement {
             playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }
+        if(this.hasAttribute('addnoscript')) {
+        this.addNoScriptIframe();
+        }
         playBtnEl.removeAttribute('href');
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
@@ -142,6 +145,21 @@ class LiteYTEmbed extends HTMLElement {
                 }
             });
         });
+    }
+
+    addNoScriptIframe() {
+        const params = new URLSearchParams(this.getAttribute('params') || []);
+        const noscriptEl = document.createElement('noscript');
+        const iframeEl = document.createElement('iframe');
+        iframeEl.width = 560;
+        iframeEl.height = 315;
+        iframeEl.allow = 'encrypted-media;';
+        iframeEl.allowFullscreen = true;
+        // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL
+        // https://stackoverflow.com/q/64959723/89484
+        iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;
+        noscriptEl.innerHTML = iframeEl.outerHTML;
+        this.append(noscriptEl);
     }
 
     async addIframe(){
