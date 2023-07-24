@@ -11,7 +11,7 @@
  *   https://github.com/vb/lazyframe
  */
 class LiteYTEmbed extends HTMLElement {
-    connectedCallback() {
+    async connectedCallback() {
         this.videoId = this.getAttribute('videoid');
 
         let playBtnEl = this.querySelector('.lty-playbtn');
