@@ -82,7 +82,9 @@ Demo: https://paulirish.github.io/lite-youtube-embed/variants/custom-poster-imag
 * &lt;lite-youtube&gt; using shadow DOM: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) :+1:
 * React port 1: [`ibrahimcesar/react-lite-youtube-embed`](https://github.com/ibrahimcesar/react-lite-youtube-embed)
 * React port 2: [`kylemocode/react-lite-yt-embed`](https://github.com/kylemocode/react-lite-yt-embed)
+* React wrapper: [`@next/third-parties`](https://github.com/vercel/next.js/tree/canary/packages/third-parties#youtube-embed)
 * Vue port: [`andrewvasilchuk/vue-lazy-youtube-video`](https://github.com/andrewvasilchuk/vue-lazy-youtube-video)
+
 ## Other [third-party facades](https://web.dev/third-party-facades/)
 
 * Lite Vimeo Embed: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
