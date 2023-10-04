@@ -30,6 +30,6 @@
     "prettier": "prettier --write \"src/*.*\""
   },
   "devDependencies": {
-    "prettier": "^2.5.0"
+    "prettier": "^3.0.3"
   }
 }

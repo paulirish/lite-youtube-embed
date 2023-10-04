@@ -107,7 +107,7 @@ class LiteYTEmbed extends HTMLElement {
       var el = document.createElement('script');
       el.src = 'https://www.youtube.com/iframe_api';
       el.async = true;
-      el.onload = (_) => {
+      el.onload = _ => {
         YT.ready(res);
       };
       el.onerror = rej;
@@ -129,7 +129,7 @@ class LiteYTEmbed extends HTMLElement {
       videoId: this.videoId,
       playerVars: paramsObj,
       events: {
-        onReady: (event) => {
+        onReady: event => {
           event.target.playVideo();
         },
       },
