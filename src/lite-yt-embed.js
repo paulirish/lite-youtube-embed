@@ -16,10 +16,7 @@ class LiteYTEmbed extends HTMLElement {
 
     let playBtnEl = this.querySelector('.lty-playbtn');
     // A label for the button takes priority over a [playlabel] attribute on the custom-element
-    this.playLabel =
-      (playBtnEl && playBtnEl.textContent.trim()) ||
-      this.getAttribute('playlabel') ||
-      'Play';
+    this.playLabel = (playBtnEl && playBtnEl.textContent.trim()) || this.getAttribute('playlabel') || 'Play';
 
     /**
      * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
@@ -63,9 +60,7 @@ class LiteYTEmbed extends HTMLElement {
     // However Safari desktop and most/all mobile browsers do not successfully track the user gesture of clicking through the creation/loading of the iframe,
     // so they don't autoplay automatically. Instead we must load an additional 2 sequential JS files (1KB + 165KB) (un-br) for the YT Player API
     // TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
-    this.needsYTApiForAutoplay =
-      navigator.vendor.includes('Apple') ||
-      navigator.userAgent.includes('Mobi');
+    this.needsYTApiForAutoplay = navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi');
   }
 
   /**
@@ -99,10 +94,7 @@ class LiteYTEmbed extends HTMLElement {
     LiteYTEmbed.addPrefetch('preconnect', 'https://www.google.com');
 
     // Not certain if these ad related domains are in the critical path. Could verify with domain-specific throttling.
-    LiteYTEmbed.addPrefetch(
-      'preconnect',
-      'https://googleads.g.doubleclick.net'
-    );
+    LiteYTEmbed.addPrefetch('preconnect', 'https://googleads.g.doubleclick.net');
     LiteYTEmbed.addPrefetch('preconnect', 'https://static.doubleclick.net');
 
     LiteYTEmbed.preconnected = true;
@@ -161,14 +153,11 @@ class LiteYTEmbed extends HTMLElement {
     iframeEl.height = 315;
     // No encoding necessary as [title] is safe. https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#:~:text=Safe%20HTML%20Attributes%20include
     iframeEl.title = this.playLabel;
-    iframeEl.allow =
-      'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+    iframeEl.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
     iframeEl.allowFullscreen = true;
     // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL
     // https://stackoverflow.com/q/64959723/89484
-    iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(
-      this.videoId
-    )}?${params.toString()}`;
+    iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;
     this.append(iframeEl);
 
     // Set focus for a11y
