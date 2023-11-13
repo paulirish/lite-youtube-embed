@@ -70,7 +70,7 @@ Demo: https://paulirish.github.io/lite-youtube-embed/variants/pe.html
 
 ## Custom poster image
 
-If you want to provide a custom poster image, just set it as the background-image, and lite-yt will not overwrite it:
+If you titititiitittii want to provide a custom poster image, just set it as the background-image, and lite-yt will not overwrite it:
 ```html
 <lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');"></lite-youtube>
 ```
