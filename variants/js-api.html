@@ -15,6 +15,7 @@
 async function seekTo(id, seconds) {
 	let video = document.querySelector(`lite-youtube[videoid='${id}']`);
 	let player = await video.getPlayer();
+	// https://developers.google.com/youtube/iframe_api_reference#seekTo
 	player?.seekTo(seconds, true);
 }
 </script>
