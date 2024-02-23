@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>lite-youtube-embed</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../src/lite-yt-embed.css" />
+</head>
+<body>
+<h1><code>lite-youtube</code> with JavaScript API</h1>
+
+<lite-youtube videoid="ogfYd705cRs" js-api playlabel="Play: Keynote (Google I/O '18)"></lite-youtube>
+
+<script>
+async function seekTo(id, seconds) {
+	let video = document.querySelector(`lite-youtube[videoid='${id}']`);
+	let player = await video.getPlayer();
+	player?.seekTo(seconds, true);
+}
+</script>
+
+<button type="button" onclick="seekTo('ogfYd705cRs', 5)">Skip to 00:05</button>
+<button type="button" onclick="seekTo('ogfYd705cRs', 10)">Skip to 00:10</button>
+<button type="button" onclick="seekTo('ogfYd705cRs', 60)">Skip to 01:00</button>
+
+<script src="../src/lite-yt-embed.js"></script>
+
+</body>
+</html>

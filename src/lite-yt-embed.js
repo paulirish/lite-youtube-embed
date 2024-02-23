@@ -58,7 +58,7 @@ class LiteYTEmbed extends HTMLElement {
         // However Safari desktop and most/all mobile browsers do not successfully track the user gesture of clicking through the creation/loading of the iframe,
         // so they don't autoplay automatically. Instead we must load an additional 2 sequential JS files (1KB + 165KB) (un-br) for the YT Player API
         // TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
-        this.needsYTApiForAutoplay = navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi');
+        this.needsYTApi = this.hasAttribute("js-api") || navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi');
     }
 
     /**
@@ -113,6 +113,14 @@ class LiteYTEmbed extends HTMLElement {
         });
     }
 
+    async getPlayer() {
+        if(!this.playerPromise) {
+            await this.addIframe();
+        }
+
+        return this.playerPromise;
+    }
+
     async addYTPlayerIframe(params) {
         this.fetchYTPlayerApi();
         await this.ytApiPromise;
@@ -122,15 +130,18 @@ class LiteYTEmbed extends HTMLElement {
 
         const paramsObj = Object.fromEntries(params.entries());
 
-        new YT.Player(videoPlaceholderEl, {
-            width: '100%',
-            videoId: this.videoId,
-            playerVars: paramsObj,
-            events: {
-                'onReady': event => {
-                    event.target.playVideo();
+        this.playerPromise = new Promise(resolve => {
+            let player = new YT.Player(videoPlaceholderEl, {
+                width: '100%',
+                videoId: this.videoId,
+                playerVars: paramsObj,
+                events: {
+                    'onReady': event => {
+                        event.target.playVideo();
+                        resolve(player);
+                    }
                 }
-            }
+            });
         });
     }
 
@@ -142,7 +153,7 @@ class LiteYTEmbed extends HTMLElement {
         params.append('autoplay', '1');
         params.append('playsinline', '1');
 
-        if (this.needsYTApiForAutoplay) {
+        if (this.needsYTApi) {
             return this.addYTPlayerIframe(params);
         }
 
