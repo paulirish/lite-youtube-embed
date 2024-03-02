@@ -15,7 +15,7 @@ lite-youtube::before {
     display: block;
     position: absolute;
     top: 0;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.67) 0%, rgba(0, 0, 0, 0.54) 14%, rgba(0, 0, 0, 0.15) 54%, rgba(0, 0, 0, 0.05) 72%, rgba(0, 0, 0, 0) 94%);
+    background-image: linear-gradient(180deg, rgb(0 0 0 / 67%) 0%, rgb(0 0 0 / 54%) 14%, rgb(0 0 0 / 15%) 54%, rgb(0 0 0 / 5%) 72%, rgb(0 0 0 / 0%) 94%);
     background-position: top;
     background-repeat: repeat-x;
     height: 99px;
