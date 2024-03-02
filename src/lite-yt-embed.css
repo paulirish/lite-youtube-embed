@@ -15,25 +15,21 @@ lite-youtube::before {
     display: block;
     position: absolute;
     top: 0;
-        /* Pixel-perfect port of YT's gradient PNG, using https://github.com/bluesmoon/pngtocss plus optimizations */
+    /* Pixel-perfect port of YT's gradient PNG, using https://github.com/bluesmoon/pngtocss plus optimizations */
     background-image: linear-gradient(180deg, rgb(0 0 0 / 67%) 0%, rgb(0 0 0 / 54%) 14%, rgb(0 0 0 / 15%) 54%, rgb(0 0 0 / 5%) 72%, rgb(0 0 0 / 0%) 94%);
     height: 99px;
     width: 100%;
     font-family: "YouTube Noto",Roboto,Arial,Helvetica,sans-serif;
-    color: hsla(0,0%,100%,.9);
+    color: hsl(0deg 0% 93.33%);
     text-shadow: 0 0 2px rgba(0,0,0,.5);
     font-size: 18px;
-    padding: 25px 0 50px 20px;
+    padding: 25px 20px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     box-sizing: border-box;
 }
-@media(min-width: 800px){
-    lite-youtube::before {
-        font-size: 20px;
-    }
-}
+
 lite-youtube:hover::before {
     color: white;
 }
