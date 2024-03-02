@@ -46,6 +46,7 @@ class LiteYTEmbed extends HTMLElement {
             playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }
+        playBtnEl.removeAttribute('href');
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
@@ -54,11 +55,13 @@ class LiteYTEmbed extends HTMLElement {
         // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.addIframe);
-    }
 
-    // // TODO: Support the the user changing the [videoid] attribute
-    // attributeChangedCallback() {
-    // }
+        // Chrome & Edge desktop have no problem with the basic YouTube Embed with ?autoplay=1
+        // However Safari desktop and most/all mobile browsers do not successfully track the user gesture of clicking through the creation/loading of the iframe,
+        // so they don't autoplay automatically. Instead we must load an additional 2 sequential JS files (1KB + 165KB) (un-br) for the YT Player API
+        // TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
+        this.needsYTApi = this.hasAttribute("js-api") || navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi');
+    }
 
     /**
      * Add a <link rel={preload | preconnect} ...> to the head
@@ -97,12 +100,64 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
-    addIframe() {
+    fetchYTPlayerApi() {
+        if (window.YT || (window.YT && window.YT.Player)) return;
+
+        this.ytApiPromise = new Promise((res, rej) => {
+            var el = document.createElement('script');
+            el.src = 'https://www.youtube.com/iframe_api';
+            el.async = true;
+            el.onload = _ => {
+                YT.ready(res);
+            };
+            el.onerror = rej;
+            this.append(el);
+        });
+    }
+
+    async getPlayer() {
+        if(!this.playerPromise) {
+            await this.addIframe();
+        }
+
+        return this.playerPromise;
+    }
+
+    async addYTPlayerIframe(params) {
+        this.fetchYTPlayerApi();
+        await this.ytApiPromise;
+
+        const videoPlaceholderEl = document.createElement('div')
+        this.append(videoPlaceholderEl);
+
+        const paramsObj = Object.fromEntries(params.entries());
+
+        this.playerPromise = new Promise(resolve => {
+            let player = new YT.Player(videoPlaceholderEl, {
+                width: '100%',
+                videoId: this.videoId,
+                playerVars: paramsObj,
+                events: {
+                    'onReady': event => {
+                        event.target.playVideo();
+                        resolve(player);
+                    }
+                }
+            });
+        });
+    }
+
+    async addIframe(){
         if (this.classList.contains('lyt-activated')) return;
         this.classList.add('lyt-activated');
 
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
+        params.append('playsinline', '1');
+
+        if (this.needsYTApi) {
+            return this.addYTPlayerIframe(params);
+        }
 
         const iframeEl = document.createElement('iframe');
         iframeEl.width = 560;

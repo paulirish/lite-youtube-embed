@@ -60,9 +60,9 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 
 ```html
 <lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-  <button type="button" class="lty-playbtn">
+  <a href="https://youtube.com/watch?v=ogfYd705cRs" class="lty-playbtn" title="Play Video">
     <span class="lyt-visually-hidden">Play Video: Keynote (Google I/O '18)</span>
-  </button>
+  </a>
 </lite-youtube>
 ```
 
@@ -91,7 +91,9 @@ Demo: https://paulirish.github.io/lite-youtube-embed/variants/title.html
 * &lt;lite-youtube&gt; using shadow DOM: [`justinribeiro/lite-youtube`](https://github.com/justinribeiro/lite-youtube) :+1:
 * React port 1: [`ibrahimcesar/react-lite-youtube-embed`](https://github.com/ibrahimcesar/react-lite-youtube-embed)
 * React port 2: [`kylemocode/react-lite-yt-embed`](https://github.com/kylemocode/react-lite-yt-embed)
+* React wrapper: [`@next/third-parties`](https://github.com/vercel/next.js/tree/canary/packages/third-parties#youtube-embed)
 * Vue port: [`andrewvasilchuk/vue-lazy-youtube-video`](https://github.com/andrewvasilchuk/vue-lazy-youtube-video)
+
 ## Other [third-party facades](https://web.dev/third-party-facades/)
 
 * Lite Vimeo Embed: [`luwes/lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed)
