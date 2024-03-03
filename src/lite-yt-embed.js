@@ -43,9 +43,9 @@ class LiteYTEmbed extends HTMLElement {
             playBtnLabelEl.textContent = this.playLabel;
             playBtnEl.append(playBtnLabelEl);
         }
-        if(this.hasAttribute('addnoscript')) {
-        this.addNoScriptIframe();
-        }
+
+        this.addNoscriptIframe();
+
         playBtnEl.removeAttribute('href');
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
@@ -54,7 +54,7 @@ class LiteYTEmbed extends HTMLElement {
         // Once the user clicks, add the real iframe and drop our play button
         // TODO: In the future we could be like amp-youtube and silently swap in the iframe during idle time
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
-        this.addEventListener('click', this.addIframe);
+        this.addEventListener('click', this.activate);
 
         // Chrome & Edge desktop have no problem with the basic YouTube Embed with ?autoplay=1
         // However Safari desktop and most/all mobile browsers do not successfully track the user gesture of clicking through the creation/loading of the iframe,
@@ -115,22 +115,23 @@ class LiteYTEmbed extends HTMLElement {
         });
     }
 
-    async getPlayer() {
+    /** Return the YT Player API instance. (Public L-YT-E API) */
+    async getYTPlayer() {
         if(!this.playerPromise) {
-            await this.addIframe();
+            await this.activate();
         }
 
         return this.playerPromise;
     }
 
-    async addYTPlayerIframe(params) {
+    async addYTPlayerIframe() {
         this.fetchYTPlayerApi();
         await this.ytApiPromise;
 
         const videoPlaceholderEl = document.createElement('div')
         this.append(videoPlaceholderEl);
 
-        const paramsObj = Object.fromEntries(params.entries());
+        const paramsObj = Object.fromEntries(this.getParams().entries());
 
         this.playerPromise = new Promise(resolve => {
             let player = new YT.Player(videoPlaceholderEl, {
@@ -147,33 +148,38 @@ class LiteYTEmbed extends HTMLElement {
         });
     }
 
-    addNoScriptIframe() {
-        const params = new URLSearchParams(this.getAttribute('params') || []);
+    // Add the iframe within <noscript> for indexability discoverability. See https://github.com/paulirish/lite-youtube-embed/issues/105
+    addNoscriptIframe() {
+        const iframeEl = this.createBasicIframe();
         const noscriptEl = document.createElement('noscript');
-        const iframeEl = document.createElement('iframe');
-        iframeEl.width = 560;
-        iframeEl.height = 315;
-        iframeEl.allow = 'encrypted-media;';
-        iframeEl.allowFullscreen = true;
-        // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL
-        // https://stackoverflow.com/q/64959723/89484
-        iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;
+        // Appending into noscript isn't equivalant for mysterious reasons: https://html.spec.whatwg.org/multipage/scripting.html#the-noscript-element
         noscriptEl.innerHTML = iframeEl.outerHTML;
         this.append(noscriptEl);
     }
 
-    async addIframe(){
-        if (this.classList.contains('lyt-activated')) return;
-        this.classList.add('lyt-activated');
-
+    getParams() {
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
         params.append('playsinline', '1');
+        return params;
+    }
+
+    async activate(){
+        if (this.classList.contains('lyt-activated')) return;
+        this.classList.add('lyt-activated');
 
         if (this.needsYTApi) {
-            return this.addYTPlayerIframe(params);
+            return this.addYTPlayerIframe(this.getParams());
         }
 
+        const iframeEl = this.createBasicIframe();
+        this.append(iframeEl);
+
+        // Set focus for a11y
+        iframeEl.focus();
+    }
+
+    createBasicIframe(){
         const iframeEl = document.createElement('iframe');
         iframeEl.width = 560;
         iframeEl.height = 315;
@@ -183,11 +189,8 @@ class LiteYTEmbed extends HTMLElement {
         iframeEl.allowFullscreen = true;
         // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL
         // https://stackoverflow.com/q/64959723/89484
-        iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${params.toString()}`;
-        this.append(iframeEl);
-
-        // Set focus for a11y
-        iframeEl.focus();
+        iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${this.getParams().toString()}`;
+        return iframeEl;
     }
 
     /**
