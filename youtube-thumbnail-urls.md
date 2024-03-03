@@ -31,6 +31,8 @@ When YouTube serves a response for a 404 thumbnail, they serve a true 404 respon
 
 `sddefault`, `hqdefault`, `default` are 4:3.
 
+This difference ends up being mostly unimportant, in practice. The YT iframe is a 16:9 size by default. Using `background-position: center` ensures the (possible) black bars in the 4:3 images are hidden.
+
 ## WebP
 
 `https://i.ytimg.com/vi_webp/${videoid}/${width}.webp`
