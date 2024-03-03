@@ -161,7 +161,7 @@ class LiteYTEmbed extends HTMLElement {
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
         params.append('playsinline', '1');
-        if (/iPad|iPhone|iPod/.test(navigator.platform)) {
+        if (navigator.vendor.includes('Apple')) {
             params.append('mute', '1'); // Mute only if on iPad or iPhone
         }
         return params;
