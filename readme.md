@@ -39,6 +39,49 @@ To use the custom element you will need to:
 Privacy note: lite-youtube uses youtube-nocookie.com instead of youtube.com in order
 to be more privacy friendly for end users.
 
+## Pro-usage: load w/ JS deferred (aka progressive enhancement)
+
+Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
+
+```html
+<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
+  <a href="https://youtube.com/watch?v=ogfYd705cRs" class="lty-playbtn" title="Play Video">
+    <span class="lyt-visually-hidden">Play Video: Keynote (Google I/O '18)</span>
+  </a>
+</lite-youtube>
+```
+
+[Demo: progressive enhancement](https://paulirish.github.io/lite-youtube-embed/variants/pe.html)
+
+## Custom poster image
+
+If you want to provide a custom poster image, just set it as the background-image, and lite-yt will not overwrite it:
+```html
+<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');"></lite-youtube>
+```
+
+Use [poster-image-availability.html](https://paulirish.github.io/lite-youtube-embed/testpage/poster-image-availability.html) to determine what poster images are available for you.
+
+## Access the YouTube Iframe Player API
+
+Use the `js-api` param: `<lite-youtube videoid="ogfYd705cRs" js-api>`.. Then you can use [IFrame Player API](https://developers.google.com/youtube/iframe_api_reference):
+
+```js
+const player = await document.querySelector('lite-youtube').getPlayer();
+player.seekTo(15); // jump to 15 seconds
+```
+
+[Demo: Iframe Player API usage](https://paulirish.github.io/lite-youtube-embed/variants/js-api.html)
+
+## Add a video title
+
+If you want to display a title prior to loading the full embed, set the `title` attribute:
+```html
+<lite-youtube videoid="ogfYd705cRs" title="Keynote (Google I/O '18)"></lite-youtube>
+```
+
+[Demo: visible title](https://paulirish.github.io/lite-youtube-embed/variants/title.html)
+
 ### Custom Player Parameters
 
 YouTube supports a variety of [player parameters](https://developers.google.com/youtube/player_parameters#Parameters) to control the iframe's behavior and appearance.
@@ -52,39 +95,7 @@ These may be applied by using the `params` attribute.
 
 Note that lite-youtube uses `autoplay=1` by default.
 
-Demo: https://paulirish.github.io/lite-youtube-embed/variants/params.html
-
-## Pro-usage: load w/ JS deferred (aka progressive enhancement)
-
-Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
-
-```html
-<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-  <a href="https://youtube.com/watch?v=ogfYd705cRs" class="lty-playbtn" title="Play Video">
-    <span class="lyt-visually-hidden">Play Video: Keynote (Google I/O '18)</span>
-  </a>
-</lite-youtube>
-```
-
-Demo: https://paulirish.github.io/lite-youtube-embed/variants/pe.html
-
-## Custom poster image
-
-If you want to provide a custom poster image, just set it as the background-image, and lite-yt will not overwrite it:
-```html
-<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');"></lite-youtube>
-```
-
-Use [poster-image-availability.html](https://paulirish.github.io/lite-youtube-embed/testpage/poster-image-availability.html) to determine what poster images are available for you.
-
-## Add a video title
-
-If you want to display a title prior to loading the full embed, set the `title` attribute:
-```html
-<lite-youtube videoid="ogfYd705cRs" title="Keynote (Google I/O '18)"></lite-youtube>
-```
-
-Demo: https://paulirish.github.io/lite-youtube-embed/variants/title.html
+[Demo: Custom player parameters](https://paulirish.github.io/lite-youtube-embed/variants/params.html)
 
 ## Other fast YouTube embeds
 
