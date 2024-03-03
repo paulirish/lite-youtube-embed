@@ -18,6 +18,8 @@ class LiteYTEmbed extends HTMLElement {
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
         this.playLabel = (playBtnEl && playBtnEl.textContent.trim()) || this.getAttribute('playlabel') || 'Play';
 
+        this.dataset.title = this.getAttribute('title') || "";
+
         /**
          * Lo, the youtube placeholder image!  (aka the thumbnail, poster image, etc)
          *
