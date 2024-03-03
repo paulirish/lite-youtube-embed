@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<title>poster image summary</title>
+
+<style>
+  img,
+  picture {
+    max-height: 120px;
+    max-width: 120px;
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+    background: #ffffffd4;
+  }
+
+  td {
+    background: #eee;
+  }
+</style>
+
+<script>
+  const sizes = [
+    'maxresdefault', // 1280px
+    'sddefault', // 640px
+    'hqdefault', // 480px (lol, naming is hard)
+    'mqdefault', // 320px
+    'default', // 120px
+  ];
+  const sizePxs = ['1280px', '640px', '480px', '320px', '120px'];
+
+  const createChild = (tagName, container) => container.appendChild(document.createElement(tagName));
+
+
+  document.addEventListener('DOMContentLoaded', _ => {
+
+    const table = createChild('table', document.body);
+    const thead = createChild('thead', table);
+    const tbody = createChild('tbody', table);
+
+    // headers
+    const tr = createChild('tr', thead);
+    createChild('th', tr).textContent = 'video id';
+    createChild('th', tr).textContent = 'best!?';
+    for (const size of sizes) {
+      createChild('th', tr).textContent = size;
+    }
+    const tr2 = createChild('tr', thead);
+    createChild('th', tr2);
+    createChild('th', tr2);
+    for (const px of sizePxs) {
+      createChild('th', tr2).textContent = px;
+    }
+
+    // rows
+    ids.forEach(videoid => {
+      const tr = createChild('tr', tbody);
+      createChild('td', tr).textContent = videoid;
+
+
+      const bestEl = createChild('td', tr);
+      const updateBest = (sizeIndex, format, e) => {
+        // A pretty ugly hack since onerror won't fire on YouTube image 404. This might be due to the fact that
+        // YouTube returns data to the request even when the status is 404. YouTube returns a placeholder image that is 120x90.
+        // … per ../youtube-thumbnail-urls.md (annoying yt 404 behavior)
+        const noAvailableThumbnail = e.target.naturalHeight == 90 && e.target.naturalWidth == 120;
+        if (noAvailableThumbnail) return;
+
+        bestEl.loaded = bestEl.loaded ?? [];
+        const formatIndex = { webp: 100, jpg: 110 }[format];
+        const sum = formatIndex + sizeIndex;
+        bestEl.loaded.push({ sum, format, sizeIndex });
+        bestEl.loaded.sort((a, b) => a.sum - b.sum);
+        const bestObj = bestEl.loaded.at(0);
+        bestEl.textContent = `${sizes[bestObj.sizeIndex]}.${bestObj.format} (${sizePxs[bestObj.sizeIndex]})`;
+      };
+
+      // all combos. verbose
+      sizes.forEach((size, i) => {
+        const td = createChild('td', tr);
+        const imgWebp = createChild('img', td);
+        imgWebp.src = `https://i.ytimg.com/vi_webp/${videoid}/${size}.webp`;
+        imgWebp.onload = e => { updateBest(i, 'webp', e) };
+        createChild('br', td)
+        const imgJpg = createChild('img', td);
+        imgJpg.src = `https://i.ytimg.com/vi/${videoid}/${size}.jpg`;
+        imgJpg.onload = e => { updateBest(i, 'jpg', e) };
+      });
+
+    });
+  });
+
+  // Count our winners. Relying on all-images-loaded semantics. Handy.
+  onload = _ => {
+    Object.countBy = (items, groupByFn) => Object.fromEntries(
+      Object.entries(Object.groupBy(items, groupByFn)).map(([k, v]) => [k, v.length])
+    );
+
+    const allBests = Array.from(document.querySelectorAll('tbody td:nth-child(2)')).map(e => e.textContent);
+    const bestsCounted = Object.countBy(allBests, i => i);
+    const pre = createChild('pre', document.body);
+    document.body.prepend(pre)
+    pre.textContent = JSON.stringify(bestsCounted, null, 2)
+  }
+
+  /**
+   * Get a bunch of ids from a YT page with:
+   *     copy(Array.from(new Set(Array.from(document.querySelectorAll('a.ytd-thumbnail')).map(e => e.href).filter(Boolean).map(h => { const u = new URL(h); return u.searchParams.get('v'); }))))
+   */
+  const ids = [
+    "ogfYd705cRs",
+    "3zaq56QsX28",
+    "ajGX7odA87k",
+    "-hKK4_gvOS0",
+    "5BueilOHIws",
+    "saaTXQ7E3Lw",
+    "bJcTWr8-mFo",
+    "jWur1VrxNUg",
+    "b52cfb6lweU",
+    "svEuG_ekNT0",
+  ]
+</script>

@@ -7,6 +7,10 @@ charset = utf-8
 end_of_line = lf
 trim_trailing_whitespace = true
 
+# prettier custom things
+quote_type = single
+max_line_length = 160
+
 [src/]
 indent_size = 4
 indent_style = space

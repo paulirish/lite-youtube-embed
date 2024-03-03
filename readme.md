@@ -75,7 +75,7 @@ If you want to provide a custom poster image, just set it as the background-imag
 <lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');"></lite-youtube>
 ```
 
-Demo: https://paulirish.github.io/lite-youtube-embed/variants/custom-poster-image.html
+Use [poster-image-availability.html](https://paulirish.github.io/lite-youtube-embed/testpage/poster-image-availability.html) to determine what poster images are available for you.
 
 ## Add a video title
 
