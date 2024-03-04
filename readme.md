@@ -67,7 +67,7 @@ Use [poster-image-availability.html](https://paulirish.github.io/lite-youtube-em
 Use the `js-api` param: `<lite-youtube videoid="ogfYd705cRs" js-api>`.. Then you can use [IFrame Player API](https://developers.google.com/youtube/iframe_api_reference):
 
 ```js
-const player = await document.querySelector('lite-youtube').getPlayer();
+const player = await document.querySelector('lite-youtube').getYTPlayer();
 player.seekTo(15); // jump to 15 seconds
 ```
 
