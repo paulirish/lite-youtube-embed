@@ -107,3 +107,142 @@ and i notice its never true in browserstaack... and... it probably has to do wit
 so i think i need real hardware to really test this current approach.
 
 (however the async callstack that safari constructs for that promise stillllllll weirds me out)
+
+
+
+
+--------
+
+## useragents and navigators..
+
+Safari Mac OS `navigator` in March 2024:
+
+```js
+appCodeName: "Mozilla"
+appName: "Netscape"
+appVersion: "5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15"
+audioSession: AudioSession {type: "auto", addEventListener: function, removeEventListener: function, dispatchEvent: function}
+clipboard: Clipboard {read: function, readText: function, write: function, writeText: function, addEventListener: function, …}
+cookieEnabled: true
+credentials: CredentialsContainer {get: function, store: function, create: function, preventSilentAccess: function}
+geolocation: Geolocation {getCurrentPosition: function, watchPosition: function, clearWatch: function}
+hardwareConcurrency: 8
+language: "en-US"
+languages: ["en-US"] (1)
+locks: LockManager {request: function, query: function}
+maxTouchPoints: 0
+mediaCapabilities: MediaCapabilities {decodingInfo: function, encodingInfo: function}
+mediaDevices: MediaDevices {ondevicechange: null, enumerateDevices: function, getSupportedConstraints: function, getUserMedia: function, getDisplayMedia: function, …}
+mediaSession: MediaSession {metadata: null, playbackState: "none", coordinator: MediaSessionCoordinator, readyState: "havenothing", playlist: [], …}
+mimeTypes: MimeTypeArray {0: MimeType, 1: MimeType, application/pdf: MimeType, text/pdf: MimeType, length: 2, item: function, namedItem: function}
+onLine: true
+pdfViewerEnabled: true
+permissions: Permissions {query: function}
+platform: "MacIntel"
+plugins: PluginArray {0: Plugin, 1: Plugin, 2: Plugin, 3: Plugin, 4: Plugin, PDF Viewer: Plugin, Chrome PDF Viewer: Plugin, Chromium PDF Viewer: Plugin, Microsoft Edge PDF Viewer: Plugin, WebKit built-in PDF: Plugin, …}
+product: "Gecko"
+productSub: "20030107"
+serviceWorker: ServiceWorkerContainer {controller: null, ready: Promise, oncontrollerchange: null, onmessage: null, onmessageerror: null, …}
+standalone: false
+storage: StorageManager {persisted: function, persist: function, estimate: function, getDirectory: function}
+userActivation: UserActivation {hasBeenActive: false, isActive: false}
+userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15"
+vendor: "Apple Computer, Inc."
+vendorSub: ""
+wakeLock: WakeLock {request: function}
+webdriver: false
+```
+
+
+Safari iOS (iphone) `navigator` in march 2024:
+
+```js
+appCodeName: "Mozilla"
+appName: "Netscape"
+appVersion: "5.0 (iPhone; CPU iPhone OS 12_5_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1"
+cookieEnabled: true
+geolocation: Geolocation {getCurrentPosition: function, watchPosition: function, clearWatch: function}
+language: "en-US"
+languages: ["en-US"] (1)
+mediaDevices: MediaDevices {ondevicechange: null, enumerateDevices: function, getSupportedConstraints: function, getUserMedia: function, addEventListener: function, …}
+mimeTypes: MimeTypeArray {length: 0, item: function, namedItem: function}
+onLine: true
+platform: "iPhone"
+plugins: PluginArray {length: 0, item: function, namedItem: function, refresh: function}
+product: "Gecko"
+productSub: "20030107"
+serviceWorker: ServiceWorkerContainer {controller: null, ready: Promise, oncontrollerchange: null, onmessage: null, onmessageerror: null, …}
+standalone: false
+userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_5_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1"
+vendor: "Apple Computer, Inc."
+vendorSub: ""
+webdriver: false
+```
+
+
+Safari iPad OS `navigator` in march 2024:
+
+```js
+appCodeName: "Mozilla"
+appName: "Netscape"
+appVersion: "5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15"
+audioSession: AudioSession {type: "auto", addEventListener: function, removeEventListener: function, dispatchEvent: function}
+clipboard: Clipboard {read: function, readText: function, write: function, writeText: function, addEventListener: function, …}
+cookieEnabled: true
+credentials: CredentialsContainer {get: function, store: function, create: function, preventSilentAccess: function}
+geolocation: Geolocation {getCurrentPosition: function, watchPosition: function, clearWatch: function}
+hardwareConcurrency: 4
+language: "en-US"
+languages: ["en-US"] (1)
+locks: LockManager {request: function, query: function}
+maxTouchPoints: 5
+mediaCapabilities: MediaCapabilities {decodingInfo: function, encodingInfo: function}
+mediaDevices: MediaDevices {ondevicechange: null, enumerateDevices: function, getSupportedConstraints: function, getUserMedia: function, addEventListener: function, …}
+mediaSession: MediaSession {metadata: null, playbackState: "none", setActionHandler: function, callActionHandler: function, setPositionState: function}
+mimeTypes: MimeTypeArray {0: MimeType, 1: MimeType, application/pdf: MimeType, text/pdf: MimeType, length: 2, item: function, namedItem: function}
+onLine: true
+pdfViewerEnabled: true
+permissions: Permissions {query: function}
+platform: "MacIntel"
+plugins: PluginArray {0: Plugin, 1: Plgin, 2: Plugin, 3: Plugin, 4: Plugin, PDF Viewer: Plugin, Chrome PDF Viewer: Plugin, Chromium PDF Viewer: Plugin, Microsoft Edge PDF Viewer: Plugin, WebKit built-in PDF: Plugin, …}
+product: "Gecko"
+productSub: "20030107"
+serviceWorker: ServiceWorkerContainer {controller: null, ready: Promise, oncontrollerchange: null, onmessage: null, onmessageerror: null, …}
+standalone: false
+storage: StorageManager {persisted: function, persist: function, estimate: function, getDirectory: function}
+userActivation: UserActivation {hasBeenActive: false, isActive: false}
+userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15"
+vendor: "Apple Computer, Inc."
+vendorSub: ""
+wakeLock: WakeLock {request: function}
+webdriver: false
+```
+
+
+
+
+
+
+Safari iOS (iphone) `navigator` in from 2022ish
+
+```js
+appCodeName: "Mozilla"
+appName: "Netscape"
+appVersion: "5.0 (iPhone; CPU iPhone OS 12_5_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1"
+cookieEnabled: true
+geolocation: Geolocation {getCurrentPosition: function, watchPosition: function, clearWatch: function}
+language: "en-US"
+languages: ["en-US"] (1)
+mediaDevices: MediaDevices {ondevicechange: null, enumerateDevices: function, getSupportedConstraints: function, getUserMedia: function, addEventListener: function, …}
+mimeTypes: MimeTypeArray {length: 0, item: function, namedItem: function}
+onLine: true
+platform: "iPhone"
+plugins: PluginArray {length: 0, item: function, namedItem: function, refresh: function}
+product: "Gecko"
+productSub: "20030107"
+standalone: false
+userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_5_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1"
+vendor: "Apple Computer, Inc."
+vendorSub: ""
+webdriver: false
+```
