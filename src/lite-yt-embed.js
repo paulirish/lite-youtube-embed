@@ -56,6 +56,9 @@ class LiteYTEmbed extends HTMLElement {
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.activate);
 
+        // For accessibility, handle keypresses as well, so users can play the video without using a mouse
+        this.addEventListener('keydown', this.handleKeydown);
+
         // Chrome & Edge desktop have no problem with the basic YouTube Embed with ?autoplay=1
         // However Safari desktop and most/all mobile browsers do not successfully track the user gesture of clicking through the creation/loading of the iframe,
         // so they don't autoplay automatically. Instead we must load an additional 2 sequential JS files (1KB + 165KB) (un-br) for the YT Player API
@@ -162,6 +165,13 @@ class LiteYTEmbed extends HTMLElement {
         params.append('autoplay', '1');
         params.append('playsinline', '1');
         return params;
+    }
+
+    // Handle keydown event so video can be played without a mouse
+    handleKeydown(event) {
+        if (event.key === 'Enter') {
+            this.activate();
+        }
     }
 
     async activate(){
