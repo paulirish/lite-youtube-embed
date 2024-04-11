@@ -32,10 +32,17 @@ class LiteYTEmbed extends HTMLElement {
 
         // Set up play button, and its visually hidden label
         if (!playBtnEl) {
-            playBtnEl = document.createElement('button');
-            playBtnEl.type = 'button';
-            playBtnEl.classList.add('lty-playbtn');
+            playBtnEl = this.createPlayBtn();
             this.append(playBtnEl);
+        }
+        // If the play button is a link, convert it to a button so it is interactive but doesn’t trigger a navigation.
+        if (playBtnEl.tagName === 'A') {
+            const isFocused = playBtnEl === document.activeElement;
+            const btnEl = this.createPlayBtn();
+            playBtnEl.replaceWith(btnEl);
+            // Preserve focus state if link is replaced with button.
+            if (isFocused) btnEl.focus();
+            playBtnEl = btnEl;
         }
         if (!playBtnEl.textContent) {
             const playBtnLabelEl = document.createElement('span');
@@ -45,8 +52,6 @@ class LiteYTEmbed extends HTMLElement {
         }
 
         this.addNoscriptIframe();
-
-        playBtnEl.removeAttribute('href');
 
         // On hover (or tap), warm up the TCP connections we're (likely) about to use.
         this.addEventListener('pointerover', LiteYTEmbed.warmConnections, {once: true});
@@ -191,6 +196,13 @@ class LiteYTEmbed extends HTMLElement {
         // https://stackoverflow.com/q/64959723/89484
         iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${this.getParams().toString()}`;
         return iframeEl;
+    }
+
+    createPlayBtn(){
+        const btnEl = document.createElement('button');
+        btnEl.type = 'button';
+        btnEl.classList.add('lty-playbtn');
+        return btnEl;
     }
 
     /**
