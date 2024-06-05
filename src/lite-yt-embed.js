@@ -167,6 +167,8 @@ class LiteYTEmbed extends HTMLElement {
     async activate(){
         if (this.classList.contains('lyt-activated')) return;
         this.classList.add('lyt-activated');
+        
+        this.videoId = this.getAttribute('videoid');
 
         if (this.needsYTApi) {
             return this.addYTPlayerIframe(this.getParams());
@@ -204,6 +206,7 @@ class LiteYTEmbed extends HTMLElement {
     upgradePosterImage() {
          // Defer to reduce network contention.
         setTimeout(() => {
+            this.videoId = this.getAttribute('videoid');
             const webpUrl = `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`;
             const img = new Image();
             img.fetchPriority = 'low'; // low priority to reduce network contention
