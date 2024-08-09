@@ -52,8 +52,8 @@ class LiteYTEmbed extends HTMLElement {
             playBtnEl.setAttribute('tabindex', '0');
             playBtnEl.setAttribute('role', 'button');
             // fake button needs keyboard help
-            playBtnEl.addEventListener('keypress', e => {
-                if( e.which === 13 || e.which === 32 ){
+            playBtnEl.addEventListener('keydown', e => {
+                if( e.key === 'Enter' || e.key === ' ' ){
                     e.preventDefault();
                     this.activate();
                 }
