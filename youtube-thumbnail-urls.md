@@ -48,8 +48,16 @@ I tested across some old and new videos and here's the best image they had avail
   "hqdefault.jpg (480px)"      :  89,
 ```
 
+My test page (with a smaller set of test videos): https://paulirish.github.io/lite-youtube-embed/testpage/poster-image-summary.html
+
 I found no cases where it a smaller size was not available. For example, if they have the maxresdefault webp, then they definitely have the sddefault webp.
 
 All this means, it'd be very reasonable and efficient to try first for the `maxresdefault.webp`. If it isn't available (see annoying 404 behavior above), then fall back to `hqdefault.jpg`.
 
 In lite-youtube-embed's case though, we'll default to trying the `sddefault.webp` first, as that resolution is plenty for our uses.
+
+## The best poster image for your video
+
+See https://paulirish.github.io/lite-youtube-embed/testpage/poster-image-availability.html
+
+
