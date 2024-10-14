@@ -31,7 +31,7 @@ To use the custom element you will need to:
 <script src="node_modules/lite-youtube-embed/src/lite-yt-embed.js"></script>
 
 <!-- Use the element. You may use it before the lite-yt-embed JS is executed. -->
-<lite-youtube videoid="ogfYd705cRs" playlabel="Play: Keynote (Google I/O '18)"></lite-youtube>
+<lite-youtube videoid="goiWrNiaT0I" playlabel="Play: Crayon Physics Deluxe - Trailer HD"></lite-youtube>
 ```
 
 <br>
@@ -44,9 +44,9 @@ to be more privacy friendly for end users.
 Use this as your HTML, load the script asynchronously, and let the JS progressively enhance it.
 
 ```html
-<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-  <a href="https://youtube.com/watch?v=ogfYd705cRs" class="lty-playbtn" title="Play Video">
-    <span class="lyt-visually-hidden">Play Video: Keynote (Google I/O '18)</span>
+<lite-youtube videoid="goiWrNiaT0I" style="background-image: url('https://i.ytimg.com/vi/goiWrNiaT0I/hqdefault.jpg');">
+  <a href="https://youtube.com/watch?v=goiWrNiaT0I" class="lty-playbtn" title="Play Video">
+    <span class="lyt-visually-hidden">Play Video: Crayon Physics Deluxe - Trailer HD</span>
   </a>
 </lite-youtube>
 ```
@@ -57,14 +57,14 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 
 If you want to provide a custom poster image, just set it as the background-image, and lite-yt will not overwrite it:
 ```html
-<lite-youtube videoid="ogfYd705cRs" style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');"></lite-youtube>
+<lite-youtube videoid="goiWrNiaT0I" style="background-image: url('https://i.ytimg.com/vi/goiWrNiaT0I/hqdefault.jpg');"></lite-youtube>
 ```
 
 Use [poster-image-availability.html](https://paulirish.github.io/lite-youtube-embed/testpage/poster-image-availability.html) to determine what poster images are available for you.
 
 ## Access the YouTube Iframe Player API
 
-Use the `js-api` param: `<lite-youtube videoid="ogfYd705cRs" js-api>`.. Then you can use [IFrame Player API](https://developers.google.com/youtube/iframe_api_reference):
+Use the `js-api` param: `<lite-youtube videoid="goiWrNiaT0I" js-api>`.. Then you can use [IFrame Player API](https://developers.google.com/youtube/iframe_api_reference):
 
 ```js
 const player = await document.querySelector('lite-youtube').getYTPlayer();
@@ -77,7 +77,7 @@ player.seekTo(15); // jump to 15 seconds
 
 If you want to display a title prior to loading the full embed, set the `title` attribute:
 ```html
-<lite-youtube videoid="ogfYd705cRs" title="Keynote (Google I/O '18)"></lite-youtube>
+<lite-youtube videoid="goiWrNiaT0I" title="Crayon Physics Deluxe - Trailer HD"></lite-youtube>
 ```
 
 [Demo: visible title](https://paulirish.github.io/lite-youtube-embed/variants/title.html)
@@ -90,7 +90,7 @@ These may be applied by using the `params` attribute.
 ```html
 <!-- Example to show a video player without controls, starting at 10s in, ending at 20s,
      with modest branding *and* enabling the JS API -->
-<lite-youtube videoid="ogfYd705cRs" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
+<lite-youtube videoid="goiWrNiaT0I" params="controls=0&start=10&end=30&modestbranding=2&rel=0&enablejsapi=1"></lite-youtube>
 ```
 
 Note that lite-youtube uses `autoplay=1` by default.
