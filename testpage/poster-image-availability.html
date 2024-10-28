@@ -53,7 +53,13 @@
 
   $('form').on('submit', (e) => {
     const value = $('input').value;
-    const videoid = value.length < 20 ? value : new URL(value).searchParams.get('v');
+    let videoid = value.length < 20 ? value : new URL(value).searchParams.get('v');
+    if (!videoid) {
+      const u = URL.parse(value);
+      if (u.host === 'youtu.be') {
+        videoid = u.pathname.slice(1);
+      }
+    }
     $('input').value = videoid;
   });
 
