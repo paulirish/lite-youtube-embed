@@ -45,7 +45,7 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 
 ```html
 <lite-youtube videoid="goiWrNiaT0I" style="background-image: url('https://i.ytimg.com/vi/goiWrNiaT0I/hqdefault.jpg');">
-  <a href="https://youtube.com/watch?v=goiWrNiaT0I" class="lty-playbtn" title="Play Video">
+  <a href="https://youtube.com/watch?v=goiWrNiaT0I" class="lyt-playbtn" title="Play Video">
     <span class="lyt-visually-hidden">Play Video: Crayon Physics Deluxe - Trailer HD</span>
   </a>
 </lite-youtube>
