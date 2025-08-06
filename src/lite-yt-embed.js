@@ -16,6 +16,7 @@ class LiteYTEmbed extends HTMLElement {
         this.customPoster = this.getAttribute('customposter');
         this.posterloading = this.getAttribute('posterloading');
         this.posterImage = new Image()
+        this.hasUpdatedPosterImage = false;
 
         let playBtnEl = this.querySelector('.lyt-playbtn,.lty-playbtn');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
@@ -34,8 +35,8 @@ class LiteYTEmbed extends HTMLElement {
         this.posterImage.referrerpolicy = 'origin'; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940
         this.posterImage.loading = this.posterloading || "";
         this.posterImage.src = this.customPoster || `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
-        Object.assign(this.posterImage.style,{position:"absolute",zIndex:"-1",top:0,left:0,width:"100%",height:"100%"})
-        if(!this.customPoster) this.posterImage.onload = () => this.upgradePosterImage()
+        Object.assign(this.posterImage.style,{position:"absolute",zIndex:"-1",top:0,left:0,width:"100%",height:"100%",objectFit: "cover"})
+        if(!this.customPoster) this.posterImage.onload = () =>{ if(!this.hasUpdatedPosterImage) this.upgradePosterImage() }
         this.appendChild(this.posterImage)
         
         // Set up play button, and its visually hidden label
@@ -224,6 +225,7 @@ class LiteYTEmbed extends HTMLElement {
      * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md for more details
      */
     upgradePosterImage() {
+        this.hasUpdatedPosterImage = true;
         const webpUrl = `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`;
         const img = new Image();
         img.referrerpolicy = 'origin'; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940
