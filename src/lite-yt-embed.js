@@ -13,6 +13,9 @@
 class LiteYTEmbed extends HTMLElement {
     connectedCallback() {
         this.videoId = this.getAttribute('videoid');
+        this.customPoster = this.getAttribute('customposter');
+        this.posterloading = this.getAttribute('posterloading');
+        this.posterImage = new Image()
 
         let playBtnEl = this.querySelector('.lyt-playbtn,.lty-playbtn');
         // A label for the button takes priority over a [playlabel] attribute on the custom-element
@@ -25,11 +28,16 @@ class LiteYTEmbed extends HTMLElement {
          *
          * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
          */
-        if (!this.style.backgroundImage) {
-          this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
-          this.upgradePosterImage();
-        }
-
+        
+        this.posterImage = new Image();
+        this.posterImage.fetchPriority = 'low'; // low priority to reduce network contention
+        this.posterImage.referrerpolicy = 'origin'; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940
+        this.posterImage.loading = this.posterloading || "";
+        this.posterImage.src = this.customPoster || `https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg`;
+        Object.assign(this.posterImage.style,{position:"absolute",zIndex:"-1",top:0,left:0,width:"100%",height:"100%"})
+        if(!this.customPoster) this.posterImage.onload = () => this.upgradePosterImage()
+        this.appendChild(this.posterImage)
+        
         // Set up play button, and its visually hidden label
         if (!playBtnEl) {
             playBtnEl = document.createElement('button');
@@ -216,23 +224,18 @@ class LiteYTEmbed extends HTMLElement {
      * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md for more details
      */
     upgradePosterImage() {
-         // Defer to reduce network contention.
-        setTimeout(() => {
-            const webpUrl = `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`;
-            const img = new Image();
-            img.fetchPriority = 'low'; // low priority to reduce network contention
-            img.referrerpolicy = 'origin'; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940
-            img.src = webpUrl;
-            img.onload = e => {
-                // A pretty ugly hack since onerror won't fire on YouTube image 404. This is (probably) due to
-                // Youtube's style of returning data even with a 404 status. That data is a 120x90 placeholder image.
-                // … per "annoying yt 404 behavior" in the .md
-                const noAvailablePoster = e.target.naturalHeight == 90 && e.target.naturalWidth == 120;
-                if (noAvailablePoster) return;
-
-                this.style.backgroundImage = `url("${webpUrl}")`;
-            }
-        }, 100);
+        const webpUrl = `https://i.ytimg.com/vi_webp/${this.videoId}/sddefault.webp`;
+        const img = new Image();
+        img.referrerpolicy = 'origin'; // Not 100% sure it's needed, but https://github.com/ampproject/amphtml/pull/3940
+        img.src = webpUrl;
+        img.onload = e => {
+            // A pretty ugly hack since onerror won't fire on YouTube image 404. This is (probably) due to
+            // Youtube's style of returning data even with a 404 status. That data is a 120x90 placeholder image.
+            // … per "annoying yt 404 behavior" in the .md
+            const noAvailablePoster = e.target.naturalHeight == 90 && e.target.naturalWidth == 120;
+            if (noAvailablePoster) return;
+            this.posterImage.src = webpUrl;
+        }
     }
 }
 // Register custom element
