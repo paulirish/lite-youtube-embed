@@ -201,6 +201,8 @@ class LiteYTEmbed extends HTMLElement {
         iframeEl.title = this.playLabel;
         iframeEl.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
         iframeEl.allowFullscreen = true;
+        // Required by Youtube to fix Error 153
+        iframeEl.referrerPolicy = 'strict-origin-when-cross-origin';
         // AFAIK, the encoding here isn't necessary for XSS, but we'll do it only because this is a URL
         // https://stackoverflow.com/q/64959723/89484
         iframeEl.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(this.videoId)}?${this.getParams().toString()}`;
