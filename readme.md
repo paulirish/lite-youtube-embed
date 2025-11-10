@@ -53,11 +53,18 @@ Use this as your HTML, load the script asynchronously, and let the JS progressiv
 
 [Demo: progressive enhancement](https://paulirish.github.io/lite-youtube-embed/variants/pe.html)
 
+## Lazy loading poster image
+
+If you want to set the load type of the poster image, just add the property posterloading and set it to whatever you want:
+```html
+<lite-youtube videoid="goiWrNiaT0I" posterloading="lazy"></lite-youtube>
+```
+
 ## Custom poster image
 
-If you want to provide a custom poster image, just set it as the background-image, and lite-yt will not overwrite it:
+If you want to provide a custom poster image, just add the property customposter and add the url to it:
 ```html
-<lite-youtube videoid="goiWrNiaT0I" style="background-image: url('https://i.ytimg.com/vi/goiWrNiaT0I/hqdefault.jpg');"></lite-youtube>
+<lite-youtube videoid="goiWrNiaT0I" customposter="https://i.ytimg.com/vi/goiWrNiaT0I/hqdefault.jpg"></lite-youtube>
 ```
 
 Use [poster-image-availability.html](https://paulirish.github.io/lite-youtube-embed/testpage/poster-image-availability.html) to determine what poster images are available for you.
