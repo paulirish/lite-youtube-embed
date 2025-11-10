@@ -175,6 +175,9 @@ class LiteYTEmbed extends HTMLElement {
         const params = new URLSearchParams(this.getAttribute('params') || []);
         params.append('autoplay', '1');
         params.append('playsinline', '1');
+        if (this.getAttribute('list')) {
+            params.append('list', this.getAttribute('list'))
+        }
         return params;
     }
 
