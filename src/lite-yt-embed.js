@@ -238,4 +238,6 @@ class LiteYTEmbed extends HTMLElement {
     }
 }
 // Register custom element
-customElements.define('lite-youtube', LiteYTEmbed);
+if (!customElements.get('lite-youtube')) {
+  customElements.define('lite-youtube', LiteYTEmbed);
+}
