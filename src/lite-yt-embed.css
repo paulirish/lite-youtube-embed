@@ -42,6 +42,12 @@ lite-youtube::after {
     display: block;
     padding-bottom: calc(100% / (16 / 9));
 }
+
+/* YouTube Shorts aspect ratio (9:16) */
+lite-youtube[short]::after {
+    padding-bottom: calc(100% / (9 / 16));
+}
+
 lite-youtube > iframe {
     width: 100%;
     height: 100%;
@@ -67,6 +73,11 @@ lite-youtube > .lyt-playbtn {
     filter: grayscale(100%);
     transition: filter .1s cubic-bezier(0, 0, 0.2, 1);
     border: 0;
+}
+
+/* Shorts play button (different icon) */
+lite-youtube[short] > .lyt-playbtn {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="red" d="M111.4 34.2c-5.7-10.2-16.1-16.1-27.4-16.1H44c-11.3 0-21.7 5.9-27.4 16.1-5.7 10.2-5.7 22.3 0 32.5l27.4 48.7c5.7 10.2 16.1 16.1 27.4 16.1h40c11.3 0 21.7-5.9 27.4-16.1 5.7-10.2 5.7-22.3 0-32.5l-27.4-48.7zM80 64L52 80V48l28 16z"/></svg>');
 }
 
 lite-youtube:hover > .lyt-playbtn,
