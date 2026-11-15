@@ -92,6 +92,8 @@ a regular iframe.
 
 [Test page: prepared iframe](https://paulirish.github.io/lite-youtube-embed/testpage/preload-iframe.html)
 
+See [autoplay.md](autoplay.md) for the browser test results, history, and remaining questions.
+
 ## Add a video title
 
 If you want to display a title prior to loading the full embed, set the `title` attribute:
