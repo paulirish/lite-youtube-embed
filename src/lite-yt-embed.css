@@ -52,7 +52,7 @@ lite-youtube > iframe {
 }
 
 /* Keep the prepared player under the poster until the user activates it. */
-lite-youtube[preload-iframe]:not(.lyt-activated) > iframe {
+lite-youtube.lyt-prepared:not(.lyt-activated) > iframe {
     visibility: hidden;
 }
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prepared YouTube iframe test</title>
+  <title>Safari prepared YouTube iframe test</title>
   <link rel="stylesheet" href="../src/lite-yt-embed.css">
   <script src="../src/lite-yt-embed.js" defer></script>
   <style>
@@ -13,10 +13,10 @@
 </head>
 <body>
   <main>
-    <h1>Prepared YouTube iframe test</h1>
+    <h1>Safari prepared YouTube iframe test</h1>
     <p>Wait for “Ready,” then tap the poster once. Report whether playback starts with sound.</p>
     <p id="status" aria-live="polite">Preparing player…</p>
-    <lite-youtube videoid="goiWrNiaT0I" playlabel="Play Crayon Physics Deluxe" preload-iframe></lite-youtube>
+    <lite-youtube videoid="goiWrNiaT0I" playlabel="Play Crayon Physics Deluxe"></lite-youtube>
     <h2>Events</h2>
     <ol id="events"></ol>
   </main>
@@ -30,10 +30,16 @@
         item.textContent = `${Math.round(performance.now())} ms: ${message}`;
         events.prepend(item);
       };
-      embed.preparedPromise.then(() => {
-        status.textContent = embed.preparedReady ? 'Ready. Tap the poster once.' : 'Preparation failed. Tap to open the regular player.';
+      log(`vendor=${navigator.vendor}; platform=${navigator.platform}; touch=${navigator.maxTouchPoints}`);
+      if (embed.preparedPromise) {
+        embed.preparedPromise.then(() => {
+          status.textContent = embed.preparedReady ? 'Ready. Tap the poster once.' : 'Preparation failed. Tap to open the regular player.';
+          log(status.textContent);
+        });
+      } else {
+        status.textContent = 'This browser uses the regular player. Tap the poster once.';
         log(status.textContent);
-      });
+      }
       embed.addEventListener('click', () => {
         log(`tap; prepared=${embed.preparedReady}; active=${navigator.userActivation?.isActive}`);
         if (!embed.preparedReady) return;

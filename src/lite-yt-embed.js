@@ -76,10 +76,15 @@ class LiteYTEmbed extends HTMLElement {
         // TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
         this.needsYTApi = this.hasAttribute("js-api") || navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi');
 
-        // Opt in to loading the YouTube document before the tap. Safari can lose
-        // the gesture when a cross-origin iframe navigates after the tap.
-        if (this.hasAttribute('preload-iframe')) {
-            this.needsYTApi = true;
+        // On iPhone and iPad Safari, a newly navigated YouTube iframe can lose
+        // the tap's media gesture. iPad Safari may identify as a Mac, so a
+        // Mobile user-agent check alone would miss it.
+        const isMobileSafari = navigator.vendor.includes('Apple') &&
+            !/CriOS|FxiOS|EdgiOS/.test(navigator.userAgent) &&
+            (/^iP/.test(navigator.platform) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+        if (isMobileSafari) {
+            this.classList.add('lyt-prepared');
             this.prepareYTPlayerIframe(playBtnEl);
         }
     }
@@ -171,6 +176,7 @@ class LiteYTEmbed extends HTMLElement {
             // Keep the poster usable if the early YouTube request is blocked.
             iframeEl.remove();
             this.preparedIframe = null;
+            this.classList.remove('lyt-prepared');
             this.needsYTApi = false;
             this.removeAttribute('aria-busy');
             playBtnEl.inert = false;
@@ -194,25 +200,17 @@ class LiteYTEmbed extends HTMLElement {
         this.append(videoPlaceholderEl);
 
         const paramsObj = Object.fromEntries(this.getParams().entries());
-
-        this.playerPromise = new Promise(resolve => {
-            let player = new YT.Player(videoPlaceholderEl, {
-                width: '100%',
-                videoId: this.videoId,
-                playerVars: paramsObj,
-                events: {
-                    'onReady': event => {
-                        event.target.playVideo();
-                        resolve(player);
-                    }
-                }
-            });
+        this.attachYTPlayer(videoPlaceholderEl, {
+            width: '100%',
+            videoId: this.videoId,
+            playerVars: paramsObj
         });
     }
 
-    addPreparedYTPlayer() {
+    attachYTPlayer(target, options = {}) {
         this.playerPromise = new Promise(resolve => {
-            const player = new YT.Player(this.preparedIframe, {
+            const player = new YT.Player(target, {
+                ...options,
                 events: {
                     onReady: event => {
                         event.target.playVideo();
@@ -245,7 +243,7 @@ class LiteYTEmbed extends HTMLElement {
         this.classList.add('lyt-activated');
 
         if (this.preparedIframe) {
-            return this.addPreparedYTPlayer();
+            return this.attachYTPlayer(this.preparedIframe);
         }
 
         if (this.needsYTApi) {
