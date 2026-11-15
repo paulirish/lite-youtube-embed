@@ -75,6 +75,13 @@ class LiteYTEmbed extends HTMLElement {
         // so they don't autoplay automatically. Instead we must load an additional 2 sequential JS files (1KB + 165KB) (un-br) for the YT Player API
         // TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
         this.needsYTApi = this.hasAttribute("js-api") || navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi');
+
+        // Opt in to loading the YouTube document before the tap. Safari can lose
+        // the gesture when a cross-origin iframe navigates after the tap.
+        if (this.hasAttribute('preload-iframe')) {
+            this.needsYTApi = true;
+            this.prepareYTPlayerIframe(playBtnEl);
+        }
     }
 
     /**
@@ -114,10 +121,14 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
-    fetchYTPlayerApi() {
-        if (window.YT || (window.YT && window.YT.Player)) return;
+    static loadYTPlayerApi() {
+        if (LiteYTEmbed.ytApiPromise) return LiteYTEmbed.ytApiPromise;
 
-        this.ytApiPromise = new Promise((res, rej) => {
+        LiteYTEmbed.ytApiPromise = new Promise((res, rej) => {
+            if (window.YT?.ready) {
+                YT.ready(res);
+                return;
+            }
             var el = document.createElement('script');
             el.src = 'https://www.youtube.com/iframe_api';
             el.async = true;
@@ -125,13 +136,51 @@ class LiteYTEmbed extends HTMLElement {
                 YT.ready(res);
             };
             el.onerror = rej;
-            this.append(el);
+            document.head.append(el);
+        }).catch(error => {
+            LiteYTEmbed.ytApiPromise = null;
+            throw error;
+        });
+        return LiteYTEmbed.ytApiPromise;
+    }
+
+    prepareYTPlayerIframe(playBtnEl) {
+        const iframeEl = this.createBasicIframe();
+        const params = this.getParams();
+        params.set('autoplay', '0');
+        params.set('enablejsapi', '1');
+        params.set('origin', location.origin);
+        iframeEl.src = `https://www.youtube.com/embed/${encodeURIComponent(this.videoId)}?${params}`;
+
+        this.preparedIframe = iframeEl;
+        this.setAttribute('aria-busy', 'true');
+        playBtnEl.inert = true;
+        const iframeLoaded = new Promise((resolve, reject) => {
+            const timeout = setTimeout(() => reject(new Error('YouTube iframe load timed out')), 60000);
+            iframeEl.addEventListener('load', () => {
+                clearTimeout(timeout);
+                resolve();
+            }, {once: true});
+        });
+        this.append(iframeEl);
+        this.preparedPromise = Promise.all([iframeLoaded, LiteYTEmbed.loadYTPlayerApi()]).then(() => {
+            this.preparedReady = true;
+            this.removeAttribute('aria-busy');
+            playBtnEl.inert = false;
+        }).catch(() => {
+            // Keep the poster usable if the early YouTube request is blocked.
+            iframeEl.remove();
+            this.preparedIframe = null;
+            this.needsYTApi = false;
+            this.removeAttribute('aria-busy');
+            playBtnEl.inert = false;
         });
     }
 
     /** Return the YT Player API instance. (Public L-YT-E API) */
     async getYTPlayer() {
         if(!this.playerPromise) {
+            if (this.preparedPromise) await this.preparedPromise;
             await this.activate();
         }
 
@@ -139,8 +188,7 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     async addYTPlayerIframe() {
-        this.fetchYTPlayerApi();
-        await this.ytApiPromise;
+        await LiteYTEmbed.loadYTPlayerApi();
 
         const videoPlaceholderEl = document.createElement('div')
         this.append(videoPlaceholderEl);
@@ -154,6 +202,19 @@ class LiteYTEmbed extends HTMLElement {
                 playerVars: paramsObj,
                 events: {
                     'onReady': event => {
+                        event.target.playVideo();
+                        resolve(player);
+                    }
+                }
+            });
+        });
+    }
+
+    addPreparedYTPlayer() {
+        this.playerPromise = new Promise(resolve => {
+            const player = new YT.Player(this.preparedIframe, {
+                events: {
+                    onReady: event => {
                         event.target.playVideo();
                         resolve(player);
                     }
@@ -180,7 +241,12 @@ class LiteYTEmbed extends HTMLElement {
 
     async activate(){
         if (this.classList.contains('lyt-activated')) return;
+        if (this.preparedIframe && !this.preparedReady) return;
         this.classList.add('lyt-activated');
+
+        if (this.preparedIframe) {
+            return this.addPreparedYTPlayer();
+        }
 
         if (this.needsYTApi) {
             return this.addYTPlayerIframe(this.getParams());

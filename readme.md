@@ -36,8 +36,8 @@ To use the custom element you will need to:
 
 <br>
 
-Privacy note: lite-youtube uses youtube-nocookie.com instead of youtube.com in order
-to be more privacy friendly for end users.
+Privacy note: the default embed uses youtube-nocookie.com. On browsers that need
+the YouTube IFrame Player API, the API script also loads from youtube.com.
 
 ## Pro-usage: load w/ JS deferred (aka progressive enhancement)
 
@@ -72,6 +72,25 @@ player.seekTo(15); // jump to 15 seconds
 ```
 
 [Demo: Iframe Player API usage](https://paulirish.github.io/lite-youtube-embed/variants/js-api.html)
+
+## Prepare the player for one-tap playback in Safari
+
+Safari can block audible playback when the YouTube iframe is created and loaded
+after a tap. Add `preload-iframe` to load the iframe and IFrame Player API before
+the visitor taps the poster:
+
+```html
+<lite-youtube videoid="goiWrNiaT0I" preload-iframe></lite-youtube>
+```
+
+The poster becomes clickable once both have loaded. The prepared iframe stays
+hidden until the tap, when the component asks that same iframe to play. This
+loads the full YouTube player from `youtube.com` on page load, including for
+visitors who never play the video, so use it only where one-tap playback is
+more important than the usual loading and privacy benefits. If preparation
+fails, the poster falls back to a regular iframe.
+
+[Test page: prepared iframe](https://paulirish.github.io/lite-youtube-embed/testpage/preload-iframe.html)
 
 ## Add a video title
 

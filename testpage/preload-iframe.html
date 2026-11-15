@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prepared YouTube iframe test</title>
+  <link rel="stylesheet" href="../src/lite-yt-embed.css">
+  <script src="../src/lite-yt-embed.js" defer></script>
+  <style>
+    body { font: 1rem system-ui; max-width: 48rem; margin: 1rem auto; padding: 0 1rem; }
+    #events { font: .85rem ui-monospace, monospace; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Prepared YouTube iframe test</h1>
+    <p>Wait for “Ready,” then tap the poster once. Report whether playback starts with sound.</p>
+    <p id="status" aria-live="polite">Preparing player…</p>
+    <lite-youtube videoid="goiWrNiaT0I" playlabel="Play Crayon Physics Deluxe" preload-iframe></lite-youtube>
+    <h2>Events</h2>
+    <ol id="events"></ol>
+  </main>
+  <script>
+    customElements.whenDefined('lite-youtube').then(() => {
+      const embed = document.querySelector('lite-youtube');
+      const status = document.querySelector('#status');
+      const events = document.querySelector('#events');
+      const log = message => {
+        const item = document.createElement('li');
+        item.textContent = `${Math.round(performance.now())} ms: ${message}`;
+        events.prepend(item);
+      };
+      embed.preparedPromise.then(() => {
+        status.textContent = embed.preparedReady ? 'Ready. Tap the poster once.' : 'Preparation failed. Tap to open the regular player.';
+        log(status.textContent);
+      });
+      embed.addEventListener('click', () => {
+        log(`tap; prepared=${embed.preparedReady}; active=${navigator.userActivation?.isActive}`);
+        if (!embed.preparedReady) return;
+        embed.playerPromise?.then(player => {
+          status.textContent = 'Player ready. Check whether you hear sound.';
+          for (const delay of [2000, 5000, 10000]) {
+            setTimeout(() => log(`+${delay} ms: state=${player.getPlayerState()}, time=${player.getCurrentTime().toFixed(1)}, muted=${player.isMuted()}`), delay);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
