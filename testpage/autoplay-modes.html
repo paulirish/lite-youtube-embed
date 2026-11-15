@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One-tap YouTube playback comparison</title>
+  <link rel="stylesheet" href="../src/lite-yt-embed.css">
+  <script src="../src/lite-yt-embed.js" defer></script>
+  <style>
+    body { font: 1rem/1.5 system-ui; max-width: 48rem; margin: 1rem auto; padding: 0 1rem; }
+    nav ul { display: flex; flex-wrap: wrap; gap: 1rem; padding-left: 1.25rem; }
+    #events { font: .85rem/1.5 ui-monospace, monospace; overflow-wrap: anywhere; }
+    :where(a, button):focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>One-tap YouTube playback comparison</h1>
+    <p>On desktop Safari, start with Basic. Wait for Ready, click the poster once, and note whether the video plays with sound or stops on YouTube's play button. Then open API and repeat. Each link loads a fresh page with one player.</p>
+    <nav aria-label="Playback variants">
+      <ul>
+        <li><a href="?mode=basic">Basic iframe</a></li>
+        <li><a href="?mode=api">YouTube API</a></li>
+        <li><a href="?mode=auto">Current default</a></li>
+      </ul>
+    </nav>
+    <p id="status" aria-live="polite">Loading player…</p>
+    <lite-youtube videoid="goiWrNiaT0I" playlabel="Play Crayon Physics Deluxe"></lite-youtube>
+    <section aria-labelledby="diagnostics-heading">
+      <h2 id="diagnostics-heading">Diagnostics</h2>
+      <ol id="events"></ol>
+    </section>
+  </main>
+  <script>
+    customElements.whenDefined('lite-youtube').then(() => {
+      const embed = document.querySelector('lite-youtube');
+      const status = document.querySelector('#status');
+      const events = document.querySelector('#events');
+      const requestedMode = new URLSearchParams(location.search).get('mode') || 'basic';
+      const defaultMode = 'playbackMode' in embed ? embed.playbackMode : embed.needsYTApi ? 'api' : 'basic';
+      const log = message => {
+        const item = document.createElement('li');
+        item.textContent = `${Math.round(performance.now())} ms: ${message}`;
+        events.prepend(item);
+      };
+
+      // Older releases use needsYTApi; the current branch uses playbackMode.
+      // Desktop Safari does not prepare an iframe during initialization, so
+      // changing its mode here changes only what happens after the click.
+      if (defaultMode === 'prepared') {
+        status.textContent = 'This comparison is for desktop browsers. Mobile Safari prepared its player already.';
+        return;
+      }
+      if (requestedMode === 'basic' || requestedMode === 'api') {
+        if ('playbackMode' in embed) embed.playbackMode = requestedMode;
+        else embed.needsYTApi = requestedMode === 'api';
+      }
+      const testMode = requestedMode === 'auto' ? defaultMode : requestedMode;
+      status.textContent = `Ready. Testing ${testMode}; this browser defaults to ${defaultMode}. Click the poster once.`;
+      log(`test=${testMode}; default=${defaultMode}; vendor=${navigator.vendor}; platform=${navigator.platform}; touch=${navigator.maxTouchPoints}`);
+      log(`iframes before click=${embed.querySelectorAll('iframe').length}`);
+      embed.addEventListener('click', () => {
+        log(`click; userActivation=${navigator.userActivation?.isActive}`);
+        setTimeout(() => log(`after 5 seconds: iframes=${embed.querySelectorAll('iframe').length}; playerPromise=${Boolean(embed.playerPromise)}`), 5000);
+      });
+    });
+  </script>
+</body>
+</html>
