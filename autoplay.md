@@ -30,6 +30,8 @@ Before the update to iPadOS 26.7.3, the iPad experiments found that an iframe el
 
 After the iPad was updated to **iPadOS 26.7.3**, real-tap comparisons in this session produced these user-observed results:
 
+The desktop Safari tester described the browser as the latest release, but did not read its version from About Safari. [Apple listed Safari 27.2 as its latest stable release](https://developer.apple.com/documentation/safari-release-notes/) on the test date; the installed version remains unverified.
+
 | Device/browser | Path tested | Result |
 | --- | --- | --- |
 | iPad Safari 26.7.3 | Forced `basic` | Reached YouTube's play button; no audible start from one poster tap. |
@@ -37,7 +39,7 @@ After the iPad was updated to **iPadOS 26.7.3**, real-tap comparisons in this se
 | iPad Safari 26.7.3 | Current `prepared` path | Played with sound from one poster tap; also succeeded on repeated fresh-page checks earlier in the session. |
 | Pixel Android Chrome, current version not recorded | Default `api` | Played with sound from one poster tap. |
 | Same Pixel Android Chrome | Forced `basic` | Played with sound from one poster tap. |
-| Desktop Safari on macOS, versions not yet recorded | Forced `basic` | Stopped at YouTube's play button after one poster click; no autoplay. |
+| Desktop Safari on macOS, reported latest release | Forced `basic` | Stopped at YouTube's play button after one poster click; no autoplay. |
 | Same desktop Safari | Forced `api` | Played with sound from one poster click. |
 | Same desktop Safari | Forced `prepared` | Played with sound from one poster click. |
 | Same desktop Safari | Current default (`api`) | Played with sound from one poster click. |
