@@ -147,7 +147,7 @@ class LiteYTEmbed extends HTMLElement {
 
         const paramsObj = Object.fromEntries(this.getParams().entries());
 
-        this.playerPromise = new Promise(resolve => {
+        return new Promise(resolve => {
             let player = new YT.Player(videoPlaceholderEl, {
                 width: '100%',
                 videoId: this.videoId,
@@ -183,7 +183,7 @@ class LiteYTEmbed extends HTMLElement {
         this.classList.add('lyt-activated');
 
         if (this.needsYTApi) {
-            return this.addYTPlayerIframe(this.getParams());
+            return this.playerPromise = this.addYTPlayerIframe();
         }
 
         const iframeEl = this.createBasicIframe();
