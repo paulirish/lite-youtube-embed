@@ -82,6 +82,9 @@ lite-youtube.lyt-activated::before,
 lite-youtube.lyt-activated > .lyt-playbtn {
     opacity: 0;
     pointer-events: none;
+    display: none;
+    transition: opacity 0.2s cubic-bezier(0, 0, 0.2, 1), display 0.2s;
+    transition-behavior: allow-discrete;
 }
 
 .lyt-visually-hidden {
