@@ -33,7 +33,7 @@
       log(`vendor=${navigator.vendor}; platform=${navigator.platform}; touch=${navigator.maxTouchPoints}`);
       if (embed.preparedPromise) {
         embed.preparedPromise.then(() => {
-          status.textContent = embed.preparedReady ? 'Ready. Tap the poster once.' : 'Preparation failed. Tap to open the regular player.';
+          status.textContent = embed.preparedPlayer ? 'Ready. Tap the poster once.' : 'Preparation failed. Tap to open the player.';
           log(status.textContent);
         });
       } else {
@@ -41,8 +41,8 @@
         log(status.textContent);
       }
       embed.addEventListener('click', () => {
-        log(`tap; prepared=${embed.preparedReady}; active=${navigator.userActivation?.isActive}`);
-        if (!embed.preparedReady) return;
+        log(`tap; prepared=${Boolean(embed.preparedPlayer)}; active=${navigator.userActivation?.isActive}`);
+        if (!embed.preparedPlayer) return;
         embed.playerPromise?.then(player => {
           status.textContent = 'Player ready. Check whether you hear sound.';
           for (const delay of [2000, 5000, 10000]) {

@@ -156,7 +156,6 @@ class LiteYTEmbed extends HTMLElement {
         params.set('origin', location.origin);
         iframeEl.src = `https://www.youtube.com/embed/${encodeURIComponent(this.videoId)}?${params}`;
 
-        this.preparedIframe = iframeEl;
         this.setAttribute('aria-busy', 'true');
         playBtnEl.inert = true;
         this.append(iframeEl);
@@ -178,7 +177,6 @@ class LiteYTEmbed extends HTMLElement {
             finished = true;
             clearTimeout(timeoutId);
             this.preparedPlayer = player;
-            this.preparedReady = true;
             this.removeAttribute('aria-busy');
             playBtnEl.inert = false;
         }).catch(() => {
@@ -186,7 +184,6 @@ class LiteYTEmbed extends HTMLElement {
             clearTimeout(timeoutId);
             // Keep the poster usable if the early YouTube request is blocked.
             iframeEl.remove();
-            this.preparedIframe = null;
             this.classList.remove('lyt-prepared');
             this.playbackMode = this.hasAttribute('js-api') ? 'api' : 'basic';
             this.removeAttribute('aria-busy');
@@ -211,17 +208,11 @@ class LiteYTEmbed extends HTMLElement {
         this.append(videoPlaceholderEl);
 
         const paramsObj = Object.fromEntries(this.getParams().entries());
-        this.attachYTPlayer(videoPlaceholderEl, {
-            width: '100%',
-            videoId: this.videoId,
-            playerVars: paramsObj
-        });
-    }
-
-    attachYTPlayer(target, options = {}) {
         this.playerPromise = new Promise(resolve => {
-            const player = new YT.Player(target, {
-                ...options,
+            const player = new YT.Player(videoPlaceholderEl, {
+                width: '100%',
+                videoId: this.videoId,
+                playerVars: paramsObj,
                 events: {
                     onReady: event => {
                         event.target.playVideo();
@@ -250,7 +241,7 @@ class LiteYTEmbed extends HTMLElement {
 
     async activate(){
         if (this.classList.contains('lyt-activated')) return;
-        if (this.playbackMode === 'prepared' && !this.preparedReady) return;
+        if (this.playbackMode === 'prepared' && !this.preparedPlayer) return;
         this.classList.add('lyt-activated');
 
         if (this.playbackMode === 'prepared') {
