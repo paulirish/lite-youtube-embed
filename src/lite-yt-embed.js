@@ -70,20 +70,19 @@ class LiteYTEmbed extends HTMLElement {
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.activate);
 
-        // Chrome & Edge desktop have no problem with the basic YouTube Embed with ?autoplay=1
-        // However Safari desktop and most/all mobile browsers do not successfully track the user gesture of clicking through the creation/loading of the iframe,
-        // so they don't autoplay automatically. Instead we must load an additional 2 sequential JS files (1KB + 165KB) (un-br) for the YT Player API
-        // TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
-        this.needsYTApi = this.hasAttribute("js-api") || navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi');
-
-        // On iPhone and iPad Safari, a newly navigated YouTube iframe can lose
-        // the tap's media gesture. iPad Safari may identify as a Mac, so a
-        // Mobile user-agent check alone would miss it.
+        // iPhone and iPad Safari need the YouTube iframe loaded before the tap.
+        // iPad Safari may identify as a Mac, so check its touch capability too.
         const isMobileSafari = navigator.vendor.includes('Apple') &&
             !/CriOS|FxiOS|EdgiOS/.test(navigator.userAgent) &&
             (/^iP/.test(navigator.platform) ||
                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
-        if (isMobileSafari) {
+
+        // Keep the existing Player API path for other Apple and mobile browsers,
+        // and for callers requesting access to the player through [js-api].
+        this.playbackMode = isMobileSafari ? 'prepared' :
+            this.hasAttribute('js-api') || navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi') ? 'api' : 'basic';
+
+        if (this.playbackMode === 'prepared') {
             this.classList.add('lyt-prepared');
             this.prepareYTPlayerIframe(playBtnEl);
         }
@@ -177,7 +176,7 @@ class LiteYTEmbed extends HTMLElement {
             iframeEl.remove();
             this.preparedIframe = null;
             this.classList.remove('lyt-prepared');
-            this.needsYTApi = false;
+            this.playbackMode = 'basic';
             this.removeAttribute('aria-busy');
             playBtnEl.inert = false;
         });
@@ -239,15 +238,15 @@ class LiteYTEmbed extends HTMLElement {
 
     async activate(){
         if (this.classList.contains('lyt-activated')) return;
-        if (this.preparedIframe && !this.preparedReady) return;
+        if (this.playbackMode === 'prepared' && !this.preparedReady) return;
         this.classList.add('lyt-activated');
 
-        if (this.preparedIframe) {
+        if (this.playbackMode === 'prepared') {
             return this.attachYTPlayer(this.preparedIframe);
         }
 
-        if (this.needsYTApi) {
-            return this.addYTPlayerIframe(this.getParams());
+        if (this.playbackMode === 'api') {
+            return this.addYTPlayerIframe();
         }
 
         const iframeEl = this.createBasicIframe();
