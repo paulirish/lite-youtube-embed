@@ -80,13 +80,15 @@ after a tap. On Safari for iPhone and iPad, lite-youtube loads the iframe and
 IFrame Player API before the visitor taps the poster. No extra attribute is
 needed.
 
-The poster becomes clickable once both have loaded. The prepared iframe stays
-hidden until the tap, when the component asks that same iframe to play. This
-loads the full YouTube player from `youtube.com` on those devices, including
-for visitors who never play the video. It trades some of lite-youtube's usual
-loading and privacy benefits for more reliable one-tap playback. Other
-browsers keep their existing behavior. If preparation fails, the poster falls
-back to a regular iframe.
+The poster becomes clickable once the Player API reports that the prepared
+iframe is ready. The iframe stays hidden until the tap, when the component asks
+that same player to play. This loads the full YouTube player from `youtube.com`
+on those devices, including for visitors who never play the video. It trades
+some of lite-youtube's usual loading and privacy benefits for more reliable
+one-tap playback. Other
+browsers keep their existing behavior. If preparation fails, the poster remains
+usable: `js-api` embeds use the Player API path, and other embeds fall back to
+a regular iframe.
 
 [Test page: prepared iframe](https://paulirish.github.io/lite-youtube-embed/testpage/preload-iframe.html)
 

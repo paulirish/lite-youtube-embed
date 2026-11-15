@@ -129,7 +129,7 @@ class LiteYTEmbed extends HTMLElement {
         if (LiteYTEmbed.ytApiPromise) return LiteYTEmbed.ytApiPromise;
 
         LiteYTEmbed.ytApiPromise = new Promise((res, rej) => {
-            if (window.YT?.ready) {
+            if (window.YT && window.YT.ready) {
                 YT.ready(res);
                 return;
             }
@@ -159,24 +159,36 @@ class LiteYTEmbed extends HTMLElement {
         this.preparedIframe = iframeEl;
         this.setAttribute('aria-busy', 'true');
         playBtnEl.inert = true;
-        const iframeLoaded = new Promise((resolve, reject) => {
-            const timeout = setTimeout(() => reject(new Error('YouTube iframe load timed out')), 60000);
-            iframeEl.addEventListener('load', () => {
-                clearTimeout(timeout);
-                resolve();
-            }, {once: true});
-        });
         this.append(iframeEl);
-        this.preparedPromise = Promise.all([iframeLoaded, LiteYTEmbed.loadYTPlayerApi()]).then(() => {
+
+        let finished = false;
+        let timeoutId;
+        const playerReady = LiteYTEmbed.loadYTPlayerApi().then(() => {
+            if (finished) return;
+            return new Promise(resolve => {
+                new YT.Player(iframeEl, {
+                    events: { onReady: event => resolve(event.target) }
+                });
+            });
+        });
+        const timeout = new Promise((_, reject) => {
+            timeoutId = setTimeout(() => reject(new Error('YouTube player load timed out')), 60000);
+        });
+        this.preparedPromise = Promise.race([playerReady, timeout]).then(player => {
+            finished = true;
+            clearTimeout(timeoutId);
+            this.preparedPlayer = player;
             this.preparedReady = true;
             this.removeAttribute('aria-busy');
             playBtnEl.inert = false;
         }).catch(() => {
+            finished = true;
+            clearTimeout(timeoutId);
             // Keep the poster usable if the early YouTube request is blocked.
             iframeEl.remove();
             this.preparedIframe = null;
             this.classList.remove('lyt-prepared');
-            this.playbackMode = 'basic';
+            this.playbackMode = this.hasAttribute('js-api') ? 'api' : 'basic';
             this.removeAttribute('aria-busy');
             playBtnEl.inert = false;
         });
@@ -242,7 +254,9 @@ class LiteYTEmbed extends HTMLElement {
         this.classList.add('lyt-activated');
 
         if (this.playbackMode === 'prepared') {
-            return this.attachYTPlayer(this.preparedIframe);
+            this.playerPromise = Promise.resolve(this.preparedPlayer);
+            this.preparedPlayer.playVideo();
+            return this.playerPromise;
         }
 
         if (this.playbackMode === 'api') {
