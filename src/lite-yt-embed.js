@@ -191,6 +191,8 @@ class LiteYTEmbed extends HTMLElement {
 
         // Set focus for a11y
         iframeEl.focus();
+
+        this.querySelector(".lyt-playbtn")?.remove();
     }
 
     createBasicIframe(){
