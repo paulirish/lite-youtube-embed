@@ -23,7 +23,7 @@ class LiteYTEmbed extends HTMLElement {
         /**
          * Lo, the youtube poster image!  (aka the thumbnail, image placeholder, etc)
          *
-         * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
+         * See https://github.com/paulirish/lite-youtube-embed/blob/main/youtube-thumbnail-urls.md
          */
         if (!this.style.backgroundImage) {
           this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
@@ -277,7 +277,7 @@ class LiteYTEmbed extends HTMLElement {
      * Interestingly this sddefault webp is often smaller in filesize, but we will still attempt it second
      * because getting _an_ image in front of the user if our first priority.
      *
-     * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md for more details
+     * See https://github.com/paulirish/lite-youtube-embed/blob/main/youtube-thumbnail-urls.md for more details
      */
     upgradePosterImage() {
          // Defer to reduce network contention.

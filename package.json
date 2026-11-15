@@ -5,6 +5,9 @@
   "license": "Apache-2.0",
   "main": "src/lite-yt-embed.js",
   "style": "src/lite-yt-embed.css",
+  "scripts": {
+    "test": "node --test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/paulirish/lite-youtube-embed.git"
