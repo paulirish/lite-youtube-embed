@@ -75,24 +75,9 @@ player.seekTo(15); // jump to 15 seconds
 
 ## One-tap playback in Safari on iPhone and iPad
 
-Safari can block audible playback when the YouTube iframe is created and loaded
-after a tap. On Safari for iPhone and iPad, lite-youtube loads the iframe and
-IFrame Player API before the visitor taps the poster. No extra attribute is
-needed.
+Safari on iOS/iPadOS blocks audible playback when the YouTube iframe is created after a tap. To make one-tap playback work with sound, `lite-youtube` automatically prepares the hidden iframe and IFrame Player API ahead of time on iPhone and iPad Safari (trading off some of its usual loading and privacy benefits on those devices).
 
-The poster becomes clickable once the Player API reports that the prepared
-iframe is ready. The iframe stays hidden until the tap, when the component asks
-that same player to play. This loads the full YouTube player from `youtube.com`
-on those devices, including for visitors who never play the video. It trades
-some of lite-youtube's usual loading and privacy benefits for more reliable
-one-tap playback. Other
-browsers keep their existing behavior. If preparation fails, the poster remains
-usable: `js-api` embeds use the Player API path, and other embeds fall back to
-a regular iframe.
-
-[Test page: prepared iframe](https://paulirish.github.io/lite-youtube-embed/testpage/preload-iframe.html)
-
-See [autoplay.md](autoplay.md) for the browser test results, history, and remaining questions.
+See [autoplay.md](autoplay.md) for the browser test matrix, history, and [comparison test page](https://paulirish.github.io/lite-youtube-embed/testpage/autoplay-modes.html).
 
 ## Add a video title
 
