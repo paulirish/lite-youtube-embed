@@ -9,7 +9,7 @@ test('concurrent getYTPlayer calls wait for the same player', async () => {
     const player = { playVideo() {} };
     const context = {
         HTMLElement: class {},
-        customElements: { define(name, element) { LiteYTEmbed = element; } },
+        customElements: { get() {}, define(name, element) { LiteYTEmbed = element; } },
         document: { createElement() { return {}; } },
         URLSearchParams,
         YT: { Player: function (element, options) {
@@ -21,14 +21,12 @@ test('concurrent getYTPlayer calls wait for the same player', async () => {
     const embed = new LiteYTEmbed();
     const classes = new Set();
     embed.classList = { contains: name => classes.has(name), add: name => classes.add(name) };
-    embed.needsYTApi = true;
+    embed.playbackMode = 'api';
     embed.videoId = 'video';
     embed.getAttribute = () => null;
     embed.append = () => {};
     let ready;
-    embed.fetchYTPlayerApi = () => {
-        embed.ytApiPromise = new Promise(resolve => { ready = resolve; });
-    };
+    LiteYTEmbed.loadYTPlayerApi = () => new Promise(resolve => { ready = resolve; });
 
     const first = embed.getYTPlayer();
     const second = embed.getYTPlayer();

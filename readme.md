@@ -36,8 +36,8 @@ To use the custom element you will need to:
 
 <br>
 
-Privacy note: lite-youtube uses youtube-nocookie.com instead of youtube.com in order
-to be more privacy friendly for end users.
+Privacy note: the default embed uses youtube-nocookie.com. On browsers that need
+the YouTube IFrame Player API, the API script also loads from youtube.com.
 
 ## Pro-usage: load w/ JS deferred (aka progressive enhancement)
 
@@ -72,6 +72,12 @@ player.seekTo(15); // jump to 15 seconds
 ```
 
 [Demo: Iframe Player API usage](https://paulirish.github.io/lite-youtube-embed/variants/js-api.html)
+
+## One-tap playback in Safari on iPhone and iPad
+
+Safari on iOS/iPadOS blocks audible playback when the YouTube iframe is created after a tap. To make one-tap playback work with sound, `lite-youtube` automatically prepares the hidden iframe and IFrame Player API ahead of time on iPhone and iPad Safari (trading off some of its usual loading and privacy benefits on those devices).
+
+See [autoplay.md](autoplay.md) for the browser test matrix, history, and [comparison test page](https://paulirish.github.io/lite-youtube-embed/testpage/autoplay-modes.html).
 
 ## Add a video title
 

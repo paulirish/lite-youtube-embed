@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>One-tap YouTube playback comparison</title>
-  <!-- Candidate snapshots from safari-preloaded-iframe, JS blob d50db443 and CSS blob 97032b63. -->
-  <link rel="stylesheet" href="autoplay-candidate.css">
-  <script src="autoplay-candidate.js" defer></script>
+  <link rel="stylesheet" href="../src/lite-yt-embed.css">
+  <script src="../src/lite-yt-embed.js" defer></script>
   <style>
     body { font: 1rem/1.5 system-ui; max-width: 48rem; margin: 1rem auto; padding: 0 1rem; }
     nav ul { display: flex; flex-wrap: wrap; gap: 1rem; padding-left: 1.25rem; }
@@ -17,7 +16,7 @@
 <body>
   <main>
     <h1>One-tap YouTube playback comparison</h1>
-    <p>On desktop Safari, try each mode. Wait for Ready, click the poster once, and note whether the video plays with sound or stops on YouTube's play button. Each link loads a fresh page with one player. This page uses a snapshot of the proposed library change.</p>
+    <p>Try each mode. Wait for Ready, click the poster once, and note whether the video plays with sound or stops on YouTube's play button. Each link loads a fresh page with one player.</p>
     <nav aria-label="Playback variants">
       <ul>
         <li><a href="?mode=basic">Basic iframe</a></li>
@@ -54,7 +53,6 @@
         embed.playbackMode = requestedMode;
       } else if (requestedMode === 'prepared' && defaultMode !== 'prepared') {
         embed.playbackMode = 'prepared';
-        embed.classList.add('lyt-prepared');
         embed.prepareYTPlayerIframe(embed.querySelector('.lyt-playbtn'));
       }
       const testMode = requestedMode === 'auto' ? defaultMode : requestedMode;

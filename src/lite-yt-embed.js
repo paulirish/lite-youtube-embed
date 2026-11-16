@@ -23,7 +23,7 @@ class LiteYTEmbed extends HTMLElement {
         /**
          * Lo, the youtube poster image!  (aka the thumbnail, image placeholder, etc)
          *
-         * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
+         * See https://github.com/paulirish/lite-youtube-embed/blob/main/youtube-thumbnail-urls.md
          */
         if (!this.style.backgroundImage) {
           this.style.backgroundImage = `url("https://i.ytimg.com/vi/${this.videoId}/hqdefault.jpg")`;
@@ -70,11 +70,21 @@ class LiteYTEmbed extends HTMLElement {
         //   We'd want to only do this for in-viewport or near-viewport ones: https://github.com/ampproject/amphtml/pull/5003
         this.addEventListener('click', this.activate);
 
-        // Chrome & Edge desktop have no problem with the basic YouTube Embed with ?autoplay=1
-        // However Safari desktop and most/all mobile browsers do not successfully track the user gesture of clicking through the creation/loading of the iframe,
-        // so they don't autoplay automatically. Instead we must load an additional 2 sequential JS files (1KB + 165KB) (un-br) for the YT Player API
-        // TODO: Try loading the the YT API in parallel with our iframe and then attaching/playing it. #82
-        this.needsYTApi = this.hasAttribute("js-api") || navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi');
+        // iPhone and iPad Safari need the YouTube iframe loaded before the tap.
+        // iPad Safari may identify as a Mac, so check its touch capability too.
+        const isMobileSafari = navigator.vendor.includes('Apple') &&
+            !/CriOS|FxiOS|EdgiOS/.test(navigator.userAgent) &&
+            (/^iP/.test(navigator.platform) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+
+        // Keep the existing Player API path for other Apple and mobile browsers,
+        // and for callers requesting access to the player through [js-api].
+        this.playbackMode = isMobileSafari ? 'prepared' :
+            this.hasAttribute('js-api') || navigator.vendor.includes('Apple') || navigator.userAgent.includes('Mobi') ? 'api' : 'basic';
+
+        if (this.playbackMode === 'prepared') {
+            this.prepareYTPlayerIframe(playBtnEl);
+        }
     }
 
     /**
@@ -114,10 +124,14 @@ class LiteYTEmbed extends HTMLElement {
         LiteYTEmbed.preconnected = true;
     }
 
-    fetchYTPlayerApi() {
-        if (window.YT || (window.YT && window.YT.Player)) return;
+    static loadYTPlayerApi() {
+        if (LiteYTEmbed.ytApiPromise) return LiteYTEmbed.ytApiPromise;
 
-        this.ytApiPromise = new Promise((res, rej) => {
+        LiteYTEmbed.ytApiPromise = new Promise((res, rej) => {
+            if (window.YT && window.YT.ready) {
+                YT.ready(res);
+                return;
+            }
             var el = document.createElement('script');
             el.src = 'https://www.youtube.com/iframe_api';
             el.async = true;
@@ -125,13 +139,55 @@ class LiteYTEmbed extends HTMLElement {
                 YT.ready(res);
             };
             el.onerror = rej;
-            this.append(el);
+            document.head.append(el);
+        }).catch(error => {
+            LiteYTEmbed.ytApiPromise = null;
+            throw error;
+        });
+        return LiteYTEmbed.ytApiPromise;
+    }
+
+    prepareYTPlayerIframe(playBtnEl) {
+        const iframeEl = this.createBasicIframe();
+        const params = this.getParams();
+        params.set('autoplay', '0');
+        params.set('enablejsapi', '1');
+        params.set('origin', location.origin);
+        iframeEl.src = `https://www.youtube.com/embed/${encodeURIComponent(this.videoId)}?${params}`;
+
+        this.setAttribute('aria-busy', 'true');
+        playBtnEl.inert = true;
+        this.append(iframeEl);
+
+        let timeoutId;
+        const playerReady = LiteYTEmbed.loadYTPlayerApi().then(() => {
+            if (!iframeEl.isConnected) return;
+            return new Promise(resolve => {
+                new YT.Player(iframeEl, {
+                    events: { onReady: event => resolve(event.target) }
+                });
+            });
+        });
+        const timeout = new Promise((_, reject) => {
+            timeoutId = setTimeout(() => reject(new Error('YouTube player load timed out')), 60000);
+        });
+        this.preparedPromise = Promise.race([playerReady, timeout]).then(player => {
+            this.preparedPlayer = player;
+        }).catch(() => {
+            // Keep the poster usable if the early YouTube request is blocked.
+            iframeEl.remove();
+            this.playbackMode = this.hasAttribute('js-api') ? 'api' : 'basic';
+        }).finally(() => {
+            clearTimeout(timeoutId);
+            this.removeAttribute('aria-busy');
+            playBtnEl.inert = false;
         });
     }
 
     /** Return the YT Player API instance. (Public L-YT-E API) */
     async getYTPlayer() {
         if(!this.playerPromise) {
+            if (this.preparedPromise) await this.preparedPromise;
             await this.activate();
         }
 
@@ -139,8 +195,7 @@ class LiteYTEmbed extends HTMLElement {
     }
 
     async addYTPlayerIframe() {
-        this.fetchYTPlayerApi();
-        await this.ytApiPromise;
+        await LiteYTEmbed.loadYTPlayerApi();
 
         const videoPlaceholderEl = document.createElement('div')
         this.append(videoPlaceholderEl);
@@ -148,12 +203,12 @@ class LiteYTEmbed extends HTMLElement {
         const paramsObj = Object.fromEntries(this.getParams().entries());
 
         return new Promise(resolve => {
-            let player = new YT.Player(videoPlaceholderEl, {
+            const player = new YT.Player(videoPlaceholderEl, {
                 width: '100%',
                 videoId: this.videoId,
                 playerVars: paramsObj,
                 events: {
-                    'onReady': event => {
+                    onReady: event => {
                         event.target.playVideo();
                         resolve(player);
                     }
@@ -180,9 +235,16 @@ class LiteYTEmbed extends HTMLElement {
 
     async activate(){
         if (this.classList.contains('lyt-activated')) return;
+        if (this.playbackMode === 'prepared' && !this.preparedPlayer) return;
         this.classList.add('lyt-activated');
 
-        if (this.needsYTApi) {
+        if (this.playbackMode === 'prepared') {
+            this.playerPromise = Promise.resolve(this.preparedPlayer);
+            this.preparedPlayer.playVideo();
+            return this.playerPromise;
+        }
+
+        if (this.playbackMode === 'api') {
             return this.playerPromise = this.addYTPlayerIframe();
         }
 
@@ -215,7 +277,7 @@ class LiteYTEmbed extends HTMLElement {
      * Interestingly this sddefault webp is often smaller in filesize, but we will still attempt it second
      * because getting _an_ image in front of the user if our first priority.
      *
-     * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md for more details
+     * See https://github.com/paulirish/lite-youtube-embed/blob/main/youtube-thumbnail-urls.md for more details
      */
     upgradePosterImage() {
          // Defer to reduce network contention.
