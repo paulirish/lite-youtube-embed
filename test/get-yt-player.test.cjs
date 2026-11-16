@@ -9,7 +9,7 @@ test('concurrent getYTPlayer calls wait for the same player', async () => {
     const player = { playVideo() {} };
     const context = {
         HTMLElement: class {},
-        customElements: { define(name, element) { LiteYTEmbed = element; } },
+        customElements: { get() {}, define(name, element) { LiteYTEmbed = element; } },
         document: { createElement() { return {}; } },
         URLSearchParams,
         YT: { Player: function (element, options) {
